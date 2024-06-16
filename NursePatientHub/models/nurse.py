@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from sqlachemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String
 from models.Base import Base
 from sqlalchemy.orm import relationship, backref
 from models.Patient import Patient
