@@ -1,0 +1,34 @@
+nurse-patient hub
+header:
+sign in and log in (for patient and nurses forms)
+job oppotunites (form for employers to upload opportunities)
+home page logo
+resources
+	books (amazon api)
+	articles
+	.gov
+	content creator to publish their courses
+	 (articles, Medscape, youtube channels, statpearls)
+	 (udemy, content creator, diplomas)payed
+about 
+support and suggestions
+nurses-shop(nurses products)
+
+
+home page:
+photo and graphic
+(section for UpToDate resources of nursing practice in) nurse-time
+step by step guidance for nexlex exam(offices that facilitate traveling)
+patient platform (communities, raise q and find a nurse for home care, patient shop, medical instruments shops as well or other medical related)
+apply for nursing admin(to deal with patients and to publich health teaching)
+self-care
+	stress management
+	nurses support system(consultant, therapists)
+advanced studies(after bsn)
+	diplomas(payed, udemy, resources)
+scholarship opportunity
+
+Arabic version of the website
+
+
+	

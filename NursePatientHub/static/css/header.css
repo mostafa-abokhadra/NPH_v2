@@ -1,0 +1,94 @@
+header {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 2px 2px 2px rgb(141, 140, 140);
+}
+header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-links {  
+    width:74%;
+    display: flex;
+    justify-content: space-between;
+}
+.logo-links .logo-div {
+    width: 26%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.logo-links .logo-div:hover {
+    cursor: pointer;
+}
+.logo-links .logo-div img {
+    width: 50px;
+    height: 50px;
+}
+.logo-links .logo-div .site-name {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.logo-links .logo-div span{
+    font-size: 25px;
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+.logo-links .links {
+    position: relative;
+  
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo-links .links ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+    padding:0;
+    margin:0;
+    list-style: none;
+    list-style: none;
+}
+.logo-links .links ul a {
+    text-decoration: none;
+    width:20%;
+    color:black;
+    transition: 0.3s;
+}
+.logo-links .links ul a:hover {
+    font-size: 20px;
+    color:rgb(239, 244, 239);
+}
+
+.registeration {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.registeration button {
+    background-color:white;
+    color:lightskyblue;
+    font-weight: 600;
+    width: 40%;
+    padding:5px;
+    border: 1px solid yellow;
+    border-radius:10px;
+    transition: 0.4s;
+}
+.registeration button:hover {
+    cursor:pointer;
+    font-size: 20px;
+}

@@ -1,0 +1,32 @@
+main {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2%;
+}
+main .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+main .landingParagraph {
+    width:40%;
+    font-size: 30px;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+main .home-photo{
+    width:50%;
+    height: 80%;
+    display: flex;
+    justify-content: flex-end;
+}
+main .home-photo img{
+    width: 100%;
+}
+@media (min-width: 992px) {
+
+
+}

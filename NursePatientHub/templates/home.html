@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+<!--main css file-->
+{% block style %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static', filename='css/main.css') }}"
+/>
+{% endblock %} {% block content %}
+<main>
+  <div class="container">
+    <div class="landingParagraph">
+        <h2>level up your nursing knoweledge</h2>
+        <h2>get ready for international exams </h2>
+        <h2>find job opportunities</h2>
+        <h2>and a lot more...</h2>
+      </p>
+    </div>
+    <div class="home-photo">
+      <img src="{{url_for('static', filename='imgs/home-photo.PNG')}}" />
+    </div>
+  </div>
+</main>
+{% endblock %}

@@ -1,0 +1,26 @@
+footer {
+    position:fixed bottom;
+    height: 30px;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+footer .container {
+    display: flex;
+    height: 100%;
+}
+footer .footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+footer .footer-links i {
+    padding-left: 5px;
+    font-size: 20px;
+}
+footer .footer-links i:hover {
+    cursor: pointer;
+}

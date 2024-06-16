@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {%block style%} {%endblock%}
+    <!--normalizing css elements properities-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='css/normalize.css')}}"
+    />
+    <!--google page font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <!--google icon font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <!--font awesome-->
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/all.min.css')}}"
+    />
+    <!--fotter css-->
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/footer.css')}}"
+    />
+    <!--header css-->
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/header.css')}}"
+    />
+    <!--global rules-->
+
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/global.css')}}"
+    />
+    <!--meta-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--title-->
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>NPH</title>
+    {% endif %}
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo-links">
+          <div class="logo-div">
+            <img src="{{url_for('static', filename='imgs/logo.PNG')}}" />
+            <div class="site-name">
+              <span>NursePatient</span>
+              <span class="hub">Hub</span>
+            </div>
+          </div>
+          <div class="links">
+            <ul>
+              <li><a href="">opportunities</a></li>
+              <li><a href="">Nclex</a></li>
+              <li><a href="">resources</a></li>
+              <li><a href href="">about</a></li>
+              <li><a href="">suggestions</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="registeration">
+          <button>log in</button>
+          <button>Sign up</button>
+        </div>
+      </div>
+    </header>
+    {%block content%} {%endblock%}
+    <footer>
+      <div class="container">
+        <div class="footer-links">
+          <i class="fa-brands fa-linkedin"></i>
+          <i class="fa-solid fa-envelope"></i>
+          <i class="fa-brands fa-facebook"></i>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

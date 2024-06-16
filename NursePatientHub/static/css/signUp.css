@@ -1,0 +1,95 @@
+.container{
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+}
+.form-section {
+    width:45%;
+    height:100%;
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:center;
+}
+.form-section .join-us {
+    padding: 20px;
+    height:20%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+}
+.form-section .join-us i{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:50px;
+    color: green;
+    width: 100%;
+}
+.form-section .join-us h2{
+    margin:0px;
+}
+.form-section .form-div{
+    padding:10px;
+    height:80%;
+    margin-top:0px;
+    width:80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.form-section form {
+    border:2px solid green;
+    border-radius: 15px;
+    padding: 15px;
+    height: 100%;
+    width:100%;
+    box-shadow: 2px 2px rgb(13, 141, 2);   
+}
+.form-div form .name-input-div, .email-input-div, .password-input-div, .confirm-pass-div {
+    padding:5px;
+    display: flex;  
+    justify-content: space-around;
+    align-items: center;
+}
+.form-section form input {
+    width: 90%;
+    box-shadow: 2px 2px rgb(13, 141, 2);
+    display: block;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border:2px solid green;
+    border-radius: 15px;
+}
+.form-div form i {
+    color:green;
+    font-size: 30px;
+}
+.form-div form .submit-input-div {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-div form .submit-input-div input {
+    background-color:green;
+    font-size:20px;
+    color: white;
+    font-weight: 500px;
+    transition: 0.5s;
+}
+.form-div form .submit-input-div input:hover {
+    cursor: pointer;
+    font-size: 25px;
+    color:rgb(1, 16, 1);
+}
+.signUp-photo {
+    width:45%;
+}
+.signUp-photo img {
+    width: 100%;
+}

@@ -1,0 +1,53 @@
+{% extends "base.html" %} {% block style %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{url_for('static', filename='css/signUp.css')}}"
+/>
+{% endblock %} {% block content %}
+<div class="container">
+  <section class="form-section">
+    <div class="join-us">
+      <i class="fa-solid fa-user-plus"></i>
+      <h2>Join us now</h2>
+    </div>
+    <div class="form-div">
+      <form action="">
+        <div class="name-input-div">
+          <i class="fa-solid fa-user-secret"></i>
+          <input name="name" type="text" placeholder="ursename" required />
+        </div>
+
+        <div class="email-input-div">
+          <i class="fa-regular fa-envelope"></i>
+          <input name="email" type="Email" placeholder="Email" required />
+        </div>
+        <div class="password-input-div">
+          <i class="fa-solid fa-shield-halved"></i>
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div class="confirm-pass-div">
+          <i class="fa-solid fa-shield"></i>
+          <input
+            name="confirm-pass"
+            type="password"
+            placeholder="confirm password"
+            required
+          />
+        </div>
+        <div class="submit-input-div">
+          <input type="submit" name="submit" value="SignUp" />
+        </div>
+      </form>
+    </div>
+  </section>
+  <section class="signUp-photo">
+    <img src="{{url_for('static', filename='imgs/signUp.PNG')}}" />
+  </section>
+</div>
+{% endblock %}
