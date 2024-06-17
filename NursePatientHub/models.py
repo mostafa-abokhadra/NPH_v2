@@ -6,6 +6,7 @@ from sqlalchemy.orm import sessionmaker, relationship, backref
 engine = create_engine(f"mysql+mysqldb://{'database_admin'}:{'NPH_db_admin'}@localhost/{'NPH'}", pool_pre_ping=True)
 base = declarative_base()
 
+
 class User(base):
     __tablename__ = 'Users'
     User_id = Column(Integer, nullable=False, primary_key=True)
