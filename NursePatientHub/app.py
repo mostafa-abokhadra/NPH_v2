@@ -16,7 +16,7 @@ def home():
     return render_template('home.html')
 
 def check_validity(req):
-    check_email_exist = db.query.filter(User.email == req["email"]).first())
+    check_email_exist = db.query(User).filter_by(email == req["email"]).first()
     if (check_email):
         flash("email already exists!")
         redircet(url_for('login'))
