@@ -1,10 +1,18 @@
-{% extends "base.html" %} {% block style %}
+{% extends "base.html" %}
+
+{% block style %}
 <link
   rel="stylesheet"
   type="text/css"
   href="{{url_for('static', filename='css/signUp.css')}}"
 />
-{% endblock %} {% block content %}
+{% endblock %} 
+
+{%block title%}
+<title>SignUp</title>
+{%endblock%}
+
+{% block content %}
 <div class="container">
   <section class="form-section">
     <div class="join-us">
@@ -12,7 +20,7 @@
       <h2>Join us now</h2>
     </div>
     <div class="form-div">
-      <form action="">
+      <form action="" method="post">
         <div class="name-input-div">
           <i class="fa-solid fa-user-secret"></i>
           <input name="name" type="text" placeholder="ursename" required />

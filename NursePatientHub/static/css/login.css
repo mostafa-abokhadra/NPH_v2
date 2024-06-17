@@ -1,0 +1,13 @@
+.signUp-photo .flash-message {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    color: white;
+}
+
+.login {
+    padding: 15px;
+    background-color: yellow;
+}

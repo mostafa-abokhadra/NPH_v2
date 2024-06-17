@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{%block style%}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}"/>
+{% endblock %}
+
+<title>login</title>
+
+{%block content%} 
+    <section class="container">
+        {%with messages = get_flashed_messages()%}
+            {%for mess in messages%}
+                {%if mess%}
+                    <div class="flash-message">{{mess}}</div>
+                {%endif%}
+            {%endfor%}
+        {%endwith%}
+        <div class="login">
+            <form action="" method="post">
+                <div class="email-input-div">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input name="email" type="Email" placeholder="Email" required />
+                </div>
+                <div class="pass-input-div">
+                    <i class="fa-solid fa-user-secret"></i>
+                    <input name="name" type="text" placeholder="ursename" required />
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock %}
