@@ -1,9 +1,9 @@
-.signUp-photo .flash-message {
+.flash-message {
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: green;
+    background-color: rgb(208 89 89);
     color: white;
 }
 

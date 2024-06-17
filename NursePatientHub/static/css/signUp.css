@@ -103,6 +103,15 @@
     color: rgb(1, 16, 1);
 }
 
+.flash-message {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(208 89 89);
+    color: white;
+}
+
 .signUp-photo {
     width: 45%;
 }

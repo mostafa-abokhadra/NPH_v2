@@ -25,7 +25,6 @@
           <i class="fa-solid fa-user-secret"></i>
           <input name="name" type="text" placeholder="ursename" required />
         </div>
-
         <div class="email-input-div">
           <i class="fa-regular fa-envelope"></i>
           <input name="email" type="Email" placeholder="Email" required />
@@ -55,6 +54,13 @@
     </div>
   </section>
   <section class="signUp-photo">
+    {%with messages = get_flashed_messages()%}
+      {%for mess in messages%}
+          {%if mess%}
+            <div class="flash-message">{{mess}}</div>
+          {%endif%}
+      {%endfor%}
+    {%endwith%}
     <img src="{{url_for('static', filename='imgs/signUp.PNG')}}" />
   </section>
 </div>
