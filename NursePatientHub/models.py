@@ -33,12 +33,14 @@ class Employer(User, base):
     __tablename__ = "Employers"
     Employer_id = Column(Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
     user_id = Column(Integer, ForeignKey("Users.User_id", ondelete="CASCADE", onupdate="CASCADE"))
+    application = relationship("Application", back_populates="employer", cascade="all, delete, save-update")
     organization_name = Column(String(50))
 
 class Application(base):
     __tablename__ = 'Applications'
     id = Column(Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
     user_id = Column(Integer, ForeignKey("Employers.Employer_id", ondelete="CASCADE", onupdate="CASCADE"))
+    employer = relationship("Employer", back_populates="application")
     country = Column(String(50))
     city = Column(String(50))
     organization_name = Column(String(50))
