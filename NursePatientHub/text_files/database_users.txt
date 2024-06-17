@@ -1,0 +1,2 @@
+create user database_admin@'%' identified by 'NPH_db_admin';
+database name = NPH
