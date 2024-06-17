@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """starting point"""
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_restful import Api, Resource, abort
 from flask_sqlalchemy import SQLAlchemy
 
@@ -15,12 +15,23 @@ db = SQLAlchemy(app)
 def home():
     return render_template('home.html')
 
+def check_validity(req):
+    check_email_exist = db.query.filter(User.email == req["email"]).first())
+    if (check_email):
+        flash("email already exists!")
+        redircet(url_for('login'))
+
+
 @app.route('/signUp', methods=["POST", "GET"])
 def signUp():
     if request.method == 'POST':
-        newuser = request.form
-        return redirect(url_for('homewoutsignup'))
+        check_validity(request.form)
     return render_template('signUp.html')
+
+@app.route('/login', methods=["POST", "GET"])
+def login():
+    if request.method == "GET":
+        render_template("login.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
