@@ -78,9 +78,13 @@
     border-radius: 15px;
 }
 
+.form-section form .name-input-div input {
+    width: 45%;
+}
+
 .form-div form i {
     color: green;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .form-div form .submit-input-div {

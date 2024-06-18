@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{%block style%}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/userType.css')}}"/>
+{%endblock%}
+{%block content%}
+<div class = 'container'>
+    <div class="description">
+        <h1 class="question">what best descripe you ?</h1>
+        <div class="a-nurse type-sec">
+            <img src="{{url_for('static', filename='imgs/a-nurse.PNG')}}"/>
+            <h3 class="nurse-h3">
+                Nurse
+            </h3>
+        </div>
+        <div class="a-patient type-sec">
+            <img src="{{url_for('static', filename='imgs/a-student.JPG')}}"/>
+            <h3 class="nurse-h3">
+                Patient
+            </h3>
+        </div>
+        <div class="an-employer type-sec">
+            <img src="{{url_for('static', filename='imgs/an-employer.PNG')}}"/>
+            <h3 class="nurse-h3">
+                Employer
+            </h3>
+        </div>
+    </div>
+</div>
+{%endblock%}
