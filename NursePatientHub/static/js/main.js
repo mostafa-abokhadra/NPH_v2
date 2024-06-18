@@ -1,4 +1,3 @@
-
 function for_media_1200(media_1200) {
     if (media_1200.matches) {
         let site_name = document.querySelector("header .container .logo-links .logo-div .site-name span");
@@ -47,17 +46,4 @@ logo_div.onclick = function () {
     location.href = url;
 }
 
-// let p_sec = document.querySelector(".a-patient type-sec");
-// p_sec.onclick = {
 
-// }
-// let n_sec = document.querySelector(".a-nurse type-sec");
-
-// let e_sec = document.querySelector(".an-employer type-sec");
-
-// let s_sec = document.querySelector(".a-student type-sec");
-
-let my_form = document.querySelector(".the_form")
-my_form.onsubmit = () => {
-    console.log("yes")
-}
