@@ -1,3 +1,4 @@
+
 function for_media_1200(media_1200) {
     if (media_1200.matches) {
         let site_name = document.querySelector("header .container .logo-links .logo-div .site-name span");
@@ -16,19 +17,38 @@ function for_media_1200(media_1200) {
         main_photo.style.width = "50%";
     }
 }
-function for_media_992(media_992) {
-    if (media_992.matches) {
-    }
-}
+// function for_media_992(media_992) {
+//     if (media_992.matches) {
+//     }
+// }
 
 let media_1200 = window.matchMedia('(max-width: 1200px)');
 for_media_1200(media_1200);
 media_1200.addEventListener(for_media_1200, for_media_1200);
 
-let media_992 = window.matchMedia(('max-width: 992px'))
-for_media_992(media_992)
+// let media_992 = window.matchMedia(('max-width: 992px'))
+// for_media_992(media_992)
 
 let singUp = document.querySelector(".signUp");
 singUp.onclick = function () {
-    console.log("ok");
+    let url = "http://127.0.0.1:5000/signUp";
+    location.href = url
 }
+
+let login = document.querySelector(".login");
+login.onclick = function () {
+    let url = "http://127.0.0.1:5000/login";
+    location.href = url;
+}
+
+let logo_div = document.querySelector(".logo-div");
+logo_div.onclick = function () {
+    let url = "http://127.0.0.1:5000/";
+    location.href = url;
+}
+
+
+// a-patient type-sec
+// a-student type-sec
+// a-nurse type-sec
+// an-employer type-sec
