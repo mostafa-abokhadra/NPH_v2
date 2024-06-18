@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 
 {%block style%}
+    <!--login css-->
     <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}"/>
+    <!--fotter css-->
+    <link
+    rel="stylesheet"
+    href="{{url_for('static', filename='css/footer.css')}}"
+    />
+    <!--header css-->
+    <link
+    rel="stylesheet"
+    href="{{url_for('static', filename='css/header.css')}}"
+    />
 {% endblock %}
 
 <title>login</title>

@@ -1,11 +1,21 @@
-{% extends "base.html" %}
+{% extends "userBase.html" %}
+{%block title%}
+<title>NPH</title>
+{%endblock%}
 {%block style%}
     <link rel="stylesheet" href="{{url_for('static', filename='css/userType.css')}}"/>
 {%endblock%}
 {%block content%}
 <div class = 'container'>
+    {% with messages = get_flashed_messages() %}
+        {% for mess in messages %}
+            {%if mess%}
+                <div class="flash-message">{{mess}}</div>
+            {% endif %}
+        {% endfor %}
+    {% endwith %}
     <div class="description">
-        <h1 class="question">what best descripe you ?</h1>
+        <h1 class="question">what best descripe you {{name}} ?</h1>
         <div class="a-nurse type-sec">
             <div class="two-nurses">
                 <img src="{{url_for('static', filename='imgs/a-nurse.PNG')}}"/>

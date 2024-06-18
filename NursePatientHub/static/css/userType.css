@@ -1,4 +1,14 @@
+.flash-message {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(89, 208, 91);
+    color: white;
+}
+
 .description {
+    height: fit-content;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
