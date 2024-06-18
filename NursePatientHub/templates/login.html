@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{%block title%}
+<title>login</title>
+{%endblock%}
+
 {%block style%}
     <!--login css-->
     <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}"/>
@@ -14,8 +18,6 @@
     href="{{url_for('static', filename='css/header.css')}}"
     />
 {% endblock %}
-
-<title>login</title>
 
 {%block content%} 
     <div class="container">

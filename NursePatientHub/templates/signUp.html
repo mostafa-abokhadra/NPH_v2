@@ -1,5 +1,7 @@
 {% extends "base.html" %}
-
+{%block titlt%}
+<title>SignUp</title>
+{%endblock%}
 {% block style %}
   <!--sign up css-->
   <link
@@ -10,19 +12,16 @@
   <!--fotter css-->
   <link
     rel="stylesheet"
+    type="text/css"
     href="{{url_for('static', filename='css/footer.css')}}"
   />
   <!--header css-->
   <link
     rel="stylesheet"
+    type="text/css"
     href="{{url_for('static', filename='css/header.css')}}"
   />
 {% endblock %} 
-
-{%block title%}
-<title>SignUp</title>
-{%endblock%}
-
 {% block content %}
 <div class="container">
   <section class="form-section">

@@ -6,8 +6,9 @@
 }
 
 body {
-    background-color: lightskyblue;
-    font-family: "Rubik", sans-serif;
+    background-color: rgb(241, 247, 250);
+    /* font-family: "Rubik", sans-serif; */
+    font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;

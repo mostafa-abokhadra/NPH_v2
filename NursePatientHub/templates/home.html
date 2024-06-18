@@ -1,6 +1,11 @@
 {% extends "base.html" %}
+
+{%block title%}
+<title>NPH</title>
+{%endblock%}
+
 {% block style %}
-<!--main css file-->
+  <!--main css file-->
   <link
     rel="stylesheet"
     type="text/css"
@@ -16,13 +21,12 @@
     rel="stylesheet"
     href="{{url_for('static', filename='css/header.css')}}"
   />
-{% endblock %} {% block content %}
-{%block title%}
-<title>NPH</title>
-{%endblock%}
+{% endblock %} 
+
+{% block content %}
 <main>
   <div class="container">
-    <div class="landingParagraph">
+    <div class="landingNurseParagraph">
         <h2>level up your nursing knoweledge</h2>
         <h2>get ready for international exams </h2>
         <h2>find job opportunities</h2>
