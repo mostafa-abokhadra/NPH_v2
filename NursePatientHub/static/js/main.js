@@ -47,7 +47,17 @@ logo_div.onclick = function () {
     location.href = url;
 }
 
+document.forms.onsubmit = function (event) {
+    // event.preventDefault();
+    let fname = document.querySelector(".firstName");
+    console.log(fname);
+    alert("messi");
+}
 
+// document.forms[0].onsubmit = function (event) {
+//     let firstName = document.querySelector("[name='firstName']");
+//     console.log(firstName)
+// }
 // a-patient type-sec
 // a-student type-sec
 // a-nurse type-sec
