@@ -47,18 +47,17 @@ logo_div.onclick = function () {
     location.href = url;
 }
 
-document.forms.onsubmit = function (event) {
-    // event.preventDefault();
-    let fname = document.querySelector(".firstName");
-    console.log(fname);
-    alert("messi");
-}
+// let p_sec = document.querySelector(".a-patient type-sec");
+// p_sec.onclick = {
 
-// document.forms[0].onsubmit = function (event) {
-//     let firstName = document.querySelector("[name='firstName']");
-//     console.log(firstName)
 // }
-// a-patient type-sec
-// a-student type-sec
-// a-nurse type-sec
-// an-employer type-sec
+// let n_sec = document.querySelector(".a-nurse type-sec");
+
+// let e_sec = document.querySelector(".an-employer type-sec");
+
+// let s_sec = document.querySelector(".a-student type-sec");
+
+let my_form = document.querySelector(".the_form")
+my_form.onsubmit = () => {
+    console.log("yes")
+}

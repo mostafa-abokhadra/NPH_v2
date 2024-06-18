@@ -18,6 +18,7 @@ class User(ndb.Model):
     lastName = ndb.Column(ndb.String(50), nullable=False)
     email = ndb.Column(ndb.String(100), nullable=False)
     password = ndb.Column(ndb.String(20), nullable=False)
+    userType = ndb.Column(ndb.CHAR(1), nullable=False)
    
 class Nurse(User, ndb.Model):
     __tablename__ = "Nurses"
