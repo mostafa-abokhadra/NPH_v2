@@ -8,6 +8,7 @@ header {
     align-items: center;
     justify-content: space-between;
     box-shadow: 2px 2px 2px rgb(141, 140, 140);
+    background-color: inherit;
 }
 
 header .container {
