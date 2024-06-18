@@ -95,6 +95,8 @@ def userType():
         print("==========")
         print("it's post")
         print("==========")
+    else:
+        print("no")
     return render_template('userType.html')
     
 
