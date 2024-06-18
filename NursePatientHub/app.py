@@ -89,13 +89,13 @@ def check_pass_validity(req):
     elif not req["password"] == req["confirm-pass"]:
         return 2
 
-@app.route('/userType/<username>', strict_slashes=False, methods=["POST", "GET"])
-def userType(username):
+@app.route('/userType/', strict_slashes=False, methods=["POST", "GET"])
+def userType():
     if request.method == "POST":
         print("==========")
         print("it's post")
         print("==========")
-    return render_template('userType.html', name=username)
+    return render_template('userType.html')
     
 
 @app.route('/signUp', methods=["POST", "GET"])
@@ -119,7 +119,7 @@ def signUp():
         else:
             username = "{}".format(request.form["firstName"])
             flash("{} added successfully !".format(username))
-            return redirect(url_for("userType", username=username))
+            return redirect(url_for("userType"))
     return render_template('signUp.html')
 
 if __name__ == '__main__':

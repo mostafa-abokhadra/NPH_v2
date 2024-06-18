@@ -1,7 +1,13 @@
 let p_sec = document.querySelector(".a-patient");
 p_sec.onclick = function () {
-    let my_form = document.querySelector('.the_form')
-    console.log(my_form)
+    let type = { 'userType': "p" }
+    fetch("http://127.0.0.1:5000/userType", {
+        mehtod: "POST",
+        headers: {
+            "Conternt-type": "application/json"
+        },
+        type
+    });
 }
 // let n_sec = document.querySelector(".a-nurse type-sec");
 

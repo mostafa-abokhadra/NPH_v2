@@ -7,13 +7,6 @@
 {%endblock%}
 {%block content%}
 <div class = 'container'>
-    {% with messages = get_flashed_messages() %}
-        {% for mess in messages %}
-            {%if mess%}
-                <div class="flash-message">{{mess}}</div>
-            {% endif %}
-        {% endfor %}
-    {% endwith %}
     <div class="description">
         <h1 class="question">what best descripe you {{name}} ?</h1>
         <div class="a-nurse type-sec">
