@@ -80,6 +80,7 @@ def check_name_validity(req):
 
 def check_email_validity(email):
     check_email_exists = User.query.filter(User.email == email).first()
+    print(check_email_exists)
     if (check_email_exists == None):
         return 1
 
@@ -95,34 +96,40 @@ def userType():
         print("==========")
         print("it's post")
         print("==========")
-    else:
-        print("no")
     return render_template('userType.html')
     
+# @app.route('/signUp', methods=["POST", "GET"])
+# def signUp():
+#     if request.method == 'POST':
+#         if check_name_validity(request.form) == 1:
+#             flash("full name can't be less than 10 or greater than 20 character !")
+#             return redirect(url_for('signUp'))
+#         elif check_name_validity(request.form) == 2:
+#             flash("name can't contain special character")
+#             return redirect(url_for('signUp'))
+#         elif not check_email_validity(request.form["email"]):
+#             print("whynot")
+#             flash("email already exists! try to login")
+#             return redirect(url_for('login'))
+#         elif check_pass_validity(request.form) == 1:
+#             flash("password can't be less than 8 characters")
+#             return redirect(url_for('signUp'))
+#         elif check_pass_validity(request.form) == 2:
+#             flash("confirm the pass correctly !")
+#             return redirect(url_for('signUp'))
+#         else:
+#             username = "{}".format(request.form["firstName"])
+#             return redirect(url_for("userType"))
+#     return render_template('signUp.html')
 
-@app.route('/signUp', methods=["POST", "GET"])
-def signUp():
-    if request.method == 'POST':
-        if check_name_validity(request.form) == 1:
-            flash("full name can't be less than 10 or greater than 20 character !")
-            return redirect(url_for('signUp'))
-        elif check_name_validity(request.form) == 2:
-            flash("name can't contain special character")
-            return redirect(url_for('signUp'))
-        elif not check_email_validity(request.form["email"]):
-            flash("email already exists!")
-            return redirect(url_for('login'))
-        elif check_pass_validity(request.form) == 1:
-            flash("password can't be less than 8 characters")
-            return redirect(url_for('signUp'))
-        elif check_pass_validity(request.form) == 2:
-            flash("confirm the pass correctly !")
-            return redirect(url_for('signUp'))
-        else:
-            username = "{}".format(request.form["firstName"])
-            flash("{} added successfully !".format(username))
-            return redirect(url_for("userType"))
-    return render_template('signUp.html')
+class signUp(Resource):
+    def get(self):
+        if request.method == 'GET':
+            return {"messi":"goat"}
+    def post(self):
+        if request.method == 'POST':
+            return {"post":"yup"}
+api.add_resource(signUp, "/signUp")
 
 if __name__ == '__main__':
     app.run(debug=True)

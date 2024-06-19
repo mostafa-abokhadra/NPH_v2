@@ -20,16 +20,17 @@
 {% endblock %}
 
 {%block content%} 
+
     <div class="container">
-        {%with messages = get_flashed_messages()%}
-            {%for mess in messages%}
-                {%if mess%}
-                    <div class="flash-message">{{mess}}</div>
-                {%endif%}
-            {%endfor%}
-        {%endwith%}
         <div class="login-div">
+            {%with messages = get_flashed_messages()%}
             <form class="login-form" action="" method="post">
+                {%for mess in messages%}
+    {%if mess%}
+        <div class="flash-message">{{mess}}</div>
+    {%endif%}
+{%endfor%}
+{%endwith%}
                 <h3>Login</h3>
                 <div class="email-login">
                     <i class="fa-regular fa-envelope"></i>

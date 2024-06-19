@@ -112,10 +112,12 @@
 .flash-message {
     padding: 10px;
     display: flex;
+    width: fit-content;
     justify-content: center;
     align-items: center;
     background-color: rgb(208 89 89);
     color: white;
+    border-radius: 5px;
 }
 
 .signUp-photo {
@@ -138,16 +140,15 @@
 
 .signup-using-media .using-media {
     width: 80%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* background-color: #068932; */
 }
 
 .signup-using-media .media-icons {
-    margin-top: 15px;
-    /* background-color: blue; */
-    width: 30%;
+    width: 35%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -157,5 +158,8 @@
     /* color: beige; */
     font-size: 20px;
     /* background-color: blue; */
+}
 
+.signup-using-media .media-icons i:hover {
+    cursor: pointer;
 }
