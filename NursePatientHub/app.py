@@ -66,6 +66,10 @@ class Application(ndb.Model):
 def home():
     return render_template('home.html')
 
+@app.route('/userBase', strict_slashes=False)
+def userBase():
+    return render_template('userBase.html')
+
 @app.route('/login', methods=["POST", "GET"])
 def login():
     return render_template("login.html")
@@ -98,29 +102,27 @@ def userType():
         print("==========")
     return render_template('userType.html')
     
-# @app.route('/signUp', methods=["POST", "GET"])
-# def signUp():
-#     if request.method == 'POST':
-#         if check_name_validity(request.form) == 1:
-#             flash("full name can't be less than 10 or greater than 20 character !")
-#             return redirect(url_for('signUp'))
-#         elif check_name_validity(request.form) == 2:
-#             flash("name can't contain special character")
-#             return redirect(url_for('signUp'))
-#         elif not check_email_validity(request.form["email"]):
-#             print("whynot")
-#             flash("email already exists! try to login")
-#             return redirect(url_for('login'))
-#         elif check_pass_validity(request.form) == 1:
-#             flash("password can't be less than 8 characters")
-#             return redirect(url_for('signUp'))
-#         elif check_pass_validity(request.form) == 2:
-#             flash("confirm the pass correctly !")
-#             return redirect(url_for('signUp'))
-#         else:
-#             username = "{}".format(request.form["firstName"])
-#             return redirect(url_for("userType"))
-#     return render_template('signUp.html')
+@app.route('/signUp', methods=["POST", "GET"])
+def signUp():
+    if request.method == 'POST':
+        if check_name_validity(request.form) == 1:
+            flash("full name can't be less than 10 or greater than 20 character !")
+            return redirect(url_for('signUp'))
+        elif check_name_validity(request.form) == 2:
+            flash("name can't contain special character")
+            return redirect(url_for('signUp'))
+        elif not check_email_validity(request.form["email"]):
+            flash("email already exists! try to login")
+            return redirect(url_for('login'))
+        elif check_pass_validity(request.form) == 1:
+            flash("password can't be less than 8 characters")
+            return redirect(url_for('signUp'))
+        elif check_pass_validity(request.form) == 2:
+            flash("confirm the pass correctly !")
+            return redirect(url_for('signUp'))
+        else:
+            return redirect(url_for("userBase"))
+    return render_template('signUp.html')
 
 class signUp(Resource):
     def get(self):

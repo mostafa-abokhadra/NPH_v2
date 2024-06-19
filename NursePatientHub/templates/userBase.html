@@ -1,47 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        {%block title%}{%endblock%}
-        <link rel="icon" href="{{url_for('static', filename='imgs/logo.PNG')}}"/>
-        {%block style%} {%endblock%}
-        <!--normalizing css elements properities-->
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="{{url_for('static', filename='css/normalize.css')}}"
-        />
-        <!--google page font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-          rel="stylesheet"
-        />
-        <!--google icon font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@400..700&display=swap"
-          rel="stylesheet"
-        />
-        <!--font awesome-->
-        <link
-          rel="stylesheet"
-          href="{{url_for('static', filename='css/all.min.css')}}"
-        />
-        <!--global rules-->
-        <link
-          rel="stylesheet"
-          href="{{url_for('static', filename='css/global.css')}}"
-        />
-        <!--meta-->
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
-<body>
-    {%block content%}
-    {%endblock%}
-    {%block script%}
-    {%endblock%}
-</body>
-</html>
+{% extends "base.html" %}
+{%block style%}
+  <!--main css file-->
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="{{ url_for('static', filename='css/main.css') }}"
+  />
+  <!--fotter css-->
+  <link
+    rel="stylesheet"
+    href="{{url_for('static', filename='css/footer.css')}}"
+  />
+  <!--header css-->
+  <link
+    rel="stylesheet"
+    href="{{url_for('static', filename='css/header.css')}}"
+  />
+    <!--userBase css-->
+    <link
+    rel="stylesheet"
+    href="{{url_for('static', filename='css/userBase.css')}}"
+  />
+{%endblock%}
+{% block title %}
+<title>NPH</title>
+{% endblock %}
+{%block content%}
+<main>
+  <div class="container">
+    <div class="landingNurseParagraph">
+        <h2>level up your nursing knoweledge</h2>
+        <h2>get ready for international exams </h2>
+        <h2>find job opportunities</h2>
+        <h2>and a lot more...</h2>
+      </p>
+    </div>
+    <div class="home-photo">
+      <img src="{{url_for('static', filename='imgs/home-photo.PNG')}}" />
+    </div>
+  </div>
+</main>
+{%endblock%}
+{%block signup%}
+<button class="logout">logout</button>
+{%endblock%}
+{%block script%}
+<script src="{{url_for('static', filename='js/main.js')}}"></script>
+<script>
+let logout = document.querySelector(".registeration .logout");
+logout.onclick = function () {
+    let url = "http://127.0.0.1:5000/"
+    location.href = url;
+};
+</script>
+{%endblock%}
