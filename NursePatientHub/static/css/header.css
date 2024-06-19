@@ -17,6 +17,7 @@ header .container {
     width: 60%;
     display: flex;
     justify-content: space-between;
+    text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .logo-links .logo-div {

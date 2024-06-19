@@ -46,11 +46,15 @@
     justify-content: center;
     align-items: center;
     /* background-color: green; */
-    width: 80%;
-    height: 90%;
+    width: 70%;
+    height: 95%;
     border-radius: 7px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border: 2px solid green;
+}
+
+.login-form h3 {
+    text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .login-div .email-login,
@@ -83,6 +87,7 @@
     padding: 10px;
     border: 1px solid rgb(13, 141, 2);
     border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 /* .login-div .email-login {}
@@ -149,6 +154,44 @@
     cursor: pointer;
 }
 
+.dont-have-account {
+    /* background-color: red; */
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.dont-have-account span:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    /* background-color: #068932; */
+}
+
+.dont-have-account a {
+    text-decoration: none;
+    /* background-color: #068932; */
+    /* margin-top: 4px; */
+    /* color: violet; */
+    font-size: larger;
+    text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.dont-have-account a:hover {
+    color: #068932
+}
+
+.dont-have-account .signUp-now {
+    margin-top: 3px;
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    /* background-color: green; */
+}
+
 .nursepatinethub {
     /* background-color: yellow; */
     display: flex;
@@ -156,4 +199,14 @@
     width: 50%;
     justify-content: center;
     align-items: center;
+    transition: 0.5s;
+}
+
+.nursepatinethub:hover {
+    cursor: pointer;
+    margin-bottom: 7px;
+}
+
+.nursepatinethub span {
+    text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

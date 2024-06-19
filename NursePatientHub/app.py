@@ -77,11 +77,15 @@ def login():
         if (check_email_exists(request.form["email"])):
             user = User.query.filter(User.password == request.form["password"],User.email == request.form["email"]).first()
             if  user == None:
-                flash("password is wrong {} ! try again".format(request.form["firstName"]))
+                flash("password is wrong! try again")
                 redirect(url_for("login"))
             else:
                 flash("Welcome {}".format(user.firstName))
                 redirect(url_for('userBase'))
+        else:
+            flash("email is wrong ! try again")
+            redirect(url_for("login"))
+
     return render_template("login.html")
 
 def check_name_validity(req):
@@ -119,10 +123,10 @@ def signUp():
         if check_name_validity(request.form) == 1:
             flash("full name can't be less than 10 or greater than 20 character !")
             return redirect(url_for('signUp'))
-        elif check_name_exists(request.form) == 2:
+        elif check_name_validity(request.form) == 2:
             flash("name can't contain special character")
             return redirect(url_for('signUp'))
-        elif check_email_validity(request.form["email"]):
+        elif check_email_exists(request.form["email"]):
             flash("email already exists! try to login")
             return redirect(url_for('login'))
         elif check_pass_validity(request.form) == 1:

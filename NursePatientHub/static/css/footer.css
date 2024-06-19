@@ -6,10 +6,13 @@ footer {
     height: 50px;
     margin-bottom: 0px;
     height: 50px;
-    background-color: rgba(255, 255, 255, 0.861);
+    /* background-color: rgba(255, 255, 255, 0.605); */
     display: flex;
+    border-top: 1px solid rgb(225, 219, 219);
     justify-content: space-around;
     align-items: center;
+    text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 footer .container {

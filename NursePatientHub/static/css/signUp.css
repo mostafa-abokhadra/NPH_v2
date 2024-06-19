@@ -24,6 +24,7 @@
     align-items: center;
     justify-content: center;
     width: 60%;
+    text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .form-section .join-us i {
@@ -48,6 +49,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .form-section form {
@@ -71,7 +73,7 @@
 
 .form-section form input {
     width: 90%;
-    box-shadow: 2px 2px rgb(13, 141, 2);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: block;
     padding: 15px;
     margin-top: 10px;
@@ -159,6 +161,7 @@
     /* color: beige; */
     font-size: 20px;
     /* background-color: blue; */
+    text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .signup-using-media .media-icons i:hover {
