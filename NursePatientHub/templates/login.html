@@ -28,17 +28,35 @@
                 {%endif%}
             {%endfor%}
         {%endwith%}
-        <div class="login">
-            <form action="" method="post">
-                <div class="email-input-div">
+        <div class="login-div">
+            <form class="login-form" action="" method="post">
+                <h3>Login</h3>
+                <div class="email-login">
                     <i class="fa-regular fa-envelope"></i>
                     <input name="email" type="Email" placeholder="Email" required />
                 </div>
-                <div class="pass-input-div">
+                <div class="pass-login">
                     <i class="fa-solid fa-user-secret"></i>
                     <input name="name" type="text" placeholder="ursename" required />
                 </div>
+                <div class="submit-login">
+                    <input type="submit" name="submit" value="SignUp" />
+                  </div>
+                  <div class="signup-using-media">
+                    <div class="using-media">
+                        <span class="using-media-span">or SignUp Using</span>
+                    </div>
+                    <div class="media-icons">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-google"></i>
+                        <i class="fa-brands fa-google-plus"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                    </div>
+                  </div>
             </form>
+        </div>
+        <div class="nursepatinethub">
+            <span>NursePatientHub</span>
         </div>
     </div>
 {% endblock %}

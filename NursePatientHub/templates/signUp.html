@@ -63,6 +63,17 @@
         <div class="submit-input-div">
           <input type="submit" name="submit" value="SignUp" />
         </div>
+        <div class="signup-using-media">
+          <div class="using-media">
+              <span class="using-media-span">or SignUp Using</span>
+          </div>
+          <div calss="media-icons">
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-google"></i>
+              <i class="fa-brands fa-google-plus"></i>
+              <i class="fa-brands fa-twitter"></i>
+          </div>
+        </div>
       </form>
     </div>
   </section>
@@ -79,7 +90,7 @@
 </div>
 {% endblock %}
 {%block script%}
-    <!-- <script src="{{url_for('static', filename='js/main.js')}}"></script> -->
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
     <script src="{{url_for('static', filename='js/signUp.js')}}"></script>
 {%endblock%}
 

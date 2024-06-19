@@ -7,7 +7,116 @@
     color: white;
 }
 
-.login {
+.container {
     padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-div {
+    padding: 15px;
+    width: 60%;
+    height: 100vh;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: yellow;
+
+}
+
+.login-div h3 {
+    /* background-color: antiquewhite; */
+    display: flex;
+    margin: 0px;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    width: 40%;
+}
+
+.container .login-form {
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    width: 80%;
+    height: 100%;
+    border-radius: 7px;
+    box-shadow: 2px 2px rgb(13, 141, 2);
+    border: 2px solid green;
+}
+
+.login-div .email-login,
+.pass-login {
+    width: 80%;
+    height: 30%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: blue;
+}
+
+.login-div input {
+    width: 80%;
+}
+
+.login-div .email-login {}
+
+.login-div .pass-login {}
+
+.submit-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    width: 80%;
+}
+
+.signup-using-media {
+    padding: 15px;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    background-color: blueviolet;
+}
+
+.signup-using-media .using-media {
+    background-color: red;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-using-media .media-icons {
+    margin-top: 5px;
+    width: 80%;
+    background-color: blue;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-using-media .media-icons i {
+    color: beige;
+    font-size: 20px;
+    padding-left: 2px;
+}
+
+.nursepatinethub {
+    background-color: yellow;
+    display: flex;
+    font-size: 60px;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
 }
