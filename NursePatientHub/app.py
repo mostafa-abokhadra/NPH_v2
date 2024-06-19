@@ -71,6 +71,7 @@ def home():
 def userBase():
     return render_template('userBase.html')
 
+
 @app.route('/login', methods=["POST", "GET"])
 def login():
     if request.method == 'POST':
@@ -78,14 +79,13 @@ def login():
             user = User.query.filter(User.password == request.form["password"],User.email == request.form["email"]).first()
             if  user == None:
                 flash("password is wrong! try again")
-                redirect(url_for("login"))
+                return redirect(url_for("login"))
             else:
                 flash("Welcome {}".format(user.firstName))
-                redirect(url_for('userBase'))
+                return redirect(url_for('userBase'))
         else:
-            flash("email is wrong ! try again")
-            redirect(url_for("login"))
-
+            flash("can't find email! try again")
+            return redirect(url_for("login"))
     return render_template("login.html")
 
 def check_name_validity(req):
@@ -136,6 +136,11 @@ def signUp():
             flash("confirm the pass correctly !")
             return redirect(url_for('signUp'))
         else:
+            new_user = User(firstName=request.form["firstName"], lastName=request.form["lastName"],
+                            email=request.form["email"], password=request.form["password"], userType='S')
+            ndb.session.add(new_user)
+            ndb.session.commit()
+            flash("Welcome {}".format(new_user.firstName))  
             return redirect(url_for("userBase"))
     else:
         return render_template('signUp.html')
