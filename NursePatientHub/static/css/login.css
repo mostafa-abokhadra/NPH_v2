@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(208 89 89);
+    /* background-color: rgb(208 89 89); */
     color: white;
 }
 
@@ -22,7 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: yellow;
+    /* background-color: yellow; */
 
 }
 
@@ -42,27 +42,44 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: green;
+    /* background-color: green; */
     width: 80%;
     height: 100%;
     border-radius: 7px;
-    box-shadow: 2px 2px rgb(13, 141, 2);
+    box-shadow: 2px 2px #068932;
     border: 2px solid green;
 }
 
 .login-div .email-login,
 .pass-login {
-    width: 80%;
-    height: 30%;
-    padding: 15px;
+    width: 90%;
+    /* height: 30%; */
+    padding: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: blue;
+    /* background-color: blue; */
+}
+
+.login-div .pass-login {}
+
+.login-div .email-login i,
+.pass-login i {
+    color: rgb(13, 141, 2);
+    font-size: 25px;
+    width: 10%;
+    /* background-color: black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .login-div input {
-    width: 80%;
+    width: 85%;
+    padding: 10px;
+    border: 1px solid rgb(13, 141, 2);
+    border-radius: 7px;
 }
 
 .login-div .email-login {}
@@ -70,11 +87,17 @@
 .login-div .pass-login {}
 
 .submit-login {
+    margin: auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    background-color: aqua;
     width: 80%;
+}
+
+.submit-login input {
+    background-color: #068932;
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .signup-using-media {
@@ -84,36 +107,36 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
 }
 
 .signup-using-media .using-media {
-    background-color: red;
+    /* background-color: red; */
     width: 80%;
+    /* font-size: 10px; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .signup-using-media .media-icons {
-    margin-top: 5px;
-    width: 80%;
-    background-color: blue;
-    height: 50px;
+    margin-top: 7px;
+    /* background-color: blue; */
+    width: 30%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
 .signup-using-media .media-icons i {
-    color: beige;
+    /* color: beige; */
     font-size: 20px;
-    padding-left: 2px;
+    /* background-color: blue; */
+
 }
 
 .nursepatinethub {
-    background-color: yellow;
+    /* background-color: yellow; */
     display: flex;
     font-size: 60px;
     width: 50%;

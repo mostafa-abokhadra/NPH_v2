@@ -31,7 +31,7 @@
     justify-content: center;
     align-items: center;
     font-size: 50px;
-    color: green;
+    color: #068932;
     width: 100%;
 }
 
@@ -51,12 +51,12 @@
 }
 
 .form-section form {
-    border: 2px solid green;
+    border: 2px solid #068932;
     border-radius: 15px;
     padding: 15px;
     height: 100%;
     width: 100%;
-    box-shadow: 2px 2px rgb(13, 141, 2);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .form-div form .name-input-div,
@@ -124,4 +124,38 @@
 
 .signUp-photo img {
     width: 100%;
+}
+
+.signup-using-media {
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.signup-using-media .using-media {
+    width: 80%;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-using-media .media-icons {
+    margin-top: 15px;
+    /* background-color: blue; */
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.signup-using-media .media-icons i {
+    /* color: beige; */
+    font-size: 20px;
+    /* background-color: blue; */
+
 }
