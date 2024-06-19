@@ -1,7 +1,9 @@
 {% extends "base.html" %}
+
 {%block titlt%}
 <title>SignUp</title>
 {%endblock%}
+
 {% block style %}
   <!--sign up css-->
   <link
@@ -23,8 +25,8 @@
   />
 {% endblock %} 
 {%block signup%}
-<button class="login">login</button>
-<button class="signUp">SignUp</button>
+  <button class="login">login</button>
+  <button class="signUp">SignUp</button>
 {%endblock%}
 {% block content %}
 <div class="container">
@@ -94,7 +96,7 @@
 {% endblock %}
 {%block script%}
     <script src="{{url_for('static', filename='js/main.js')}}"></script>
-    <script src="{{url_for('static', filename='js/signUp.js')}}"></script>
+    <!-- <script src="{{url_for('static', filename='js/signUp.js')}}"></script> -->
 {%endblock%}
 
 

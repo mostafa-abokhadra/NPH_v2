@@ -25,6 +25,15 @@
 {% block title %}
 <title>NPH</title>
 {% endblock %}
+{%block flash%}
+  {%with messages = get_flashed_messages()%}
+    {%for mess in messages%}
+        {%if mess%}
+          <div class="flash-message">{{mess}}</div>
+        {%endif%}
+    {%endfor%}
+  {%endwith%}
+{%endblock%}
 {%block content%}
 <main>
   <div class="container">

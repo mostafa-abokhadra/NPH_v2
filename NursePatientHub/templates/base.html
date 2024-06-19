@@ -11,12 +11,6 @@
       href="{{url_for('static', filename='css/normalize.css')}}"
     />
     <!--google page font-->
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-      rel="stylesheet"
-    /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" 
@@ -62,17 +56,19 @@
         </div>
         <div class="registeration">
           {%block signup%}
-          <!-- <button class="login">login</button>
-          <button class="signUp">SignUp</button> -->
           {%endblock%}
         </div>
       </div>
     </header>
-    {%block content%} {%endblock%}
+      {%block flash%}
+      {%endblock%}
+      {%block content%}
+      {%endblock%}
     <footer>
       <div class="container">
         <div class="footer-links">
           <i class="fa-brands fa-linkedin"></i>
+          <i class="fa-brands fa-youtube"></i>
           <i class="fa-solid fa-envelope"></i>
           <i class="fa-brands fa-facebook"></i>
         </div>

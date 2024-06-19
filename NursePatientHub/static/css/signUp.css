@@ -118,6 +118,7 @@
     background-color: rgb(208 89 89);
     color: white;
     border-radius: 5px;
+    transition: 0.3s;
 }
 
 .signUp-photo {

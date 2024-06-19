@@ -1,9 +1,7 @@
 {% extends "base.html" %}
-
 {%block title%}
-<title>NPH</title>
+  <title>NPH</title>
 {%endblock%}
-
 {% block style %}
   <!--main css file-->
   <link
@@ -23,24 +21,24 @@
   />
 {% endblock %} 
 {%block signup%}
-<button class="login">login</button>
-<button class="signUp">SignUp</button>
+  <button class="login">login</button>
+  <button class="signUp">SignUp</button>
 {%endblock%}
 {% block content %}
-<main>
-  <div class="container">
-    <div class="landingNurseParagraph">
-        <h2>level up your nursing knoweledge</h2>
-        <h2>get ready for international exams </h2>
-        <h2>find job opportunities</h2>
-        <h2>and a lot more...</h2>
-      </p>
+  <main>
+    <div class="container">
+      <div class="landingNurseParagraph">
+          <h2>level up your nursing knoweledge</h2>
+          <h2>get ready for international exams </h2>
+          <h2>find job opportunities</h2>
+          <h2>and a lot more...</h2>
+        </p>
+      </div>
+      <div class="home-photo">
+        <img src="{{url_for('static', filename='imgs/home-photo.PNG')}}" />
+      </div>
     </div>
-    <div class="home-photo">
-      <img src="{{url_for('static', filename='imgs/home-photo.PNG')}}" />
-    </div>
-  </div>
-</main>
+  </main>
 {% endblock %}
 {%block script%}
   <script src="{{url_for('static', filename='js/main.js')}}"></script>

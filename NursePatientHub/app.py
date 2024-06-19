@@ -11,6 +11,7 @@ api = Api(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://database_admin:NPH_db_admin@localhost/NPH'
 ndb = SQLAlchemy(app)
 
+
 class User(ndb.Model):
     __tablename__ = 'Users'
     User_id = ndb.Column(ndb.Integer, nullable=False, primary_key=True)
@@ -73,7 +74,14 @@ def userBase():
 @app.route('/login', methods=["POST", "GET"])
 def login():
     if request.method == 'POST':
-        print("it's post from login")
+        if (check_email_exists(request.form["email"])):
+            user = User.query.filter(User.password == request.form["password"],User.email == request.form["email"]).first()
+            if  user == None:
+                flash("password is wrong {} ! try again".format(request.form["firstName"]))
+                redirect(url_for("login"))
+            else:
+                flash("Welcome {}".format(user.firstName))
+                redirect(url_for('userBase'))
     return render_template("login.html")
 
 def check_name_validity(req):
@@ -84,10 +92,11 @@ def check_name_validity(req):
     elif any(not letter.isalnum() for letter in req["lastName"]):
         return 2
 
-def check_email_validity(email):
+def check_email_exists(email):
     check_email_exists = User.query.filter(User.email == email).first()
-    print(check_email_exists)
     if (check_email_exists == None):
+        return 0
+    else:
         return 1
 
 def check_pass_validity(req):
@@ -110,10 +119,10 @@ def signUp():
         if check_name_validity(request.form) == 1:
             flash("full name can't be less than 10 or greater than 20 character !")
             return redirect(url_for('signUp'))
-        elif check_name_validity(request.form) == 2:
+        elif check_name_exists(request.form) == 2:
             flash("name can't contain special character")
             return redirect(url_for('signUp'))
-        elif not check_email_validity(request.form["email"]):
+        elif check_email_validity(request.form["email"]):
             flash("email already exists! try to login")
             return redirect(url_for('login'))
         elif check_pass_validity(request.form) == 1:
@@ -124,7 +133,8 @@ def signUp():
             return redirect(url_for('signUp'))
         else:
             return redirect(url_for("userBase"))
-    return render_template('signUp.html')
+    else:
+        return render_template('signUp.html')
 
 class signUp(Resource):
     def get(self):

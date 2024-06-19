@@ -19,21 +19,20 @@
     />
 {% endblock %}
 {%block signup%}
-<button class="login">login</button>
-<button class="signUp">SignUp</button>
+    <button class="login">login</button>
+    <button class="signUp">SignUp</button>
 {%endblock%}
 {%block content%} 
-
     <div class="container">
         <div class="login-div">
-            {%with messages = get_flashed_messages()%}
             <form class="login-form" action="" method="post">
+            {%with messages = get_flashed_messages()%}
                 {%for mess in messages%}
-    {%if mess%}
-        <div class="flash-message">{{mess}}</div>
-    {%endif%}
-{%endfor%}
-{%endwith%}
+                    {%if mess%}
+                        <div class="flash-message">{{mess}}</div>
+                    {%endif%}
+                {%endfor%}
+            {%endwith%}
                 <h3>Login</h3>
                 <div class="email-login">
                     <i class="fa-regular fa-envelope"></i>
