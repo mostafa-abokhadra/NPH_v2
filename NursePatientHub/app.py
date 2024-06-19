@@ -72,6 +72,8 @@ def userBase():
 
 @app.route('/login', methods=["POST", "GET"])
 def login():
+    if request.method == 'POST':
+        print("it's post from login")
     return render_template("login.html")
 
 def check_name_validity(req):
