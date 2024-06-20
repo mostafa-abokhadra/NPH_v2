@@ -1,0 +1,23 @@
+.container {
+    background-image: url('');
+}
+
+.jobs-landing {
+    background-color: red;
+}
+
+.jobs-landing .jobs-landing-h1 {
+    background-color: green;
+}
+
+.add-an-oppotunity {
+    background-color: aqua;
+}
+
+.add-an-oppotunity i {
+    background-color: aliceblue;
+}
+
+.add-an-oppotunity span {
+    background-color: aliceblue;
+}

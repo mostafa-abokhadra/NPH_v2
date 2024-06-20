@@ -50,3 +50,9 @@ nursePatient.onclick = function () {
     let url = "http://127.0.0.1:5000/";
     location.href = url;
 }
+
+let jobs = document.querySelector(".");
+jobs.onclick = function () {
+    let url = "http://127.0.0.1:5000/jobs";
+    location.href = url
+}

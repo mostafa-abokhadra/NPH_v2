@@ -116,6 +116,10 @@ def userType():
         print("it's post")
         print("==========")
     return render_template('userType.html')
+
+@app.route('/jobs', strict_slashes=False, methods=['post', 'GET'])
+def jobs():
+    return render_template('jobs.html')
     
 @app.route('/signUp', methods=["POST", "GET"])
 def signUp():

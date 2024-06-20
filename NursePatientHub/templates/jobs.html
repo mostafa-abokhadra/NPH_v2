@@ -1,0 +1,44 @@
+{%extends "base.html"%}
+{%block style%}
+    <!--jobs css-->
+    <link rel="stylesheet"
+    href="{{url_for('static', filename='css/jobs.css')}}"/>
+      <!--fotter css-->
+    <link
+    rel="stylesheet"
+     href="{{url_for('static', filename='css/footer.css')}}"
+    />
+    <!--header css-->
+    <link
+    rel="stylesheet"
+    href="{{url_for('static', filename='css/header.css')}}"
+    />
+{%endblock%}
+{%block title%}
+<title>Jobs</title>
+{%endblock%}
+{%block signup%}
+    <button class="login">login</button>
+    <button class="signUp">SignUp</button>
+{%endblock%}
+{%block content%}
+    <section class="jobs">
+        <div class="container">
+            <div class="jobs-landing">
+                <div class="jobs-landing-h1">
+                    <h1> Find Job opportunities</h1>
+                </div>
+                <div class="add-an-oppotunity">
+                    <div>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <span>add an oppotunity</span>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- <i class="fa-solid fa-plus"></i> -->
+{%endblock%}
+{%block script%}
+  <script src="{{url_for('static', filename='js/main.js')}}"></script>
+{%endblock%}
