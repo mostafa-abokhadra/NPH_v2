@@ -1,23 +1,87 @@
-.container {
-    background-image: url('');
+.main-jobs {
+    height: 500px;
+    width: 100%;
+    /* height: 100vh; */
+    /* background-color: yellow; */
+    background-image: url('../imgs/jobsfinal.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.main-jobs .container {
+    /* background-color: red; */
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    align-items: flex-end;
+}
+
+.jobs {
+    display: flex;
+    /* align-items: flex-end; */
+    height: 100%;
+    /* background-color: green; */
+    width: 100%;
+    height: fit-content;
 }
 
 .jobs-landing {
-    background-color: red;
+
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px;
+    /* background-color: orange; */
+    /* position: relative; */
+    /* height: 100vh; */
 }
 
-.jobs-landing .jobs-landing-h1 {
-    background-color: green;
+.jobs-landing h1 {
+    /* background-color: blue; */
+    height: fit-content;
+    width: 100%;
+    margin-bottom: 0px;
+
 }
 
-.add-an-oppotunity {
-    background-color: aqua;
+.add-an-opportunity {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* background-color: aqua; */
+    height: fit-content;
+    width: 20%;
+
 }
 
-.add-an-oppotunity i {
-    background-color: aliceblue;
+.plus-logo {
+    padding: 7px;
+    border: 2px solid grey;
+    border-radius: 11px;
+    /* background-color: brown; */
+    transition: 0.3s;
+
+
 }
 
-.add-an-oppotunity span {
-    background-color: aliceblue;
+.plus-logo:hover {
+    cursor: pointer;
+    background-color: rgb(198, 197, 197);
+}
+
+.add-an-opportunity i {
+    font-size: 20px;
+    /* background-color: aliceblue; */
+}
+
+.add-an-opportunity span {
+    /* background-color: yellow; */
+    /* width: 75%; */
+    font-size: 20px;
+    font-weight: bold;
+    /* background-color: aliceblue; */
 }
