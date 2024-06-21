@@ -85,3 +85,33 @@
     font-weight: bold;
     /* background-color: aliceblue; */
 }
+
+.applications {
+    margin-top: 20px;
+}
+
+.applications .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.applications .container .job-applications {
+    padding: 15px;
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+}
+
+.applications .container .job-applications .applications-section {
+    background-color: #ebeced;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}

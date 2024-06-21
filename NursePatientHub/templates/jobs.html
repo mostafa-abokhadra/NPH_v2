@@ -21,34 +21,38 @@
     <button class="login">login</button>
     <button class="signUp">SignUp</button>
 {%endblock%}
+
 {%block content%}
-<main class="main-jobs">
-    <div class="container">
-        <section class="jobs">
-            <div class="jobs-landing">
-                <h1> Find Job opportunities</h1>
-                <div class="add-an-opportunity">
-                    <div class="plus-logo">
-                        <i class="fa-solid fa-plus"></i>
+    <main class="main-jobs">
+        <div class="container">
+            <section class="jobs">
+                <div class="jobs-landing">
+                    <h1> Find Job opportunities</h1>
+                    <div class="add-an-opportunity">
+                        <div class="plus-logo">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <span>add an oppotunity</span>
                     </div>
-                    <span>add an oppotunity</span>
                 </div>
-            </div>
-        </section>
-    </div>
-</main>
-<main>
-    <div class="container">
-        <section class="job-applications">
-            <div class="applications-section">
-                <div class="">
+            </section>
+        </div>
+    </main>
+    <main class="applications">
+        <div class="container">
+            <section class="job-applications">
+                <div class="applications-section">messi
                 </div>
-            </div>
-        </section>
-    </div>
-</main>
+                <div class="applications-section">neymar
+                </div>
+                <div class="applications-section">suarez
+                </div>
+            </section>
+        </div>
+    </main>
 <!-- <i class="fa-solid fa-plus"></i> -->
 {%endblock%}
+
 {%block script%}
   <script src="{{url_for('static', filename='js/main.js')}}"></script>
 {%endblock%}
