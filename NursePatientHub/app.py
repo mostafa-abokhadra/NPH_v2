@@ -57,6 +57,7 @@ class Application(ndb.Model):
     education_requirements = ndb.Column(ndb.String(200))
     special_skills = ndb.Column(ndb.String(200))
     experience_years = ndb.Column(ndb.String(50))
+    # salary = ndb.Column(ndb.Integer)
 
 # with app.app_context():
 #     ndb.create_all()
@@ -148,6 +149,10 @@ def signUp():
             return redirect(url_for("userBase"))
     else:
         return render_template('signUp.html')
+
+@app.route('/applications', methods=["GET", "POST"])
+def applications():
+    return render_template('applications.html')
 
 class signUp(Resource):
     def get(self):

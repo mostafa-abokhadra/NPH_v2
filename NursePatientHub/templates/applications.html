@@ -1,1 +1,55 @@
 {% extends "base.html" %}
+{%block style%}
+      <!--fotter css-->
+      <link
+      rel="stylesheet"
+       href="{{url_for('static', filename='css/footer.css')}}"
+      />
+      <!--header css-->
+      <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/header.css')}}"
+      />
+{%endblock%}
+{%block content%}
+<main class="applications">
+    <div class="container">
+        <section class="application-form">
+            <form method="post">
+                <input name="position "list="role" class="position">
+                    <datalist id="role">
+                        <option>Rn</option>
+                        <option>technical</option>
+                        <option>paramedical</option>
+                    </datalist>
+                <input name="job-salary" type="number" placeholder="initial salary">
+                <input name="job-city" list="cities" placeholder="City">
+                    <datalist id="cities">
+                        <option></option>
+                    </datalist>
+                <input list="countries" name="job-country" type="text" placeholder="Country">
+                    <datalist id="countries">
+                        <option></option>
+                    </datalist>
+                <input class='org-name' name="organization_name" type="text" placeholder="hospital name">
+                <input name="organization_address" type="text" placeholder="hospital address">
+                <input name="education_requirements" list="education" placeholder="education">
+                    <datalist id="education">
+                        <option>
+
+                        </option>
+                    </datalist>
+                <input name="referred_by" type="text" placeholder="your name">
+                <input name="experience_years" list="exyears" placeholder="Position">
+                    <datalist id="exyears">
+                        <option></option>
+                    </datalist>
+            </form>
+        </section>
+    </div>
+</main>
+
+{%endblock%}
+{%block script%}
+    <script src="{{url_for('static', filename='js/applications.js')}}"></script>
+{%endblock%}
