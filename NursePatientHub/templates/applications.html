@@ -10,41 +10,90 @@
       rel="stylesheet"
       href="{{url_for('static', filename='css/header.css')}}"
       />
+        <!--application css-->
+        <link
+        rel="stylesheet"
+        href="{{url_for('static', filename='css/applications.css')}}"
+        />
 {%endblock%}
 {%block content%}
 <main class="applications">
     <div class="container">
         <section class="application-form">
             <form method="post">
-                <input name="position "list="role" class="position">
-                    <datalist id="role">
-                        <option>Rn</option>
-                        <option>technical</option>
-                        <option>paramedical</option>
-                    </datalist>
-                <input name="job-salary" type="number" placeholder="initial salary">
-                <input name="job-city" list="cities" placeholder="City">
-                    <datalist id="cities">
-                        <option></option>
-                    </datalist>
-                <input list="countries" name="job-country" type="text" placeholder="Country">
-                    <datalist id="countries">
-                        <option></option>
-                    </datalist>
-                <input class='org-name' name="organization_name" type="text" placeholder="hospital name">
-                <input name="organization_address" type="text" placeholder="hospital address">
-                <input name="education_requirements" list="education" placeholder="education">
-                    <datalist id="education">
-                        <option>
-
-                        </option>
-                    </datalist>
-                <input name="referred_by" type="text" placeholder="your name">
-                <input name="experience_years" list="exyears" placeholder="Position">
-                    <datalist id="exyears">
-                        <option></option>
-                    </datalist>
+                <div class="employement-data">
+                    <div class="employerName-div">
+                        <label for="employerName">Employer Name</label>
+                        <input id ="employerName" name="employerName" type="text" placeholder="EmployerName">
+                    </div>
+                    <div class="org-name-div">
+                        <label for="org-name">Organization Name</label>
+                        <input id="org-name" class='org-name' name="organization_name" type="text" placeholder="hospital name">
+                    </div>
+                    <div class="org-address-div">
+                        <label for="organization_address">Organization Address</label>
+                        <input id = "organization_address" name="organization_address" type="text" placeholder="hospital address">
+                    </div>
+                    <div class="countries-and-cities">
+                        <div class="countries-div">
+                            <label for="countries">Country</label>
+                            <input id="countries" list="countries-list" name="job-country" type="text" placeholder="Country">
+                            <datalist id="countries-list">
+                                <option></option>
+                            </datalist>
+                        </div>
+                        <div class="cities-div">
+                            <label for="cities">City</label>
+                            <input id="cities" name="job-city" list="cities-list" placeholder="City">
+                            <datalist id="cities-list">
+                                <option></option>
+                            </datalist>
+                        </div>
+                    </div>
+                </div>
+                <div class="requirements">
+                    <div class="position-div">
+                        <label class="postion-label" for="position">Position</label>
+                        <input id="position"
+                        name="position"
+                        list="role"
+                        class="position-input"
+                        placeholder="position">
+                            <datalist id="role">
+                                <option>Rn</option>
+                                <option>technical</option>
+                                <option>paramedical</option>
+                            </datalist>
+                    </div>
+                    <div class="salay-div">
+                        <label for="salary">salary</label>
+                        <input id="salary" name="salary" type="number" placeholder="initial salary">
+                    </div>
+                    <div class="currency">
+                        <label for="currency">currency</label>
+                        <input id="currency" name="currency" type="text" placeholder="currency">
+                    </div>
+                    <div class="education">
+                        <label for="education">education requirements</label>
+                        <input id="education" name="education" list="education-list" placeholder="education">
+                            <datalist id="education-list">
+                                <option>
+                                    bsn
+                                </option>
+                                <option>
+                                    master
+                                </option>
+                            </datalist>
+                    </div>
+                    <div class="experience-div">
+                        <label for="experience">experience years</label>
+                        <input id="experience" name="experience_years" type="number" placeholder="experience_years">
+                    </div>
+                </div>
             </form>
+        </section>
+        <section class="application-photo">
+            <img src="{{url_for('static', filename='imgs/application.png')}}"/>
         </section>
     </div>
 </main>

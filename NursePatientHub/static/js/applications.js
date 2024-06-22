@@ -1,3 +1,8 @@
+let logo_div = document.querySelector(".logo-div");
+logo_div.onclick = function () {
+    let url = "http://127.0.0.1:5000/";
+    location.href = url;
+}
 let countries = document.querySelector('.position')
 countries.onclick = function () {
     fetch("https://countriesnow.space/api/v0.1/countries",
@@ -24,7 +29,6 @@ countries.onclick = function () {
             console.error("fetch problem")
         });
 }
-
 let hospitals = document.querySelector('.org-name')
 hospitals.onclick = function () {
     fetch('http://www.communitybenefitinsight.org/api/get_hospital_data.php?hospital_id=1000', { mode: 'no-cors' })

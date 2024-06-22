@@ -1,0 +1,51 @@
+.applications {}
+
+.applications .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.applications .container .application-form {
+    width: 50%;
+    padding: 10px;
+}
+
+.applications .container .application-form form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.applications .container .application-form form .employement-data {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+}
+
+.applications .container .application-form form .employement-data label {}
+
+.applications .container .application-form form .employement-data .countries-and-cities {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.applications .container .application-form form .employement-data .countries-and-cities input {}
+
+.applications .container .application-form form .requirements {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+}
+
+.applications .container .application-form form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #eee;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-top: 3px;
+}
+
+.applications .container .application-photo {
+    width: 40%;
+}
