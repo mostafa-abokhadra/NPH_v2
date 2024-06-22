@@ -1,56 +1,51 @@
-#!/usr/bin/python3
-from sqlalchemy import create_engine, Column, String, Integer, ForeignKey
-from sqlalchemy.orm import declarative_base
-from sqlalchemy.orm import sessionmaker, relationship, backref
+from NursePatientHub import ndb, app
 
-engine = create_engine(f"mysql+mysqldb://{'database_admin'}:{'NPH_db_admin'}@localhost/{'NPH'}", pool_pre_ping=True)
-base = declarative_base()
-
-
-class User(base):
+class User(ndb.Model):
     __tablename__ = 'Users'
-    User_id = Column(Integer, nullable=False, primary_key=True)
-    firstName = Column(String(50), nullable=False)
-    lastName = Column(String(50), nullable=False)
-    email = Column(String(100), nullable=False)
-    password = Column(String(20), nullable=False)
+    User_id = ndb.Column(ndb.Integer, nullable=False, primary_key=True)
+    firstName = ndb.Column(ndb.String(50), nullable=False)
+    lastName = ndb.Column(ndb.String(50), nullable=False)
+    email = ndb.Column(ndb.String(100), nullable=False)
+    password = ndb.Column(ndb.String(20), nullable=False)
+    userType = ndb.Column(ndb.CHAR(1), nullable=False)
    
-class Nurse(User, base):
+class Nurse(User, ndb.Model):
     __tablename__ = "Nurses"
-    Nurse_id = Column(Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
-    user_id = Column(Integer, ForeignKey("Users.User_id", ondelete="CASCADE", onupdate="CASCADE"))
-    specialist = Column(String(50))
-    degree = Column(String(50))
-    employemnt_status = Column(String(50))
+    Nurse_id = ndb.Column(ndb.Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
+    user_id = ndb.Column(ndb.Integer, ndb.ForeignKey("Users.User_id", ondelete="CASCADE", onupdate="CASCADE"))
+    specialist = ndb.Column(ndb.String(50))
+    degree = ndb.Column(ndb.String(50))
+    employemnt_status = ndb.Column(ndb.String(50))
 
-class Patient(User, base):
+class Patient(User, ndb.Model):
     __tablename__ = 'Patients'
-    Patient_id = Column(Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
-    user_id = Column(Integer, ForeignKey("Users.User_id", ondelete="CASCADE", onupdate="CASCADE"))
-    nurse_id = Column(Integer, ForeignKey("Nurses.Nurse_id", ondelete="CASCADE", onupdate="CASCADE"))
-    diagnosis = Column(String(50))
+    Patient_id = ndb.Column(ndb.Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
+    user_id = ndb.Column(ndb.Integer, ndb.ForeignKey("Users.User_id", ondelete="CASCADE", onupdate="CASCADE"))
+    nurse_id = ndb.Column(ndb.Integer, ndb.ForeignKey("Nurses.Nurse_id", ondelete="CASCADE", onupdate="CASCADE"))
+    diagnosis = ndb.Column(ndb.String(50))
 
-class Employer(User, base):
+class Employer(User, ndb.Model):
     __tablename__ = "Employers"
-    Employer_id = Column(Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
-    user_id = Column(Integer, ForeignKey("Users.User_id", ondelete="CASCADE", onupdate="CASCADE"))
-    application = relationship("Application", back_populates="employer", cascade="all, delete, save-update")
-    organization_name = Column(String(50))
+    Employer_id = ndb.Column(ndb.Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
+    user_id = ndb.Column(ndb.Integer, ndb.ForeignKey("Users.User_id", ondelete="CASCADE", onupdate="CASCADE"))
+    application = ndb.relationship("Application", back_populates="employer", cascade="all, delete, save-update")
+    organization_name = ndb.Column(ndb.String(50))
 
-class Application(base):
+class Application(ndb.Model):
     __tablename__ = 'Applications'
-    id = Column(Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
-    user_id = Column(Integer, ForeignKey("Employers.Employer_id", ondelete="CASCADE", onupdate="CASCADE"))
-    employer = relationship("Employer", back_populates="application")
-    country = Column(String(50))
-    city = Column(String(50))
-    organization_name = Column(String(50))
-    organization_address = Column(String(200))
-    referred_by = Column(String(50))
-    position = Column(String(100))
-    education_requirements = Column(String(200))
-    special_skills = Column(String(200))
-    experience_years = Column(String(50))
+    id = ndb.Column(ndb.Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
+    user_id = ndb.Column(ndb.Integer, ndb.ForeignKey("Employers.Employer_id", ondelete="CASCADE", onupdate="CASCADE"))
+    employer = ndb.relationship("Employer", back_populates="application")
+    country = ndb.Column(ndb.String(50))
+    city = ndb.Column(ndb.String(50))
+    organization_name = ndb.Column(ndb.String(50))
+    organization_address = ndb.Column(ndb.String(200))
+    referred_by = ndb.Column(ndb.String(50))
+    position = ndb.Column(ndb.String(100))
+    education_requirements = ndb.Column(ndb.String(200))
+    special_skills = ndb.Column(ndb.String(200))
+    experience_years = ndb.Column(ndb.String(50))
+    salary = ndb.Column(ndb.Integer)
 
-
-base.metadata.create_all(bind=engine)
+with app.app_context():
+    ndb.create_all()
