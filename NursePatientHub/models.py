@@ -6,7 +6,7 @@ class User(ndb.Model):
     firstName = ndb.Column(ndb.String(50), nullable=False)
     lastName = ndb.Column(ndb.String(50), nullable=False)
     email = ndb.Column(ndb.String(100), nullable=False)
-    password = ndb.Column(ndb.String(20), nullable=False)
+    password = ndb.Column(ndb.String(60), nullable=False)
     userType = ndb.Column(ndb.CHAR(1), nullable=False)
    
 class Nurse(User, ndb.Model):
@@ -43,9 +43,10 @@ class Application(ndb.Model):
     referred_by = ndb.Column(ndb.String(50))
     position = ndb.Column(ndb.String(100))
     education_requirements = ndb.Column(ndb.String(200))
-    special_skills = ndb.Column(ndb.String(200))
+    # special_skills = ndb.Column(ndb.String(200))
     experience_years = ndb.Column(ndb.String(50))
     salary = ndb.Column(ndb.Integer)
+    currency = ndb.Column(ndb.String(60))
 
 with app.app_context():
     ndb.create_all()

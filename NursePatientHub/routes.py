@@ -93,6 +93,6 @@ def signUp():
 
 @app.route('/applications', methods=["GET", "POST"])
 def applications():
-    if request.method == 'post':
-        print("it's post")
+    if request.method == 'POST':
+        print(request.form)
     return render_template('applications.html')
