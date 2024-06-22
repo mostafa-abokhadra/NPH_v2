@@ -18,34 +18,86 @@
     align-items: center;
 }
 
-.applications .container .application-form form .employement-data {
+.applications .container .application-form form .employement-data,
+.requirements {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 10px;
+    width: 100%;
 }
 
-.applications .container .application-form form .employement-data label {}
+.applications .container .application-form form .label-input {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.applications .container .application-form form .employement-data label {
+    display: inline-block;
+    padding: 4px;
+}
 
 .applications .container .application-form form .employement-data .countries-and-cities {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
 }
 
-.applications .container .application-form form .employement-data .countries-and-cities input {}
+.applications .container .application-form form .employement-data .countries-and-cities .countries-div,
+.cities-div {
+    width: 49%;
+}
 
-.applications .container .application-form form .requirements {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding: 10px;
+.salary-big-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.salary-big-div div {
+    width: 49%;
+}
+
+.salary-big-div div input {
+    /* width: 49%; */
+}
+
+.applications .container .application-form form .employement-data .countries-and-cities input {
+    /* width: 50%; */
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 }
 
 .applications .container .application-form form input {
     width: 100%;
     padding: 10px;
     border: 1px solid #eee;
+    border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-top: 3px;
+    border: 1px solid #b2b7b3;
+    border-radius: 5px;
+}
+
+.submit-div {
+    width: 80%;
+}
+
+.submit-div #submit-btn {
+    background-color: #068932;
+    transition: 0.3s;
+}
+
+.submit-div #submit-btn:hover {
+    cursor: pointer;
+    color: #fcfffd;
 }
 
 .applications .container .application-photo {
     width: 40%;
+}
+
+.a-list {
+    width: 100%;
 }

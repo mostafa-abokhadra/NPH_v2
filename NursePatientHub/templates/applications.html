@@ -20,75 +20,104 @@
 <main class="applications">
     <div class="container">
         <section class="application-form">
-            <form method="post">
+            <form method="post" action="">
                 <div class="employement-data">
-                    <div class="employerName-div">
+                    <div class="employerName-div label-input">
                         <label for="employerName">Employer Name</label>
                         <input id ="employerName" name="employerName" type="text" placeholder="EmployerName">
                     </div>
-                    <div class="org-name-div">
+                    <div class="org-name-div label-input">
                         <label for="org-name">Organization Name</label>
-                        <input id="org-name" class='org-name' name="organization_name" type="text" placeholder="hospital name">
+                        <input id="org-name" class='org-name' name="organizationName" type="text" placeholder="hospital name">
                     </div>
-                    <div class="org-address-div">
+                    <div class="org-address-div label-input">
                         <label for="organization_address">Organization Address</label>
-                        <input id = "organization_address" name="organization_address" type="text" placeholder="hospital address">
+                        <input id = "organization_address" name="organizationAddress" type="text" placeholder="hospital address">
                     </div>
                     <div class="countries-and-cities">
-                        <div class="countries-div">
+                        <div class="countries-div label-input">
                             <label for="countries">Country</label>
-                            <input id="countries" list="countries-list" name="job-country" type="text" placeholder="Country">
-                            <datalist id="countries-list">
+                            <input id="countries" list="countries-list" name="country" type="text" placeholder="Country">
+                            <datalist class="a-list" id="countries-list">
                                 <option></option>
                             </datalist>
                         </div>
-                        <div class="cities-div">
+                        <div class="cities-div label-input">
                             <label for="cities">City</label>
-                            <input id="cities" name="job-city" list="cities-list" placeholder="City">
-                            <datalist id="cities-list">
+                            <input id="cities" name="city" list="cities-list" placeholder="City">
+                            <datalist class="a-list" id="cities-list">
                                 <option></option>
                             </datalist>
                         </div>
                     </div>
                 </div>
                 <div class="requirements">
-                    <div class="position-div">
+                    <div class="position-div label-input">
                         <label class="postion-label" for="position">Position</label>
                         <input id="position"
                         name="position"
                         list="role"
                         class="position-input"
                         placeholder="position">
-                            <datalist id="role">
+                            <datalist class="a-list" id="role">
                                 <option>Rn</option>
                                 <option>technical</option>
+                                <option>Nurse aid</option>
                                 <option>paramedical</option>
                             </datalist>
                     </div>
-                    <div class="salay-div">
-                        <label for="salary">salary</label>
-                        <input id="salary" name="salary" type="number" placeholder="initial salary">
+                    <div class="salary-big-div">
+                        <div class="salary-div label-input">
+                            <label for="salary">salary</label>
+                            <input id="salary" name="salary" type="number" placeholder="initial salary">
+                        </div>
+                        <div class="currency label-input">
+                            <label for="currency">currency</label>
+                            <input id="currency" name="currency" type="text" placeholder="currency">
+                        </div>
                     </div>
-                    <div class="currency">
-                        <label for="currency">currency</label>
-                        <input id="currency" name="currency" type="text" placeholder="currency">
-                    </div>
-                    <div class="education">
+                    <div class="education label-input">
                         <label for="education">education requirements</label>
                         <input id="education" name="education" list="education-list" placeholder="education">
-                            <datalist id="education-list">
-                                <option>
-                                    bsn
+                            <datalist class="a-list" id="education-list">
+                                <option value="diploma">
+                                    Diploma's (PN)
                                 </option>
-                                <option>
-                                    master
+                                <option value="bachelor">
+                                    Bachelor's (BSN)
+                                </option>
+                                <option value="master">
+                                    master's (NP)
                                 </option>
                             </datalist>
                     </div>
-                    <div class="experience-div">
+                    <div class="experience-div label-input">
                         <label for="experience">experience years</label>
-                        <input id="experience" name="experience_years" type="number" placeholder="experience_years">
+                        <input id="experience" name="experienceYears" list="years" placeholder="experience_years">
+                            <datalist class="a-list" id="years">
+                                <option value="less than 6 months">
+                                    less than 6 months
+                                </option>
+                                <option value="1year">
+                                    1 year
+                                </option>
+                                <option value="2years">
+                                    2 years
+                                </option>
+                                <option value="3to5years">
+                                    3-5 years
+                                </option>
+                                <option value="5-10years">
+                                    5-10 years
+                                </option>
+                                <option value="more than 10">
+                                    more than 10 years
+                                </option>
+                            </datalist>
                     </div>
+                </div>
+                <div class="submit-div">
+                    <input type="submit" id="submit-btn" value="distribute application">
                 </div>
             </form>
         </section>
