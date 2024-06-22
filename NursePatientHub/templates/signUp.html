@@ -29,70 +29,79 @@
   <button class="signUp">SignUp</button>
 {%endblock%}
 {% block content %}
-<div class="container">
-  <section class="form-section">
-    <div class="join-us">
-      <i class="fa-solid fa-user-plus"></i>
-      <h2>Join us now</h2>
-    </div>
-    <div class="form-div">
-      <form action="" class="the_form" method="post">
-        <div class="name-input-div">
-          <i class="fa-solid fa-user-secret"></i>
-          <input class="fname" name="firstName" type="text" placeholder="first name" required />
-          <input class="lname" name="lastName" type="text" placeholder="last name" required />
-        </div>
-        <div class="email-input-div">
-          <i class="fa-regular fa-envelope"></i>
-          <input class="email" name="email" type="Email" placeholder="Email" required />
-        </div>
-        <div class="password-input-div">
-          <i class="fa-solid fa-shield-halved"></i>
-          <input
-            class="pass"
-            name="password"
-            type="password"
-            placeholder="Password"
-            required
-          />
-        </div>
-        <div class="confirm-pass-div">
-          <i class="fa-solid fa-shield"></i>
-          <input
-            class="conf-pass"
-            name="confirm-pass"
-            type="password"
-            placeholder="confirm password"
-            required
-          />
-        </div>
-        <div class="submit-input-div">
-          <input class="form-submit" type="submit" name="submit" value="SignUp" />
-        </div>
-        <div class="signup-using-media">
-          <div class="using-media">
-              <span class="using-media-span">or SignUp Using</span>
+<main class="registration">
+  <div class="container">
+    <section class="form-section">
+      <div class="join-us">
+        <i class="fa-solid fa-user-plus"></i>
+        <h2>Join us now</h2>
+      </div>
+      <div class="form-div">
+        <form action="" class="the_form" method="post">
+          {{% form.hidden_tag() %}}
+          <div class="username-div">
+            <i class="fa-solid fa-user-secret"></i>
+            {%if form.username.errors%}
+              {{form.username(class="username invalid")}}
+              {%for error in form.username%}
+                <span class="error-message">{{error}}</span>
+              {%endfor%}
+            {%else%}
+              {{form.username(class="username")}}
+            {%endif%}
           </div>
-          <div class="media-icons">
-              <i class="fa-brands fa-facebook"></i>
-              <i class="fa-brands fa-google"></i>
-              <i class="fa-brands fa-twitter"></i>
+          <div class="email-input-div">
+            <i class="fa-regular fa-envelope"></i>
+            <input class="email" name="email" type="Email" placeholder="Email" required />
           </div>
-        </div>
-      </form>
-    </div>
-  </section>
-  <section class="signUp-photo">
-    {%with messages = get_flashed_messages()%}
-      {%for mess in messages%}
-          {%if mess%}
-            <div class="flash-message">{{mess}}</div>
-          {%endif%}
-      {%endfor%}
-    {%endwith%}
-    <img src="{{url_for('static', filename='imgs/signUp.PNG')}}" />
-  </section>
-</div>
+          <div class="password-input-div">
+            <i class="fa-solid fa-shield-halved"></i>
+            <input
+              class="pass"
+              name="password"
+              type="password"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="confirm-pass-div">
+            <i class="fa-solid fa-shield"></i>
+            <input
+              class="conf-pass"
+              name="confirm-pass"
+              type="password"
+              placeholder="confirm password"
+              required
+            />
+          </div>
+          <div class="submit-input-div">
+            <input class="form-submit" type="submit" name="submit" value="SignUp" />
+          </div>
+          <div class="signup-using-media">
+            <div class="using-media">
+                <span class="using-media-span">or SignUp Using</span>
+            </div>
+            <div class="media-icons">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-google"></i>
+                <i class="fa-brands fa-twitter"></i>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <section class="signUp-photo">
+      {%with messages = get_flashed_messages()%}
+        {%for mess in messages%}
+            {%if mess%}
+              <div class="flash-message">{{mess}}</div>
+            {%endif%}
+        {%endfor%}
+      {%endwith%}
+      <img src="{{url_for('static', filename='imgs/signUp.PNG')}}" />
+    </section>
+  </div>
+</main>
 {% endblock %}
 {%block script%}
     <script src="{{url_for('static', filename='js/main.js')}}"></script>

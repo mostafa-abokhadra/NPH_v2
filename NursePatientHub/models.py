@@ -3,9 +3,8 @@ from NursePatientHub import ndb, app
 class User(ndb.Model):
     __tablename__ = 'Users'
     User_id = ndb.Column(ndb.Integer, nullable=False, primary_key=True)
-    firstName = ndb.Column(ndb.String(50), nullable=False)
-    lastName = ndb.Column(ndb.String(50), nullable=False)
-    email = ndb.Column(ndb.String(100), nullable=False)
+    username = ndb.Coulumn(String(20), nullable=False)
+    email = ndb.Column(ndb.String(50), nullable=False)
     password = ndb.Column(ndb.String(60), nullable=False)
     userType = ndb.Column(ndb.CHAR(1), nullable=False)
    
