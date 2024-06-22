@@ -1,6 +1,7 @@
 from NursePatientHub import app
 from flask import render_template, url_for, request, redirect, flash
 from NursePatientHub.models import User, Patient, Nurse, Employer, Application
+from forms import Registration, Login
 
 @app.route('/', strict_slashes=False)
 @app.route('/home', strict_slashes=False)

@@ -31,6 +31,7 @@ media_1200.addEventListener(for_media_1200, for_media_1200);
 let singUp = document.querySelector(".signUp");
 singUp.onclick = function () {
     let url = "http://127.0.0.1:5000/signUp";
+    let url = "{{url_for('signUp')}}"
     location.href = url
 }
 
