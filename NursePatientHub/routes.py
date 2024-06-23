@@ -141,3 +141,14 @@ def applications():
     if request.method == 'POST':
         print(request.form)
     return render_template('applications.html')
+
+@app.route('/healthTeaching', methods=["GET", "POST"])
+def healthTeaching():
+    # if request.method == 'POST':
+    return render_template('healthTeaching.html')
+
+    
+@app.route('/about', methods=["GET", "POST"])
+def about():
+    # if request.method == 'POST':
+    return render_template('about.html')

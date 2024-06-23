@@ -28,31 +28,31 @@ media_1200.addEventListener(for_media_1200, for_media_1200);
 // let media_992 = window.matchMedia(('max-width: 992px'))
 // for_media_992(media_992)
 
-let singUp = document.querySelector(".signUp");
-singUp.onclick = function () {
-    let url = "http://127.0.0.1:5000/signUp";
-    location.href = url
-}
+// let singUp = document.querySelector(".signUp");
+// singUp.onclick = function () {
+//     let url = "http://127.0.0.1:5000/signUp";
+//     location.href = url
+// }
 
-let login = document.querySelector(".login");
-login.onclick = function () {
-    let url = "http://127.0.0.1:5000/login";
-    location.href = url;
-}
+// let login = document.querySelector(".login");
+// login.onclick = function () {
+//     let url = "http://127.0.0.1:5000/login";
+//     location.href = url;
+// }
 
 let logo_div = document.querySelector(".logo-div");
 logo_div.onclick = function () {
     let url = "http://127.0.0.1:5000/";
     location.href = url;
 }
-let nursePatient = document.querySelector(".nursepatinethub")
-nursePatient.onclick = function () {
-    let url = "http://127.0.0.1:5000/";
-    location.href = url;
-}
+// let nursePatient = document.querySelector(".nursepatinethub")
+// nursePatient.onclick = function () {
+//     let url = "http://127.0.0.1:5000/";
+//     location.href = url;
+// }
 
-let jobs = document.querySelector(".");
-jobs.onclick = function () {
-    let url = "http://127.0.0.1:5000/jobs";
-    location.href = url
-}
+// let jobs = document.querySelector(".");
+// jobs.onclick = function () {
+//     let url = "http://127.0.0.1:5000/jobs";
+//     location.href = url
+// }

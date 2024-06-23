@@ -24,10 +24,10 @@
     href="{{url_for('static', filename='css/header.css')}}"
   />
 {% endblock %} 
-{%block signup%}
-  <button class="login">login</button>
-  <button class="signUp">SignUp</button>
-{%endblock%}
+<!-- {%block signup%}
+  <a htref="{{url_for('login')}}" class="login">login</a>
+  <a href="{{url_for('signUp')}}" class="signUp">SignUp</a>
+{%endblock%} -->
 
 {% block content %}
 <main class="registration">
@@ -49,10 +49,10 @@
             {%else%}
               {{form.username(class="username")}}
             {%endif%}
+            {%for error in form.username.errors%}
+              <small class="error-message">{{error}}</small>
+            {%endfor%}
           </div>
-          {%for error in form.username.errors%}
-            <span class="error-message">{{error}}</span>
-          {%endfor%}
 
           <div class="email-input-div">
             <i class="fa-regular fa-envelope"></i>
@@ -61,10 +61,10 @@
             {%else%}
               {{form.email(class="email")}}
             {%endif%}
+            {%for error in form.email.errors%}
+              <small class="error-message">{{error}}</small>
+            {%endfor%}
           </div>
-          {%for error in form.email.errors%}
-          <small class="error-message">{{error}}</small>
-          {%endfor%}
 
           <div class="password-input-div">
             <i class="fa-solid fa-shield-halved"></i>
@@ -73,40 +73,39 @@
             {%else%}
               {{form.password(class='password')}}
             {%endif%}
+            {% for err in form.password.errors %}
+              <small class="error-message">{{err}}</small>
+            {% endfor %}
           </div>
-          {% for err in form.password.errors %}
-            <small style="color: red; padding-left: 5px;"class="error-message">{{err}}</small>
-          {% endfor %}
 
           <div class="confirm-pass-div">
             <i class="fa-solid fa-shield"></i>
             {%if form.confirm_password.errors%}
               {{form.confirm_password(class="confirm-pass invalide")}}
-          {%else%}
-            {{form.confirm_password(class="confirm_pass")}}
-          {%endif%}
-          </div>
+            {%else%}
+              {{form.confirm_password(class="confirm_pass")}}
+            {%endif%}
             {% for err in form.confirm_password.errors %}
-            <!-- <div class="err-msg"> -->
-              <small style="color: red; padding-left: 5px;"class="error-message">{{err}}</small>
-            <!-- </div> -->
+              <small class="error-message">{{err}}</small>
             {%endfor%}
+          </div>
+
           <div class="userType-div">
             <span class="q">what best describe you?</span>
-
             {%if form.userType.errors%}
               <div class="checks">
                 {{form.userType(class="check-list invalide")}}
               </div>
-                  {%for err in form.userType%}
-                    <small>{{err}}</small>
-                  {%endfor%}
             {%else%}
               <div class="checks">
                 {{form.userType(class='check-list')}}
               </div>
             {%endif%}
+            {%for err in form.userType%}
+              <small>{{err}}</small>
+            {%endfor%}
           </div>
+          
           <div class="submit-input-div">
             {{form.submit(class="submit-btn")}}
           </div>

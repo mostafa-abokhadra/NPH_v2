@@ -48,15 +48,15 @@
           </div>
           <div class="links">
             <ul>
-              <li><a href="http://127.0.0.1:5000/jobs">jobs</a></li>
-              <li><a href="">Health teaching</a></li>
-              <li><a href href="">about</a></li>
+              <li><a href="{{url_for('jobs')}}">jobs</a></li>
+              <li><a href="{{url_for('healthTeaching')}}">Health teaching</a></li>
+              <li><a href href="{{url_for('about')}}">about</a></li>
             </ul>
           </div>
         </div>
         <div class="registeration">
-          {%block signup%}
-          {%endblock%}
+          <a href="{{url_for('login')}}" class="login">login</a>
+          <a href="{{url_for('signUp')}}" class="signUp">SignUp</a>
         </div>
       </div>
     </header>
