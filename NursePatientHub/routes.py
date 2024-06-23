@@ -1,4 +1,4 @@
-from NursePatientHub import app, bcrypt, ndb
+from NursePatientHub import app, bcrypt
 from flask import render_template, url_for, request, redirect, flash
 from NursePatientHub.models import User, Patient, Nurse, Employer, Application
 from NursePatientHub.forms import Registration, Login
@@ -18,6 +18,11 @@ def load_user(user_id):
 def home():
     return render_template('home.html')
 
+@app.route('/dashBoard', strict_slashes=False, methods=["POST", "GET"])
+@login_required
+def dashBoard():
+    return render_template('dashBoard.html')
+
 @app.route('/signUp',strict_slashes=False, methods=["POST", "GET"])
 def signUp():
     form = Registration()
@@ -26,30 +31,30 @@ def signUp():
         if email:
             flash("email already exists! try to login")
             return redirect(url_for('login'))
-        from NursePatientHub import ndb
+        from NursePatientHub import db
         hasshed_password = bcrypt.generate_password_hash(form.password.data)
         new_user = User(password=hasshed_password, username=form.username.data,
             email=form.email.data, userType=form.userType.data)
+        # new_user = User(username="mostafa", email="mostaf@gmail.com", userType='N', password="messimessi")
         if form.userType.data == 'N':
             nurse = Nurse()
             nurse.user_id = new_user.User_id
-            ndb.session.add(new_user)
-            ndb.session.add(nurse)
+            db.session.add(new_user)
+            db.session.add(nurse)
         elif form.userType.data == 'P':
             patient = Patient()
             patient.user_id = new_user.User_id
-            ndb.session.add(new_user)
-            ndb.session.add(patient)
+            db.session.add(new_user)
+            db.session.add(patient)
         else:
             emp = Employer()
             emp.user_id = new_user.User_id
-            ndb.session.add(new_user)
-            ndb.session.add(emp)
-        print("========================")
-        print(new_user.username, new_user.password, new_user.userType, new_user.email)
-        print("========================")
-        ndb.session.commit()
-        return render_template(url_for('dashBoard'))
+            db.session.add(new_user)
+            db.session.add(emp)
+        with app.app_context():
+            print("asldfjklasjd;ljsdfa;sldj;sjdalfk;sldajf")
+            db.session.commit()
+        return render_template('dashBoard.html')
     return render_template('signUp.html', form=form)
 
 @app.route('/login', methods=["POST", "GET"])
@@ -62,11 +67,6 @@ def login():
                 login_user(user)
                 return redirect(url_for('dashBoard'))
     return render_template("login.html")
-
-@app.route('/dashBoard', strict_slashes=False, methods=["POST", "GET"])
-@login_required
-def dashBoard():
-    return render_template('dashBoard.html')
 
 @app.route('/logout', methods=['POST', 'GET'])
 @login_required

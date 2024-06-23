@@ -46,49 +46,51 @@
             <i class="fa-solid fa-user-secret"></i>
             {%if form.username.errors%}
               {{form.username(class="username invalide")}}
-              {%for error in form.username%}
-                <span class="error-message">{{error}}</span>
-              {%endfor%}
             {%else%}
               {{form.username(class="username")}}
             {%endif%}
           </div>
+          {%for error in form.username.erros%}
+            <span class="error-message">{{error}}</span>
+          {%endfor%}
 
           <div class="email-input-div">
             <i class="fa-regular fa-envelope"></i>
             {%if form.email.errors%}
               {{form.email(class="email invalide")}}
-                {%for error in form.email%}
-                  <span class="error-message">{{error}}</span>
-                {%endfor%}
             {%else%}
               {{form.email(class="email")}}
             {%endif%}
           </div>
+          {%for error in form.email.erros%}
+          <span class="error-message">{{error}}</span>
+          {%endfor%}
 
           <div class="password-input-div">
             <i class="fa-solid fa-shield-halved"></i>
             {%if form.password.errors%}
               {{form.password(class="password invalide")}}
-                {% for err in form.password %}
-                  <span class="error-message">{{err}}</span>
-                {% endfor %}
             {%else%}
               {{form.password(class='password')}}
             {%endif%}
           </div>
+          {% for err in form.password.errors %}
+            <span class="error-message">{{err}}</span>
+          {% endfor %}
 
           <div class="confirm-pass-div">
             <i class="fa-solid fa-shield"></i>
             {%if form.confirm_password.errors%}
-              {{form.confirm-password(class="confirm-pass invalide")}}
-              {%for err in form.confirm_password%}
-                <span class="error-message">{{err}}</span>
-              {%endfor%}
-            {%else%}
-              {{form.confirm_password(class="confirm_pass")}}
-            {%endif%}
+              {{form.confirm_password(class="confirm-pass invalide")}}
+          {%else%}
+            {{form.confirm_password(class="confirm_pass")}}
+          {%endif%}
           </div>
+            {% for err in form.confirm_password.errors %}
+            <!-- <div class="err-msg"> -->
+              <small style="color: red; padding-left: 5px;"class="error-message">{{err}}</small>
+            <!-- </div> -->
+            {%endfor%}
           <div class="userType-div">
             <span class="q">what best describe you?</span>
 
@@ -123,13 +125,13 @@
       </div>
     </section>
     <section class="signUp-photo">
-      {%with messages = get_flashed_messages()%}
+      <!-- {%with messages = get_flashed_messages()%}
         {%for mess in messages%}
             {%if mess%}
               <div class="flash-message">{{mess}}</div>
             {%endif%}
         {%endfor%}
-      {%endwith%}
+      {%endwith%} -->
       <img src="{{url_for('static', filename='imgs/signUp.PNG')}}" />
     </section>
   </div>
