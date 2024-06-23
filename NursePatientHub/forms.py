@@ -1,13 +1,21 @@
-from flask_wth import FlaskForm
+from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, RadioField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 
 class Registration(FlaskForm):
-    username = StringField('username', validators=[DataRequired(), Length(min=2, max=20)])
-    email = StringField('email', validators=[DataRequired(), Email()])
-    password = PasswordField('password', validators=[DataRequired()])
-    confirm_password = password('confirm_password', validators=[DataRequired, EqualTo('password')])
-    types = [('nurse', 'Nurse'), ('patient', 'Patient'), ('employer', 'Employer')]
+    username = StringField(
+        'username', validators=[DataRequired(),
+        Length(min=2, max=20)], render_kw={'placeholder':'username'})
+    email = StringField(
+        'email', validators=[DataRequired(), Email()],
+        render_kw={'placeholder': 'email'})
+    password = PasswordField(
+        'password', validators=[DataRequired()],
+        render_kw={'placeholder':'password'})
+    confirm_password = PasswordField(
+        'confirm_password', validators=[DataRequired(),
+        EqualTo('password')], render_kw={'placeholder': 'confirm password'})
+    types = [('N', 'Nurse'), ('P', 'Patient'), ('E', 'Employer')]
     userType = RadioField('userType', validators=[DataRequired()], choices=types)
     submit = SubmitField('SignUp')
 

@@ -28,6 +28,7 @@
   <button class="login">login</button>
   <button class="signUp">SignUp</button>
 {%endblock%}
+
 {% block content %}
 <main class="registration">
   <div class="container">
@@ -37,11 +38,11 @@
         <h2>Join us now</h2>
       </div>
       <div class="form-div">
-        <form action="" class="the_form" method="post">
+        <form action="" class="the_form" method="POST">
 
-          {{% form.hidden_tag() %}}
+          {{ form.hidden_tag() }}
 
-          <div class="username-div">
+          <div class="username-input-div">
             <i class="fa-solid fa-user-secret"></i>
             {%if form.username.errors%}
               {{form.username(class="username invalide")}}
@@ -61,7 +62,7 @@
                   <span class="error-message">{{error}}</span>
                 {%endfor%}
             {%else%}
-              {{form.email("email")}}
+              {{form.email(class="email")}}
             {%endif%}
           </div>
 
@@ -88,20 +89,24 @@
               {{form.confirm_password(class="confirm_pass")}}
             {%endif%}
           </div>
-          <div class="userType">
-            <span>what best describe you?</span>
-            {{%if forms.userType.errors%}}
-              {{form.userType(class="userType invalide")}}
-              {%for err in form.userType%}
-                <span>{{err}}</span>
-              {%endfor%}
+          <div class="userType-div">
+            <span class="q">what best describe you?</span>
+
+            {%if form.userType.errors%}
+              <div class="checks">
+                {{form.userType(class="check-list invalide")}}
+              </div>
+                  {%for err in form.userType%}
+                    <span>{{err}}</span>
+                  {%endfor%}
             {%else%}
-              {{form.userType(class='userType')}}
+              <div class="checks">
+                {{form.userType(class='check-list')}}
+              </div>
             {%endif%}
           </div>
-
           <div class="submit-input-div">
-            {form.submit(class="submit-btn")}
+            {{form.submit(class="submit-btn")}}
           </div>
           
           <div class="signup-using-media">
