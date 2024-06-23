@@ -76,33 +76,34 @@ def dashBoard():
 @app.route('/signUp',strict_slashes=False, methods=["POST", "GET"])
 def signUp():
     form = Registration()
-    if form.validate_on_submit():
-        email = User.query.filter(User.email == form.email.data).first()
-        if email:
-            flash("email already exists! try to login")
-            return redirect(url_for('login'))
-        # from NursePatientHub import db
-        hasshed_password = bcrypt.generate_password_hash(form.password.data)
-        new_user = User(password=hasshed_password, username=form.username.data,
-            email=form.email.data, userType=form.userType.data)
-        db.session.add(new_user)
-        db.session.commit()
-        if form.userType.data == 'N':
-            n = Nurse()
-            n.user_id = new_user.User_id
-            db.session.add(n)
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            email = User.query.filter(User.email == form.email.data).first()
+            if email:
+                flash("email already exists! try to login")
+                return redirect(url_for('login'))
+            # from NursePatientHub import db
+            hasshed_password = bcrypt.generate_password_hash(form.password.data)
+            new_user = User(password=hasshed_password, username=form.username.data,
+                email=form.email.data, userType=form.userType.data)
+            db.session.add(new_user)
             db.session.commit()
-        elif form.userType.data == 'P':
-            patient = Patient()
-            patient.user_id = new_user.User_id
-            db.session.add(patient)
-            db.session.commit()
-        else:
-            emp = Employer()
-            emp.user_id = new_user.User_id
-            db.session.add(emp)
-            db.session.commit()
-        return render_template('dashBoard.html')
+            if form.userType.data == 'N':
+                n = Nurse()
+                n.user_id = new_user.User_id
+                db.session.add(n)
+                db.session.commit()
+            elif form.userType.data == 'P':
+                patient = Patient()
+                patient.user_id = new_user.User_id
+                db.session.add(patient)
+                db.session.commit()
+            else:
+                emp = Employer()
+                emp.user_id = new_user.User_id
+                db.session.add(emp)
+                db.session.commit()
+            return render_template('dashBoard.html')
     return render_template('signUp.html', form=form)
 
 @app.route('/login', methods=["POST", "GET"])
