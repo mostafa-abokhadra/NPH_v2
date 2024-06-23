@@ -1,17 +1,15 @@
 from NursePatientHub import app, bcrypt, db
 from flask import render_template, url_for, request, redirect, flash
-# from NursePatientHub.models import User, Patient, Nurse, Employer, Application
+from NursePatientHub.models import User, Patient, Nurse, Employer, Application
 from NursePatientHub.forms import Registration, Login
-from flask_login import login_user, LoginManager, login_required, logout_user, current_user
+from flask_login import login_user
 
-login_manager = LoginManager()
-login_manager.init_app(app)
-login_manager.login_view = "login"
+# LoginManager, login_required, logout_user, current_user
 
+# login_manager = LoginManager()
+# login_manager.init_app(app)
+# login_manager.login_view = "login"
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
 
 @app.route('/', strict_slashes=False)
 @app.route('/home', strict_slashes=False)
@@ -29,11 +27,14 @@ def signUp():
     form = Registration()
     if request.method == 'POST':
         if form.validate_on_submit():
-            email = User.query.filter(User.email == form.email.data).first()
-            if email:
-                flash("email already exists! try to login")
-                return redirect(url_for('login'))
+            # email = User.query.filter(User.email == form.email.data).first()
+            # if email:
+            #     flash("email already taken! try to login")
+            #     return redirect(url_for('login'))
             # from NursePatientHub import db
+            if form.validata_email(form.email):
+                flash("email already taken! try to login")
+                return redirect(url_for('login'))
             hasshed_password = bcrypt.generate_password_hash(form.password.data)
             new_user = User(password=hasshed_password, username=form.username.data,
                 email=form.email.data, userType=form.userType.data)
@@ -62,27 +63,31 @@ def login():
     form = Login()
     if request.method == 'POST':
         if form.validate_on_submit():
-            print('ok ok')
             user = User.query.filter(User.email == form.email.data).first()
             if user:
-                if bcrypt.check_password_hash(user.password, form.password.data):
-                    login_user(user)
+                if form.validate_password(user, form.password):
+                    login_user(user, remember=form.remember.data)
                     return redirect(url_for('dashBoard'))
+                else:
+                    flash('password is wrong! try again')
+                    return redirect(url_for('login'))
+            else:
+                flash("email doesn't exist! please try again")
     return render_template("login.html", form=form)
 
-@app.route('/logout', methods=['POST', 'GET'])
-@login_required
-def logout():
-    logout_user()
-    return redirect(url_for('home.html'))
+# @app.route('/logout', methods=['POST', 'GET'])
+# @login_required
+# def logout():
+#     logout_user()
+#     return redirect(url_for('home.html'))
 
-@app.route('/userType', strict_slashes=False, methods=["POST", "GET"])
-def userType():
-    if request.method == "POST":
-        print("==========")
-        print("it's post")
-        print("==========")
-    return render_template('userType.html')
+# @app.route('/userType', strict_slashes=False, methods=["POST", "GET"])
+# def userType():
+#     if request.method == "POST":
+#         print("==========")
+#         print("it's post")
+#         print("==========")
+#     return render_template('userType.html')
 
 @app.route('/jobs', strict_slashes=False, methods=['post', 'GET'])
 def jobs():

@@ -11,7 +11,7 @@ class Registration(FlaskForm):
         'email', validators=[DataRequired(), Email()],
         render_kw={'placeholder': 'email'})
     password = PasswordField(
-        'password', validators=[DataRequired()],
+        'password', validators=[DataRequired(), Length(min=8, max=20)],
         render_kw={'placeholder':'password'})
     confirm_password = PasswordField(
         'confirm_password', validators=[DataRequired(),
@@ -21,11 +21,15 @@ class Registration(FlaskForm):
     submit = SubmitField('SignUp')
 
     def validata_email(self, email):
-        pass
-
+        user = User.query.filter(User.email == email.data).first()
+        if user:
+            return 1
     
 class Login(FlaskForm):
     email = StringField('email', validators=[DataRequired(), Email()], render_kw={'placeholder': 'email'})
     password = PasswordField('password', validators=[DataRequired()], render_kw={'placeholder': 'password'})
     remember = BooleanField('Remember_me')
     submit = SubmitField('Login')
+
+    def validate_password(self, user, password):
+        return bcrypt.check_password_hash(user.password, form.password.data)
