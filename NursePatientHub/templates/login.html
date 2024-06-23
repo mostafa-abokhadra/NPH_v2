@@ -26,22 +26,41 @@
     <div class="container">
         <div class="login-div">
             <form class="login-form" action="" method="post">
-            {%with messages = get_flashed_messages()%}
-                {%for mess in messages%}
-                    {%if mess%}
-                        <div class="flash-message">{{mess}}</div>
-                    {%endif%}
-                {%endfor%}
-            {%endwith%}
+                {{form.hidden_tag()}}
+
+                {%with messages = get_flashed_messages()%}
+                    {%for mess in messages%}
+                        {%if mess%}
+                            <div class="flash-message">{{mess}}</div>
+                        {%endif%}
+                    {%endfor%}
+                {%endwith%}
+
                 <h3>Login</h3>
                 <div class="email-login">
                     <i class="fa-regular fa-envelope"></i>
-                    <input name="email" type="Email" placeholder="Email" required />
+                    {%if form.email.errors%}
+                        {{form.email(calss='email invalide')}}
+                    {%else%}
+                        {{form.email(class='email')}}
+                    {%endif%}
                 </div>
+                {%for err in form.email.errors%}
+                    <small>{{err}}</small>
+                {%endfor%}
+
                 <div class="pass-login">
                     <i class="fa-solid fa-shield-halved"></i>
-                    <input name="password" type="password" placeholder="password" required />
+                    {%if form.password.errors%}
+                        {{form.password(class='password invalide')}}
+                    {%else%}
+                        {{form.password(class='password')}}
+                    {%endif%}
                 </div>
+                {%for err in form.password.errors%}
+                    <small>{{err}}</small>
+                {%endfor%}
+
                 <div class="submit-login">
                     <input type="submit" name="submit" value="login" />
                 </div>
