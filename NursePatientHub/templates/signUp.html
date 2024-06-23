@@ -101,11 +101,11 @@
                 {{form.userType(class='check-list')}}
               </div>
             {%endif%}
-            {%for err in form.userType%}
-              <small>{{err}}</small>
+            {%for err in form.userType.errors%}
+              <small class="error-message">{{err}}</small>
             {%endfor%}
           </div>
-          
+
           <div class="submit-input-div">
             {{form.submit(class="submit-btn")}}
           </div>

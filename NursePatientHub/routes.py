@@ -148,7 +148,7 @@ def healthTeaching():
     return render_template('healthTeaching.html')
 
     
-@app.route('/about', methods=["GET", "POST"])
+@app.route('/about', methods=["GET"])
 def about():
     # if request.method == 'POST':
     return render_template('about.html')
