@@ -38,11 +38,13 @@
       </div>
       <div class="form-div">
         <form action="" class="the_form" method="post">
+
           {{% form.hidden_tag() %}}
+
           <div class="username-div">
             <i class="fa-solid fa-user-secret"></i>
             {%if form.username.errors%}
-              {{form.username(class="username invalid")}}
+              {{form.username(class="username invalide")}}
               {%for error in form.username%}
                 <span class="error-message">{{error}}</span>
               {%endfor%}
@@ -50,33 +52,58 @@
               {{form.username(class="username")}}
             {%endif%}
           </div>
+
           <div class="email-input-div">
             <i class="fa-regular fa-envelope"></i>
-            <input class="email" name="email" type="Email" placeholder="Email" required />
+            {%if form.email.errors%}
+              {{form.email(class="email invalide")}}
+                {%for error in form.email%}
+                  <span class="error-message">{{error}}</span>
+                {%endfor%}
+            {%else%}
+              {{form.email("email")}}
+            {%endif%}
           </div>
+
           <div class="password-input-div">
             <i class="fa-solid fa-shield-halved"></i>
-            <input
-              class="pass"
-              name="password"
-              type="password"
-              placeholder="Password"
-              required
-            />
+            {%if form.password.errors%}
+              {{form.password(class="password invalide")}}
+                {% for err in form.password %}
+                  <span class="error-message">{{err}}</span>
+                {% endfor %}
+            {%else%}
+              {{form.password(class='password')}}
+            {%endif%}
           </div>
+
           <div class="confirm-pass-div">
             <i class="fa-solid fa-shield"></i>
-            <input
-              class="conf-pass"
-              name="confirm-pass"
-              type="password"
-              placeholder="confirm password"
-              required
-            />
+            {%if form.confirm_password.errors%}
+              {{form.confirm-password(class="confirm-pass invalide")}}
+              {%for err in form.confirm_password%}
+                <span class="error-message">{{err}}</span>
+              {%endfor%}
+            {%else%}
+              {{form.confirm_password(class="confirm_pass")}}
+            {%endif%}
           </div>
+          <div class="userType">
+            <span>what best describe you?</span>
+            {{%if forms.userType.errors%}}
+              {{form.userType(class="userType invalide")}}
+              {%for err in form.userType%}
+                <span>{{err}}</span>
+              {%endfor%}
+            {%else%}
+              {{form.userType(class='userType')}}
+            {%endif%}
+          </div>
+
           <div class="submit-input-div">
-            <input class="form-submit" type="submit" name="submit" value="SignUp" />
+            {form.submit(class="submit-btn")}
           </div>
+          
           <div class="signup-using-media">
             <div class="using-media">
                 <span class="using-media-span">or SignUp Using</span>

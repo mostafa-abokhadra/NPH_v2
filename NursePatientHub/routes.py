@@ -1,8 +1,16 @@
-from NursePatientHub import app
+from NursePatientHub import app, bcrypt
 from flask import render_template, url_for, request, redirect, flash
 from NursePatientHub.models import User, Patient, Nurse, Employer, Application
 from forms import Registration, Login
-from control import check_name_validity, check_email_exists, check_pass_validity
+from flask_login import login_user, LoginManager, login_required, logout_user, current_user
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = "login"
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 @app.route('/', strict_slashes=False)
 @app.route('/home', strict_slashes=False)
@@ -12,49 +20,43 @@ def home():
 
 @app.route('/signUp', methods=["POST", "GET"])
 def signUp():
-    if request.method == 'POST':
-        if check_name_validity(request.form) == 1:
-            flash("full name can't be less than 10 or greater than 20 character !")
-            return redirect(url_for('signUp'))
-        elif check_name_validity(request.form) == 2:
-            flash("name can't contain special character")
-            return redirect(url_for('signUp'))
-        elif check_email_exists(request.form["email"]):
+    a_form = Registration()
+    if forms.validate_on_submit():
+        email = User.query.filter(User.email == form.email.data).first()
+        if email:
             flash("email already exists! try to login")
             return redirect(url_for('login'))
-        elif check_pass_validity(request.form) == 1:
-            flash("password can't be less than 8 characters")
-            return redirect(url_for('signUp'))
-        elif check_pass_validity(request.form) == 2:
-            flash("confirm the pass correctly !")
-            return redirect(url_for('signUp'))
-        else:
-            new_user = User(firstName=request.form["firstName"], lastName=request.form["lastName"],
-                            email=request.form["email"], password=request.form["password"], userType='S')
-            ndb.session.add(new_user)
-            ndb.session.commit()
-            flash("Welcome {}".format(new_user.firstName))  
-            return redirect(url_for("userBase"))
-    else:
-        return render_template('signUp.html')
+        from NursePatientHub import ndb
+        hasshed_password = bcrypt.generate_passwrod_hash(form.password.data)
+        new_user = User(
+            username=form.username.data,password=form.password.data,
+            email=form.email.data, userType=forms.userType.data)
+        ndb.add(new_user)
+        ndb.commit()
+        return render_template(url_for('dashBoard'))
+    return render_template(url_for('signUp', form=a_form))
 
 @app.route('/login', methods=["POST", "GET"])
 def login():
     loginForm = Login()
     if forms.validate_on_submit():
-    # if request.method == 'POST':
-        if (check_email_exists(request.form["email"])):
-            user = User.query.filter(User.password == request.form["password"],User.email == request.form["email"]).first()
-            if  user == None:
-                flash("password is wrong! try again")
-                return redirect(url_for("login"))
-            else:
-                flash("Welcome {}".format(user.firstName))
-                return redirect(url_for('userBase'))
-        else:
-            flash("can't find email! try again")
-            return redirect(url_for("login"))
+        user = User.query.filter(User.email == form.email.data).first()
+        if user:
+            if bcrypt.check_password_hash(user.password, form.password.data):
+                login_user(user)
+                return redirect(url_for('dashBoard'))
     return render_template("login.html")
+
+@app.route('/dashBoard', strict_slashes=False, methods=["POST", "GET"])
+@login_required
+def dashBoard():
+    return render_template('dashBoard.html')
+
+@app.route('logout', methods=['POST', 'GET'])
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('home.html'))
 
 @app.route('/userType', strict_slashes=False, methods=["POST", "GET"])
 def userType():
@@ -73,7 +75,3 @@ def applications():
     if request.method == 'POST':
         print(request.form)
     return render_template('applications.html')
-
-@app.route('/userBase', strict_slashes=False)
-def userBase():
-    return render_template('userBase.html')
