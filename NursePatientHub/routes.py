@@ -29,8 +29,9 @@ def signUp():
         from NursePatientHub import ndb
         hasshed_password = bcrypt.generate_password_hash(form.password.data)
         new_user = User(
-            username=form.username.data, password=form.password.data,
+            username=form.username.data, password=hasshed_password,
             email=form.email.data, userType=form.userType.data)
+        print(new_user.username, "\n", new_user.password, "\n", new_user.email, "\n", new_user.userType)
         if form.userType.data == 'N':
             nurse = Nurse()
             nurse.user_id = new_user.User_id
