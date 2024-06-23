@@ -24,4 +24,4 @@ class Login(FlaskForm):
     email = StringField('email', validators=[DataRequired(), Email()], render_kw={'placeholder': 'email'})
     password = PasswordField('password', validators=[DataRequired()], render_kw={'placeholder': 'password'})
     remember = BooleanField('Remember_me')
-    submit = SubmitField('SignUp')
+    submit = SubmitField('Login')
