@@ -109,14 +109,14 @@ def signUp():
 @app.route('/login', methods=["POST", "GET"])
 def login():
     form = Login()
-    if form.validate_on_submit():
-        user = User.query.filter(User.email == form.email.data).first()
-        if user:
-            print("hello")
-            if bcrypt.check_password_hash(user.password, form.password.data):
-                print("hi")
-                login_user(user)
-                return redirect(url_for('dashBoard'))
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            print('ok ok')
+            user = User.query.filter(User.email == form.email.data).first()
+            if user:
+                if bcrypt.check_password_hash(user.password, form.password.data):
+                    login_user(user)
+                    return redirect(url_for('dashBoard'))
     return render_template("login.html", form=form)
 
 @app.route('/logout', methods=['POST', 'GET'])

@@ -46,7 +46,7 @@
                             {{form.email(class='email')}}
                         {%endif%}
                         {%for err in form.email.errors%}
-                            <small>{{err}}</small>
+                            <small class-="error-message">{{err}}</small>
                         {%endfor%}
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                             {{form.password(class='password')}}
                         {%endif%}
                         {%for err in form.password.errors%}
-                            <small>{{err}}</small>
+                            <small class="error-message">{{err}}</small>
                         {%endfor%}
                     </div>
                 </div>

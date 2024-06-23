@@ -152,9 +152,14 @@
 
 .input-error {
     display: flex;
-    width: 90%;
-    justify-content: center;
+    flex-wrap: wrap;
+    width: 85%;
     align-items: center;
+}
+
+small {
+    color: red;
+
 }
 
 .remember_me-div {
