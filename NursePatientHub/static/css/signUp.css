@@ -67,8 +67,15 @@
 .confirm-pass-div {
     padding: 5px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+}
+
+.input-and-error {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
 }
 
 .form-section form input {
@@ -120,7 +127,7 @@
 }
 
 .check-list li input {
-    border: 5px solid green;
+    /* border: 5px solid green; */
     height: 20px;
     width: 20px;
 }
@@ -139,13 +146,15 @@
 }
 
 .invalide {
-    border: 0px solid grey;
-    border: 3px solid red;
+    /* border: 0px solid grey; */
+    outline: 3px solid red;
 }
 
 small {
     color: red;
-    /* padding-left: 5px; */
+    width: 100%;
+    display: block;
+    padding-left: 5px;
 }
 
 .userType {

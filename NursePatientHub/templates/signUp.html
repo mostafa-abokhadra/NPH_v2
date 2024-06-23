@@ -44,66 +44,76 @@
 
           <div class="username-input-div">
             <i class="fa-solid fa-user-secret"></i>
-            {%if form.username.errors%}
-              {{form.username(class="username invalide")}}
-            {%else%}
-              {{form.username(class="username")}}
-            {%endif%}
-            {%for error in form.username.errors%}
-              <small class="error-message">{{error}}</small>
-            {%endfor%}
+            <div class="input-and-error">
+              {%if form.username.errors%}
+                {{form.username(class="username invalide")}}
+              {%else%}
+                {{form.username(class="username")}}
+              {%endif%}
+              {%for error in form.username.errors%}
+                <small class="error-message">{{error}}</small>
+              {%endfor%}
+            </div>
           </div>
 
           <div class="email-input-div">
             <i class="fa-regular fa-envelope"></i>
-            {%if form.email.errors%}
-              {{form.email(class="email invalide")}}
-            {%else%}
-              {{form.email(class="email")}}
-            {%endif%}
-            {%for error in form.email.errors%}
-              <small class="error-message">{{error}}</small>
-            {%endfor%}
+            <div class="input-and-error">
+              {%if form.email.errors%}
+                {{form.email(class="email invalide")}}
+              {%else%}
+                {{form.email(class="email")}}
+              {%endif%}
+              {%for error in form.email.errors%}
+                <small class="error-message">{{error}}</small>
+              {%endfor%}
+            </div>
           </div>
 
           <div class="password-input-div">
             <i class="fa-solid fa-shield-halved"></i>
-            {%if form.password.errors%}
-              {{form.password(class="password invalide")}}
-            {%else%}
-              {{form.password(class='password')}}
-            {%endif%}
-            {% for err in form.password.errors %}
-              <small class="error-message">{{err}}</small>
-            {% endfor %}
+            <div class="input-and-error">
+              {%if form.password.errors%}
+                {{form.password(class="password invalide")}}
+              {%else%}
+                {{form.password(class='password')}}
+              {%endif%}
+              {% for err in form.password.errors %}
+                <small class="error-message">{{err}}</small>
+              {% endfor %}
+            </div>
           </div>
 
           <div class="confirm-pass-div">
             <i class="fa-solid fa-shield"></i>
-            {%if form.confirm_password.errors%}
-              {{form.confirm_password(class="confirm-pass invalide")}}
-            {%else%}
-              {{form.confirm_password(class="confirm_pass")}}
-            {%endif%}
-            {% for err in form.confirm_password.errors %}
-              <small class="error-message">{{err}}</small>
-            {%endfor%}
+            <div class="input-and-error">
+              {%if form.confirm_password.errors%}
+                {{form.confirm_password(class="confirm-pass invalide")}}
+              {%else%}
+                {{form.confirm_password(class="confirm_pass")}}
+              {%endif%}
+              {% for err in form.confirm_password.errors %}
+                <small class="error-message">{{err}}</small>
+              {%endfor%}
+            </div>
           </div>
 
           <div class="userType-div">
             <span class="q">what best describe you?</span>
-            {%if form.userType.errors%}
-              <div class="checks">
-                {{form.userType(class="check-list invalide")}}
-              </div>
-            {%else%}
-              <div class="checks">
-                {{form.userType(class='check-list')}}
-              </div>
-            {%endif%}
-            {%for err in form.userType.errors%}
-              <small class="error-message">{{err}}</small>
-            {%endfor%}
+            <div class="input-and-error">
+              {%if form.userType.errors%}
+                <div class="checks">
+                  {{form.userType(class="check-list invalide")}}
+                </div>
+              {%else%}
+                <div class="checks">
+                  {{form.userType(class='check-list')}}
+                </div>
+              {%endif%}
+              {%for err in form.userType.errors%}
+                <small class="error-message">{{err}}</small>
+              {%endfor%}
+            </div>
           </div>
 
           <div class="submit-input-div">
