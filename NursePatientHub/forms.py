@@ -1,3 +1,4 @@
+from NursePatientHub import bcrypt
 from flask_wtf import FlaskForm
 from NursePatientHub.models import User
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, RadioField
@@ -30,6 +31,3 @@ class Login(FlaskForm):
     password = PasswordField('password', validators=[DataRequired()], render_kw={'placeholder': 'password'})
     remember = BooleanField('Remember_me')
     submit = SubmitField('Login')
-
-    def validate_password(self, user, password):
-        return bcrypt.check_password_hash(user.password, form.password.data)

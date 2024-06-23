@@ -18,7 +18,7 @@ def home():
     return render_template('home.html')
 
 @app.route('/dashBoard', strict_slashes=False, methods=["POST", "GET"])
-@login_required
+# @login_required
 def dashBoard():
     return render_template('dashBoard.html')
 
@@ -65,7 +65,7 @@ def login():
         if form.validate_on_submit():
             user = User.query.filter(User.email == form.email.data).first()
             if user:
-                if form.validate_password(user, form.password):
+                if bcrypt.check_password_hash(user.password, form.password.data):
                     login_user(user, remember=form.remember.data)
                     return redirect(url_for('dashBoard'))
                 else:
