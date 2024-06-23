@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
+from NursePatientHub.models import User
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, RadioField
-from wtforms.validators import DataRequired, Length, Email, EqualTo
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 
 class Registration(FlaskForm):
     username = StringField(
@@ -18,6 +19,9 @@ class Registration(FlaskForm):
     types = [('N', 'Nurse'), ('P', 'Patient'), ('E', 'Employer')]
     userType = RadioField('userType', validators=[DataRequired()], choices=types)
     submit = SubmitField('SignUp')
+
+    def validata_email(self, email):
+        pass
 
     
 class Login(FlaskForm):
