@@ -28,10 +28,8 @@ def signUp():
             return redirect(url_for('login'))
         from NursePatientHub import ndb
         hasshed_password = bcrypt.generate_password_hash(form.password.data)
-        new_user = User(
-            username=form.username.data, password=hasshed_password,
+        new_user = User(password=hasshed_password, username=form.username.data,
             email=form.email.data, userType=form.userType.data)
-        print(new_user.username, "\n", new_user.password, "\n", new_user.email, "\n", new_user.userType)
         if form.userType.data == 'N':
             nurse = Nurse()
             nurse.user_id = new_user.User_id
@@ -44,9 +42,12 @@ def signUp():
             ndb.session.add(patient)
         else:
             emp = Employer()
-            emp.user_id = new_user.id
+            emp.user_id = new_user.User_id
             ndb.session.add(new_user)
             ndb.session.add(emp)
+        print("========================")
+        print(new_user.username, new_user.password, new_user.userType, new_user.email)
+        print("========================")
         ndb.session.commit()
         return render_template(url_for('dashBoard'))
     return render_template('signUp.html', form=form)
