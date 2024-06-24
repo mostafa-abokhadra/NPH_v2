@@ -55,8 +55,12 @@
           </div>
         </div>
         <div class="registeration">
-          <a href="{{url_for('login')}}" class="login">login</a>
-          <a href="{{url_for('signUp')}}" class="signUp">SignUp</a>
+          {% if current_user.is_authenticated%}
+            <a href="{{url_for('logout')}}" class="logout">logout</a>
+          {% else %}
+            <a href="{{url_for('login')}}" class="login">login</a>
+            <a href="{{url_for('signUp')}}" class="signUp">SignUp</a>
+          {% endif %}
         </div>
       </div>
     </header>

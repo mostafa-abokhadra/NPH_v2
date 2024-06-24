@@ -2,13 +2,13 @@ from NursePatientHub import app, bcrypt, db
 from flask import render_template, url_for, request, redirect, flash
 from NursePatientHub.models import User, Patient, Nurse, Employer, Application
 from NursePatientHub.forms import Registration, Login
-from flask_login import login_user
+from flask_login import login_user, current_user, logout_user, login_required
 
 # LoginManager, login_required, logout_user, current_user
 
 # login_manager = LoginManager()
 # login_manager.init_app(app)
-# login_manager.login_view = "login"
+
 
 
 @app.route('/', strict_slashes=False)
@@ -24,6 +24,8 @@ def dashBoard():
 
 @app.route('/signUp',strict_slashes=False, methods=["POST", "GET"])
 def signUp():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     form = Registration()
     if request.method == 'POST':
         if form.validate_on_submit():
@@ -55,11 +57,14 @@ def signUp():
                 emp.user_id = new_user.id
                 db.session.add(emp)
                 db.session.commit()
-            return render_template('dashBoard.html')
+            return render_template('home.html')
     return render_template('signUp.html', form=form)
 
 @app.route('/login', methods=["POST", "GET"])
 def login():
+    if current_user.is_authenticated:
+        print("logged in")
+        return redirect(url_for('home'))
     form = Login()
     if request.method == 'POST':
         if form.validate_on_submit():
@@ -67,7 +72,7 @@ def login():
             if user:
                 if bcrypt.check_password_hash(user.password, form.password.data):
                     login_user(user, remember=form.remember.data)
-                    return redirect(url_for('dashBoard'))
+                    return redirect(url_for('home'))
                 else:
                     flash('password is wrong! try again')
                     return redirect(url_for('login'))
@@ -94,6 +99,7 @@ def jobs():
     return render_template('jobs.html')
     
 @app.route('/applications', methods=["GET", "POST"])
+@login_required
 def applications():
     if request.method == 'POST':
         print(request.form)
@@ -109,3 +115,8 @@ def healthTeaching():
 def about():
     # if request.method == 'POST':
     return render_template('about.html')
+
+@app.route('/logout', strict_slashes=False)
+def logout():
+    logout_user()
+    return redirect(url_for('home'))

@@ -78,6 +78,7 @@ header .container {
     transition: 0.3s;
 }
 
+
 .logo-links .links ul a:hover {
     font-size: 20px;
     color: #068932;
@@ -105,6 +106,11 @@ header .container {
     align-items: center;
     text-decoration: none;
 }
+
+.registeration .logout {
+    background-color: #d87979;
+}
+
 
 .registeration a:hover {
     cursor: pointer;
