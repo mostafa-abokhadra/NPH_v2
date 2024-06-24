@@ -105,6 +105,13 @@ def applications():
         print(request.form)
     return render_template('applications.html')
 
+
+
+
+
+
+
+
 @app.route('/healthTeaching', methods=["GET", "POST"])
 def healthTeaching():
     # if request.method == 'POST':
