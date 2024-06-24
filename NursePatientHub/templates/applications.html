@@ -24,27 +24,27 @@
                 <div class="employement-data">
                     <div class="employerName-div label-input">
                         <label for="employerName">Employer Name</label>
-                        <input id ="employerName" name="employerName" type="text" placeholder="EmployerName">
+                        <input id ="employerName" name="employerName" type="text" placeholder="EmployerName" required>
                     </div>
                     <div class="org-name-div label-input">
                         <label for="org-name">Organization Name</label>
-                        <input id="org-name" class='org-name' name="organizationName" type="text" placeholder="hospital name">
+                        <input id="org-name" class='org-name' name="organizationName" type="text" required placeholder="hospital name">
                     </div>
                     <div class="org-address-div label-input">
                         <label for="organization_address">Organization Address</label>
-                        <input id = "organization_address" name="organizationAddress" type="text" placeholder="hospital address">
+                        <input id = "organization_address" name="organizationAddress" type="text" required placeholder="hospital address">
                     </div>
                     <div class="countries-and-cities">
                         <div class="countries-div label-input">
                             <label for="countries">Country</label>
-                            <input id="countries" list="countries-list" name="country" type="text" placeholder="Country">
+                            <input id="countries" list="countries-list" name="country" type="text" required placeholder="Country">
                             <datalist class="a-list" id="countries-list">
                                 
                             </datalist>
                         </div>
                         <div class="cities-div label-input">
                             <label for="cities">City</label>
-                            <input id="cities" name="city" list="cities-list" placeholder="City" disabled>
+                            <input id="cities" name="city" list="cities-list" required placeholder="City" disabled>
                             <datalist class="a-list" id="cities-list">
                                 <option></option>
                             </datalist>
@@ -55,6 +55,7 @@
                     <div class="position-div label-input">
                         <label class="postion-label" for="position">Position</label>
                         <input id="position"
+                        required
                         name="position"
                         list="role"
                         class="position-input"
@@ -69,16 +70,16 @@
                     <div class="salary-big-div">
                         <div class="salary-div label-input">
                             <label for="salary">salary</label>
-                            <input id="salary" name="salary" type="number" placeholder="initial salary">
+                            <input id="salary" name="salary" required type="number" placeholder="initial salary">
                         </div>
                         <div class="currency label-input">
                             <label for="currency">currency</label>
-                            <input id="currency" name="currency" type="text" placeholder="currency">
+                            <input id="currency" name="currency" required type="text" placeholder="currency">
                         </div>
                     </div>
                     <div class="education label-input">
                         <label for="education">education requirements</label>
-                        <input id="education" name="education" list="education-list" placeholder="education">
+                        <input id="education" required name="education" list="education-list" placeholder="education">
                             <datalist class="a-list" id="education-list">
                                 <option value="diploma">
                                     Diploma's (PN)
@@ -93,7 +94,7 @@
                     </div>
                     <div class="experience-div label-input">
                         <label for="experience">experience years</label>
-                        <input id="experience" name="experienceYears" list="years" placeholder="experience_years">
+                        <input id="experience" name="experienceYears" list="years" required placeholder="experience_years">
                             <datalist class="a-list" id="years">
                                 <option value="less than 6 months">
                                     less than 6 months
