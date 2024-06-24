@@ -8,11 +8,12 @@ let countries_list = document.querySelector('#countries-list')
 let countries = document.querySelector('#countries')
 countries.addEventListener('focus', adding_countries)
 
-let cities = document.querySelector('#cities')
-let cities_list = document.querySelector('#cities-list')
-cities.addEventListener('focus', adding_cities)
+// let cities = document.querySelector('#cities')
+// let cities_list = document.querySelector('#cities-list')
+// cities.addEventListener('focus', adding_cities)
 
-function adding_countries() {
+async function adding_countries() {
+    console.log('in')
     fetch("https://countriesnow.space/api/v0.1/countries",
         // {method: "POST",
         // headers: { 'Content-Type': 'application/json' },
@@ -43,7 +44,7 @@ function adding_countries() {
     countries.removeEventListener('focus', adding_countries)
 }
 console.log('messi');
-console.log(countries.value);
+console.log(countries_list.firstElementChild);
 // let countries_opt = querySelector()
 
 // function adding_cities() {
