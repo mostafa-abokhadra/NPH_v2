@@ -14,11 +14,28 @@
             <div class="explaination">
                 <h1 class="healthTeaching">HealthTeaching</h1>
                 <div class="ht-landig-parag">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, placeat. Obcaecati, unde nesciunt id doloribus exercitationem quidem qui, ratione tenetur dicta, recusandae quas illo at iusto esse illum. Voluptate, ducimus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, omnis. Ipsa tenetur obcaecati quod nihil unde placeat, laudantium, ratione quidem voluptates cumque qui, dicta enim fuga! Dolor a ut veniam!</p>
+                    <p>A professional Nurse? apply now for a nurse admin and answer
+                        patients questions by populating health teaching and guidance
+                    </p>
+                    <p>
+                        A patient? ask Nurses questions regarding your health concerns and get a
+                        quick answer for free
+                    </p>
+                    <p>
+                        An employer? explore Nurses abilities in different areas 
+                        and hire high quality Nurses now
+                    </p>
                 </div>
                 {%if current_user.is_authenticated%}
-                    
+                    <div class="arrow">
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </div>
+                {%else%}
+                    <div class="new_account">
+                        <a href="{{url_for('signUp')}}" class="signUp">create a free acount now!</a>
+                    </div>
                 {%endif%}
+          
             </div>
 
             <div class="ht-photo">
@@ -43,8 +60,8 @@
 
             </div>
         </div>
-        <div class="still-not-answered">
-            <h3>still not answered questions</h3>
+        <div id="questionsToAnswer"class="still-not-answered">
+            <h2>still not answered questions</h2>
             <div class="questions">
                 <div class="a-question">
                     <h4>question1</h4>
@@ -76,4 +93,8 @@
         </div>
     </section>
 </main>
+{%endblock%}
+{%block script%}
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+    <script src="{{url_for('static', filename='js/healthTeaching.js')}}"></script>
 {%endblock%}
