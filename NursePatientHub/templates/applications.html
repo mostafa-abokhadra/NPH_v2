@@ -38,15 +38,13 @@
                         <div class="countries-div label-input">
                             <label for="countries">Country</label>
                             <input id="countries" list="countries-list" name="country" type="text" required placeholder="Country">
-                            <datalist class="a-list" id="countries-list">
-                                
+                            <datalist class="a-list" id="countries-list">  
                             </datalist>
                         </div>
                         <div class="cities-div label-input">
                             <label for="cities">City</label>
                             <input id="cities" name="city" list="cities-list" required placeholder="City">
                             <datalist class="a-list" id="cities-list">
-                                <option></option>
                             </datalist>
                         </div>
                     </div>
@@ -57,14 +55,19 @@
                         <input id="position"
                         required
                         name="position"
-                        list="role"
+                        list="position_list"
                         class="position-input"
                         placeholder="position">
-                            <datalist class="a-list" id="role">
-                                <option>Rn</option>
-                                <option>technical</option>
-                                <option>Nurse aid</option>
-                                <option>paramedical</option>
+                            <datalist class="a-list" id="position_list">
+                                <option value="Director">Director</option>
+                                <option value="supervisor">supervisor</option>
+                                <option value="headNurse">headNurse</option>
+                                <option value="in-charge">in-charge</option>
+                                <option value="senior-shift">senior-shift</option>
+                                <option value="bed-side">bed-side</option>
+                                <option value="technical">technical</option>
+                                <option value="Nurse-aid">Nurse-aid</option>
+                                <option value="paramedical">paramedical</option>
                             </datalist>
                     </div>
                     <div class="salary-big-div">
