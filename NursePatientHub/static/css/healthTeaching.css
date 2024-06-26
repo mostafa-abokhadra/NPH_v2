@@ -1,29 +1,133 @@
-.ht-landing .container {}
+.ht-landing .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-.ht-landing .container .parag-photo {}
+.ht-landing .container .parag-photo {
+    border: 1px solid green;
+    border-radius: 10px;
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
 
-.ht-landing .container .parag-photo .healthTeaching {}
+.ht-landing .container .parag-photo .healthTeaching {
+    width: 100%;
+    font-size: 50px;
+}
 
-.ht-landing .container .parag-photo .ht-photo {}
+.ht-landing .container .parag-photo .ht-photo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-.ht-landing .container .parag-photo .ht-photo img {}
+.ht-landing .container .parag-photo .ht-photo img {
+    border-radius: 10px;
+    width: 100%;
+    height: 200px;
+}
 
-.ht-landing .container .still-not-answered {}
+.ht-landing .container .still-not-answered {
+    margin-top: 10px;
+    border: 1px solid green;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-.ht-landing .container .still-not-answered h3 {}
+.ht-landing .container .still-not-answered h3 {
+    width: 100%;
+}
 
-.ht-landing .container .still-not-answered .questions {}
+.ht-landing .container .still-not-answered .questions {
+    width: 100%;
+}
 
-.ht-landing .container .options {}
+.ht-landing .container .still-not-answered .questions .a-question {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid grey;
+}
 
-.ht-landing .container .options .populate {}
+.ht-landing .container .still-not-answered .questions .a-question h4 {
+    width: 70%;
 
-.plus-logo {}
+}
 
-.ht-landing .container .options span {}
+.ht-landing .container .still-not-answered .questions .a-question a {
+    width: 25%;
+    display: flex;
+    color: black;
+    background-color: aqua;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border: 1px solid green;
+    border-radius: 5px;
+}
 
-.ht-landing .container .options .ask {}
+.ht-landing .container .still-not-answered .questions .a-question a:hover {
+    cursor: pointer;
+    color: green;
+}
 
-.ht-landing .container .options .ask span {}
+.ht-landing .container .options {
+    width: 60%;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
-.ht-landing .container .puplished-ht {}
+.ht-landing .container .options .populate,
+.ask {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid green;
+    border-radius: 10px;
+}
+
+.plus-logo {
+    padding: 7px;
+    border: 2px solid grey;
+    border-radius: 11px;
+    transition: 0.3s;
+}
+
+.plus-logo:hover {
+    cursor: pointer;
+    background-color: rgb(198, 197, 197);
+}
+
+.plus-logo i {
+    font-size: 20px;
+}
+
+.ht-landing .container .populate h4,
+.ask h4 {}
+
+.ht-landing .container .puplished-ht {
+    padding: 10px;
+    width: 100%;
+    margin-top: 10px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ht-landing .container .puplished-ht .a-ht {
+    width: 45%;
+    height: 200px;
+    background-color: red;
+}
