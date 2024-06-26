@@ -27,6 +27,13 @@
         <div class="container">
             <section class="jobs">
                 <div class="jobs-landing">
+                    {%with msgs = get_flashed_messages()%}
+                        {%for msg in msgs%}
+                            {%if msg%}
+                                <small style="color: red;">{{msg}}</small>
+                            {%endif%}
+                        {%endfor%}
+                    {%endwith%}
                     <h1> Find Job opportunities</h1>
                     <div class="add-an-opportunity">
                         <div class="plus-logo">

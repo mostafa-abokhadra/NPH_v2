@@ -101,8 +101,23 @@ def jobs():
 @app.route('/applications', methods=["GET", "POST"])
 @login_required
 def applications():
+    if request.method == "GET":
+        if current_user.userType == 'P' or current_user.userType == 'N':
+            flash("only employers have access to this page !")
+            return redirect(url_for('jobs'))
     if request.method == 'POST':
-        print(request.form)
+        new_application = Application(
+            country=request.form["country"], city=request.form["city"],
+            organization_name=request.form["organizationName"],
+            organization_address=request.form["organizationAddress"],
+            referred_by=request.form["employerName"], position=request.form["position"],
+            education_requirements=request.form["education"],
+            experience_years=request.form["experienceYears"],
+            salary=request.form["salary"], currency=request.form["currency"],
+            user_id=current_user.id, employer=current_user)
+        current_user.application = new_application
+        db.session.add(new_application)
+        db.session.commit()
     return render_template('applications.html')
 
 
