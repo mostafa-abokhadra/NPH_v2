@@ -1,1 +1,44 @@
 {%extends "base.html"%}
+{%block title%}
+    <title>HealthTeaching</title>
+{%endblock%}
+{%block style%}
+    <link
+    rel="stylesheet"
+    href="{{url_for('static', filename='css/healthTeaching.css')}}"/>
+{%endblock%}
+{%block content%}
+<main class="ht-landing">
+    <section class="container">
+        <div class="parag-photo">
+            <h1 class="healthTeaching">HealthTeaching</h1>
+            <div class="ht-photo">
+                <img src="{{url_for('static', filename='imgs/healthTeaching.jpg')}}"/>
+            </div>
+        </div>
+        <div class="still-not-answered">
+            <h3>still not answered questions</h3>
+            <div class="questions">
+                <!---->
+            </div>
+        </div>
+        <div class="options">
+            <div class="populate">
+                <div class="plus-logo">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <span>add an oppotunity</span>
+            </div>
+            <div class="ask">
+                <div class="plus-logo">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <span>add an oppotunity</span>
+            </div>
+        </div>
+        <div class="puplished-ht">
+            <!---->
+        </div>
+    </section>
+</main>
+{%endblock%}
