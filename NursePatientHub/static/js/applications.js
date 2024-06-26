@@ -48,10 +48,29 @@ async function adding_countries() {
     // removing event so fetching data don't occur with every focus (only the first one)
     countries.removeEventListener('focus', adding_countries)
 }
-// countries.onchange = function () {
-//     console.log(countries.value)
-// }
-
+// checking correct name of country
+let flag = -1; // making flag global to use in city function
+countries.oninput = async function () {
+    if (countries.value === '') {
+        countries.setAttribute('placeholder', "choose from the list")
+        countries.setAttribute('style', 'outline: 1px solid red;')
+    } else {
+        for (let i = 0; i < countries_cities.length; i++) {
+            if (countries.value === countries_cities[i]["country"]) {
+                flag = 1;
+                break;
+            }
+        }
+        if (flag === 1) {
+            countries.setAttribute('placeholder', "Country")
+            countries.setAttribute('style', '')
+        }
+        else {
+            console.log("here!")
+            countries.setAttribute('style', 'outline: 1px solid red;')
+        }
+    }
+}
 // getting cities input element
 let cities = document.querySelector('#cities')
 // getting cities datalist element
@@ -59,31 +78,30 @@ let cities_list = document.querySelector('#cities-list')
 cities.addEventListener('focus', adding_cities)
 
 async function adding_cities() {
-    if (countries.value == '') {
-        // because fetching cities is depending on country value
+    let flag = -1;
+    for (let i = 0; i < countries_cities.length; i++) {
+        if (countries_cities[i]["country"] == countries.value) {
+            flag = i;
+            break;
+        }
+    }
+    for (let i = 0; i < countries_cities[flag].cities.length; i++) {
+        let city_option = document.createElement('option');
+        city_option.setAttribute('value', countries_cities[flag].cities[i]);
+        city_option.textContent = countries_cities[flag].cities[i];
+        cities_list.appendChild(city_option)
+    }
+}
+
+cities.onfocus = async function () {
+    if (countries.value === '') {
         cities.setAttribute('placeholder', 'please choose country first')
         cities.setAttribute('style', 'outline: 1px solid red;')
-    }
-    else {
+    } else if (flag === -1) {
+        cities.setAttribute('placeholder', 'please choose country first')
+    } else {
+        cities.setAttribute('placeholder', 'City')
         cities.setAttribute('style', '')
-        let flag = -1;
-        for (let i = 0; i < countries_cities.length; i++) {
-            if (countries_cities[i]["country"] == countries.value) {
-                flag = i;
-                break;
-            }
-        }
-        if (flag === -1) {
-            countries.setAttribute('placeholder', 'choose from the list')
-            countries.setAttribute('style', 'outline: 1px solid red;')
-        } else {
-            for (let i = 0; i < countries_cities[flag].cities.length; i++) {
-                let city_option = document.createElement('option');
-                city_option.setAttribute('value', countries_cities[flag].cities[i]);
-                city_option.textContent = countries_cities[flag].cities[i];
-                cities_list.appendChild(city_option)
-            }
-        }
     }
 }
 
