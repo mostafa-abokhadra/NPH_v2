@@ -64,8 +64,6 @@
     border-radius: 11px;
     /* background-color: brown; */
     transition: 0.3s;
-
-
 }
 
 .plus-logo:hover {
@@ -88,12 +86,14 @@
 
 .applications {
     margin-top: 20px;
+    /* background-color: red; */
 }
 
 .applications .container {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* background-color: #ebeced; */
 }
 
 .applications .container .job-applications {
@@ -101,17 +101,50 @@
     margin-top: 5px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
+    /* background-color: red; */
 
 }
 
 .applications .container .job-applications .applications-section {
-    background-color: #ebeced;
+    /* background-color: green; */
     width: 30%;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
     align-items: center;
-    width: 30%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 1px solid green;
+    border-radius: 0px 0px 10px 10px;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.applications .container .job-applications .applications-section:hover {
+    opacity: 0.7;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.applications .container .job-applications .applications-section img {
+    width: 100%;
+    height: 200px;
+}
+
+.applications .container .job-applications .applications-section .job-sec-data {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.applications .container .job-applications .applications-section .job-sec-data h2,
+h3,
+h4,
+h5 {
+    margin: 0px;
+    text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 100%;
 }

@@ -70,7 +70,9 @@ def login():
 
 @app.route('/jobs', strict_slashes=False, methods=['post', 'GET'])
 def jobs():
-    return render_template('jobs.html')
+    if request.method == 'GET':
+        apls = Application.query.all()
+    return render_template('jobs.html', apls=apls)
     
 @app.route('/applications', methods=["GET", "POST"])
 @login_required

@@ -57,9 +57,9 @@ class Application(db.Model):
     salary = db.Column(db.Integer)
     currency = db.Column(db.String(60))
 
-    def __repr__(self):
-        return "referred By: {}\nposition: {}\nsalary: {}".format(
-            self.referred_by, self.position, self.salary)
+    # def __repr__(self):
+    #     return "position: {}\nsalary: {}\nreferred By: {}\n".format(
+    #         self.position, self.salary, self.referred_by)
             
 # with app.app_context():
 #     db.create_all()

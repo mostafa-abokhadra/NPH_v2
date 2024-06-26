@@ -61,12 +61,17 @@
     <main class="applications">
         <div class="container">
             <section class="job-applications">
-                <div class="applications-section">messi
-                </div>
-                <div class="applications-section">neymar
-                </div>
-                <div class="applications-section">suarez
-                </div>
+                {%for apl in apls%}
+                    <div class="applications-section">
+                        <img src="{{url_for('static', filename='imgs/jobs-section.jpg')}}"/>
+                        <div class="job-sec-data">
+                            <h2>Position: {{apl.position}}</h2>
+                            <h3>Salary: {{apl.salary}} </h3>
+                            <h4>Country: {{apl.country}}</h4>
+                            <h5>City: {{apl.city}}</h5>
+                        </div>  
+                    </div>
+                {%endfor%}
             </section>
         </div>
     </main>
