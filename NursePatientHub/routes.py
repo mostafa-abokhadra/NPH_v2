@@ -4,23 +4,11 @@ from NursePatientHub.models import User, Patient, Nurse, Employer, Application
 from NursePatientHub.forms import Registration, Login
 from flask_login import login_user, current_user, logout_user, login_required
 
-# LoginManager, login_required, logout_user, current_user
-
-# login_manager = LoginManager()
-# login_manager.init_app(app)
-
-
-
 @app.route('/', strict_slashes=False)
 @app.route('/home', strict_slashes=False)
 @app.route('/NPH', strict_slashes=False)
 def home():
     return render_template('home.html')
-
-@app.route('/dashBoard', strict_slashes=False, methods=["POST", "GET"])
-# @login_required
-def dashBoard():
-    return render_template('dashBoard.html')
 
 @app.route('/signUp',strict_slashes=False, methods=["POST", "GET"])
 def signUp():
@@ -57,7 +45,8 @@ def signUp():
                 emp.user_id = new_user.id
                 db.session.add(emp)
                 db.session.commit()
-            return render_template('home.html')
+            login_user(new_user)
+            return redirect(url_for('home'))
     return render_template('signUp.html', form=form)
 
 @app.route('/login', methods=["POST", "GET"])
@@ -79,20 +68,6 @@ def login():
                 flash("email can't be found!")
     return render_template("login.html", form=form)
 
-# @app.route('/logout', methods=['POST', 'GET'])
-# @login_required
-# def logout():
-#     logout_user()
-#     return redirect(url_for('home.html'))
-
-# @app.route('/userType', strict_slashes=False, methods=["POST", "GET"])
-# def userType():
-#     if request.method == "POST":
-#         print("==========")
-#         print("it's post")
-#         print("==========")
-#     return render_template('userType.html')
-
 @app.route('/jobs', strict_slashes=False, methods=['post', 'GET'])
 def jobs():
     return render_template('jobs.html')
@@ -112,20 +87,12 @@ def applications():
             referred_by=request.form["employerName"], position=request.form["position"],
             education_requirements=request.form["education"],
             experience_years=request.form["experienceYears"],
-            salary=request.form["salary"], currency=request.form["currency"],
-            user_id=current_user.id)
-        new_application.employer = current_user
+            salary=request.form["salary"], currency=request.form["currency"], employer_id=current_user.id)
         db.session.add(new_application)
         db.session.commit()
+        current_user.applications = new_application
 
     return render_template('applications.html')
-
-
-
-
-
-
-
 
 @app.route('/healthTeaching', methods=["GET", "POST"])
 def healthTeaching():

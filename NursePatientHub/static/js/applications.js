@@ -120,18 +120,18 @@ cities.onfocus = async function () {
 }
 pos_flag = -1;
 position.onchange = function () {
-    console.log("messi")
-    for (let i = 0; i < position_list.childElementCount; i++) {
-        // console.log(position_list.childElementCount)
-        if (position.value === position_list.childNodes[i].textContent) {
+    let i;
+    for (i = 0; i < position_list.childElementCount; i++) {
+        if (position.value === position_list.children[i].textContent) {
             pos_flag = 1;
-            position.setAttribute('style', '')
             break;
         }
     }
-    if (pos_flag === -1) {
-        position.setAttribute('style', 'outline: 1px solid red;')
+    if (pos_flag === 1) {
+        position.setAttribute('style', '')
+        pos_flag = -1;
     } else {
+        position.setAttribute('style', 'outline: 1px solid red; color: red;')
         pos_flag = -1;
     }
 }
