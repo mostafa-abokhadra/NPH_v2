@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {%block titlt%}
-<title>SignUp</title>
+  <title>SignUp</title>
 {%endblock%}
 
 {% block style %}
@@ -11,23 +11,7 @@
     type="text/css"
     href="{{url_for('static', filename='css/signUp.css')}}"
   />
-  <!--fotter css-->
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="{{url_for('static', filename='css/footer.css')}}"
-  />
-  <!--header css-->
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="{{url_for('static', filename='css/header.css')}}"
-  />
 {% endblock %} 
-<!-- {%block signup%}
-  <a htref="{{url_for('login')}}" class="login">login</a>
-  <a href="{{url_for('signUp')}}" class="signUp">SignUp</a>
-{%endblock%} -->
 
 {% block content %}
 <main class="registration">
@@ -134,13 +118,6 @@
       </div>
     </section>
     <section class="signUp-photo">
-      <!-- {%with messages = get_flashed_messages()%}
-        {%for mess in messages%}
-            {%if mess%}
-              <div class="flash-message">{{mess}}</div>
-            {%endif%}
-        {%endfor%}
-      {%endwith%} -->
       <img src="{{url_for('static', filename='imgs/signUp.PNG')}}" />
     </section>
   </div>
@@ -148,7 +125,6 @@
 {% endblock %}
 {%block script%}
     <script src="{{url_for('static', filename='js/main.js')}}"></script>
-    <!-- <script src="{{url_for('static', filename='js/signUp.js')}}"></script> -->
 {%endblock%}
 
 

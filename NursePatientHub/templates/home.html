@@ -9,21 +9,7 @@
     type="text/css"
     href="{{ url_for('static', filename='css/main.css') }}"
   />
-  <!--fotter css-->
-  <link
-    rel="stylesheet"
-    href="{{url_for('static', filename='css/footer.css')}}"
-  />
-  <!--header css-->
-  <link
-    rel="stylesheet"
-    href="{{url_for('static', filename='css/header.css')}}"
-  />
 {% endblock %} 
-<!-- {%block signup%}
-  <button class="login">login</button>
-  <button class="signUp">SignUp</button>
-{%endblock%} -->
 {% block content %}
   <main>
     <div class="container">

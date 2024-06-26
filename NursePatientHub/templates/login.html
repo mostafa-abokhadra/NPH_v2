@@ -1,27 +1,16 @@
 {% extends "base.html" %}
 
 {%block title%}
-<title>login</title>
+    <title>login</title>
 {%endblock%}
 
 {%block style%}
     <!--login css-->
-    <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}"/>
-    <!--fotter css-->
     <link
-    rel="stylesheet"
-    href="{{url_for('static', filename='css/footer.css')}}"
-    />
-    <!--header css-->
-    <link
-    rel="stylesheet"
-    href="{{url_for('static', filename='css/header.css')}}"
+        rel="stylesheet" 
+        href="{{url_for('static', filename='css/login.css')}}"
     />
 {% endblock %}
-<!-- {%block signup%}
-    <button class="login">login</button>
-    <button class="signUp">SignUp</button>
-{%endblock%} -->
 {%block content%} 
     <div class="container">
         <div class="login-div">

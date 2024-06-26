@@ -1,27 +1,14 @@
 {%extends "base.html"%}
 {%block style%}
     <!--jobs css-->
-    <link rel="stylesheet"
-    href="{{url_for('static', filename='css/jobs.css')}}"/>
-      <!--fotter css-->
     <link
-    rel="stylesheet"
-     href="{{url_for('static', filename='css/footer.css')}}"
-    />
-    <!--header css-->
-    <link
-    rel="stylesheet"
-    href="{{url_for('static', filename='css/header.css')}}"
+        rel="stylesheet"
+        href="{{url_for('static', filename='css/jobs.css')}}"
     />
 {%endblock%}
 {%block title%}
-<title>Jobs</title>
+    <title>Jobs</title>
 {%endblock%}
-{%block signup%}
-    <!-- <button class="login">login</button>
-    <button class="signUp">SignUp</button> -->
-{%endblock%}
-
 {%block content%}
     {%if flag %}
         {%with msgs = get_flashed_messages()%}
