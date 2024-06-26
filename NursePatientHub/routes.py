@@ -63,7 +63,6 @@ def signUp():
 @app.route('/login', methods=["POST", "GET"])
 def login():
     if current_user.is_authenticated:
-        print("logged in")
         return redirect(url_for('home'))
     form = Login()
     if request.method == 'POST':
@@ -114,10 +113,11 @@ def applications():
             education_requirements=request.form["education"],
             experience_years=request.form["experienceYears"],
             salary=request.form["salary"], currency=request.form["currency"],
-            user_id=current_user.id, employer=current_user)
-        current_user.application = new_application
+            user_id=current_user.id)
+        new_application.employer = current_user
         db.session.add(new_application)
         db.session.commit()
+
     return render_template('applications.html')
 
 

@@ -1,5 +1,6 @@
 from NursePatientHub import db, app, login_manager
 from flask_login import UserMixin
+# from flask_sqlalchemy import SQLAlchemy
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -17,29 +18,30 @@ class Nurse(db.Model):
     __tablename__ = "Nurses"
     id = db.Column(db.Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey("Users.id", ondelete="CASCADE", onupdate="CASCADE"))
-    specialist = db.Column(db.String(50))
-    degree = db.Column(db.String(50))
-    employemnt_status = db.Column(db.String(50))
+    # specialist = db.Column(db.String(50))
+    # degree = db.Column(db.String(50))
+    # employemnt_status = db.Column(db.String(50))
 
 class Patient(db.Model):
     __tablename__ = 'Patients'
     id = db.Column(db.Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey("Users.id", ondelete="CASCADE", onupdate="CASCADE"))
     nurse_id = db.Column(db.Integer, db.ForeignKey("Nurses.id", ondelete="CASCADE", onupdate="CASCADE"))
-    diagnosis = db.Column(db.String(50))
+    # diagnosis = db.Column(db.String(50))
 
 class Employer(db.Model):
     __tablename__ = "Employers"
     id = db.Column(db.Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey("Users.id", ondelete="CASCADE", onupdate="CASCADE"))
-    application = db.relationship("Application", back_populates="employer", cascade="all, delete, save-update")
-    organization_name = db.Column(db.String(50))
+    applications = db.relationship("Application", backref='employer', cascade="all, delete, save-update")
+    # organization_name = db.Column(db.String(50))
 
 class Application(db.Model):
     __tablename__ = 'Applications'
     id = db.Column(db.Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("Employers.id", ondelete="CASCADE", onupdate="CASCADE"))
-    employer = db.relationship("Employer", back_populates="application")
+    user_id = db.Column(db.Integer, db.ForeignKey("Employers.user_id", ondelete="CASCADE", onupdate="CASCADE"))
+    employer_id = db.relationship(db.ForeignKey('Employers.id', ondelete="CASCADE", onupdate="CASCADE"))
+
     country = db.Column(db.String(50))
     city = db.Column(db.String(50))
     organization_name = db.Column(db.String(50))
