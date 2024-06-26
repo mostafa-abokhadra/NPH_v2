@@ -78,7 +78,7 @@ def applications():
     if request.method == "GET":
         if current_user.userType == 'P' or current_user.userType == 'N':
             flash("only employers have access to this page !")
-            return redirect(url_for('jobs'))
+            return redirect(url_for('jobs', flag=0))
     if request.method == 'POST':
         new_application = Application(
             country=request.form["country"], city=request.form["city"],
@@ -91,7 +91,8 @@ def applications():
         db.session.add(new_application)
         db.session.commit()
         current_user.applications = new_application
-
+        flash("application added successfully")
+        return render_template('jobs.html', flag=1)
     return render_template('applications.html')
 
 @app.route('/healthTeaching', methods=["GET", "POST"])
