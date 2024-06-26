@@ -11,9 +11,36 @@
 <main class="ht-landing">
     <section class="container">
         <div class="parag-photo">
-            <h1 class="healthTeaching">HealthTeaching</h1>
+            <div class="explaination">
+                <h1 class="healthTeaching">HealthTeaching</h1>
+                <div class="ht-landig-parag">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, placeat. Obcaecati, unde nesciunt id doloribus exercitationem quidem qui, ratione tenetur dicta, recusandae quas illo at iusto esse illum. Voluptate, ducimus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, omnis. Ipsa tenetur obcaecati quod nihil unde placeat, laudantium, ratione quidem voluptates cumque qui, dicta enim fuga! Dolor a ut veniam!</p>
+                </div>
+                {%if current_user.is_authenticated%}
+                    
+                {%endif%}
+            </div>
+
             <div class="ht-photo">
-                <img src="{{url_for('static', filename='imgs/healthTeaching.jpg')}}"/>
+                <div class="ht-photo-features">
+                    <div class="photo-div">
+                        <img src="{{url_for('static', filename='imgs/healthTeaching.jpg')}}"/>
+                    </div>
+                    <h1>what can you do?</h1>
+                    <div class="feature-sec">
+                        <i class="fa-solid fa-square-check"></i>
+                        <span class="description">a patient? <span class="marked">ask questions</span> and get an answer by a hight quality Nurses</span>
+                    </div>
+                    <div class="feature-sec">
+                        <i class="fa-solid fa-square-check"></i>
+                        <span class="description">a nurse? answer patients questions and populate <span class="marked">healthTeaching</span></span>
+                    </div>
+                    <div class="feature-sec">
+                        <i class="fa-solid fa-square-check"></i>
+                        <span class="description">an employer? <span class="marked">explore</span>Nurses abilities in different areas</span>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="still-not-answered">
@@ -44,7 +71,7 @@
 
             </div>
             <div class="a-ht">
-                
+
             </div>
         </div>
     </section>
