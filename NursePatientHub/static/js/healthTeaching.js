@@ -1,12 +1,20 @@
 try {
-    let arrow = document.querySelector(".arrow")
-    arrow.addEventListener('click', arrowClick)
-    async function arrowClick() {
-        location.href = "#questionsToAnswer"
+    let popup = document.querySelector('.populate-popup')
+    let populate_plus_logo = document.querySelector('.populate .plus-logo')
+    populate_plus_logo.addEventListener('click', popItUp)
+    async function popItUp() {
+        popup.setAttribute('style', 'display: block;')
     }
+    let close = document.querySelector('.lable-x i')
+    close.addEventListener('click', closeIt)
+    async function closeIt() {
+        popup.setAttribute('style', 'display: none;')
+    }
+
 } catch (err) {
-    console.log('some error')
+    console.log("can't popUp window")
 }
+
 
 // let populate = document.querySelector('.populate .plus-logo')
 // let ask = document.querySelector('.ask .plus-logo')

@@ -1,7 +1,23 @@
+main {
+    position: relative;
+}
+
+/* main::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+} */
+
 .ht-landing .container {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+
 }
 
 .ht-landing .container .parag-photo {
@@ -11,6 +27,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    /* background: rgba(255, 255, 255, 0.5); */
 }
 
 .ht-landing .container .parag-photo .explaination {
@@ -42,17 +59,110 @@
 
 .ht-landing .container .parag-photo .explaination .options .populate,
 .ask {
-    /* width: 60%; */
     display: flex;
     justify-content: space-around;
     align-items: center;
     border-radius: 10px;
     margin-right: 5px;
     transition: 0.3s;
-    /* background-color: #8ed1fc; */
-    /* background-color: red; */
 }
 
+.populate-popup {
+    position: absolute;
+    z-index: 9;
+    left: 15%;
+    top: 5%;
+    padding: 10px;
+    display: flex;
+    width: 70%;
+    flex-wrap: wrap;
+    background-color: white;
+    border: 1px solid rgb(159, 157, 157);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 1s;
+    display: none;
+}
+
+.populate-popup .title-input {
+    /* background-color: green; */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.populate-popup .title-input .lable-x {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.populate-popup .title-input .lable-x label {
+    /* width: 100%; */
+    display: flex;
+    /* padding-left: 10px; */
+    font-size: 20px;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+.populate-popup .title-input .lable-x i {
+    font-size: 20px;
+}
+
+.populate-popup .title-input .lable-x i:hover {
+    cursor: pointer;
+    color: grey;
+}
+
+.populate-popup .title-input input {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.populate-popup .textarea-div {
+    /* background-color: blue; */
+    width: 100%;
+    display: flex;
+    margin-top: 5px;
+}
+
+.populate-popup .textarea-div textarea {
+    width: 100%;
+    padding: 10px;
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.populate-popup .submit-div {
+    width: 100%;
+    margin-top: 5px;
+    /* background-color: yellow; */
+}
+
+.populate-popup .submit-div input {
+    border: 1px solid black;
+    width: 20%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #8ed1fc;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.populate-popup .submit-div input:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
 
 .plus-logo {
     padding: 7px;
@@ -100,7 +210,7 @@
     align-items: center;
     text-decoration: none;
 } */
-
+/* 
 .arrow {
     position: absolute;
     display: flex;
@@ -118,12 +228,12 @@
 .arrow i {
     font-size: 25px;
     font-weight: bold;
-}
+} */
 
-.arrow:hover {
+/* .arrow:hover {
     cursor: pointer;
     opacity: 0.8;
-}
+} */
 
 /* .ht-landing .container .parag-photo .explaination .new_account:hover {
     cursor: pointer;
@@ -250,7 +360,7 @@
     border-radius: 10px;
     flex-wrap: wrap;
     /* background-color: red; */
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .ht-landing .container .still-not-answered .questions .a-question {
