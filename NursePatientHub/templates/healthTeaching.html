@@ -14,6 +14,7 @@
         <div class="parag-photo">
             <div class="explaination">
                 <h1 class="healthTeaching">HealthTeaching</h1>
+
                 <div class="ht-landig-parag">
                     <p>A professional Nurse? apply now for a nurse admin and answer
                         patients questions by populating health teaching and guidance
@@ -27,16 +28,37 @@
                         and hire high quality Nurses now
                     </p>
                 </div>
-                {%if current_user.is_authenticated%}
-                    <div class="arrow">
-                        <i class="fa-solid fa-arrow-down"></i>
+
+                <div class="options">
+                    <div class="styling-div">
+                        <div class="populate">
+                            <div class="plus-logo">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <h4>populate teaching</h4>
+                            <div class="populate-popup">
+                                <div class="title-input">
+                                    <label>title</label>
+                                    <input name="ht-title" type="text" maxlength="100">
+                                </div>
+                                <div class="textarea-div">
+                                    <textarea placeholder="go ahead"></textarea>
+                                </div>
+                                <div class="submit-div">
+                                    <input type="submit" vlaue="send">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                {%else%}
-                    <div class="new_account">
-                        <a href="{{url_for('signUp')}}" class="signUp">create a free acount now!</a>
+                    <div class="styling-div">
+                        <div class="ask">
+                            <div class="plus-logo">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                            <h4>Ask a question</h4>
+                        </div>
                     </div>
-                {%endif%}
-          
+                </div>
             </div>
 
             <div class="ht-photo">
@@ -90,7 +112,7 @@
                 </div>
             </div>
         </div>
-        <div class="options">
+        <!-- <div class="options">
             <div class="populate">
                 <div class="plus-logo">
                     <i class="fa-solid fa-plus"></i>
@@ -103,7 +125,7 @@
                 </div>
                 <h4>Ask a question</h4>
             </div>
-        </div>
+        </div> -->
         <div class="puplished-ht">
             <div class="a-ht">
                 <img src="{{url_for('static', filename='imgs/healthTeaching.jpg')}}"/>
