@@ -8,6 +8,7 @@
     href="{{url_for('static', filename='css/healthTeaching.css')}}"/>
 {%endblock%}
 {%block content%}
+
 <main class="ht-landing">
     <section class="container">
         <div class="parag-photo">
@@ -67,6 +68,26 @@
                     <h4>question1</h4>
                     <a href="#">answer</a>
                 </div>
+                <div class="a-question">
+                    <h4>question1</h4>
+                    <a href="#">answer</a>
+                </div>
+                <div class="a-question">
+                    <h4>question1</h4>
+                    <a href="#">answer</a>
+                </div>
+                <div class="a-question">
+                    <h4>question1</h4>
+                    <a href="#">answer</a>
+                </div>
+                <div class="a-question">
+                    <h4>question1</h4>
+                    <a href="#">answer</a>
+                </div>
+                <div class="a-question">
+                    <h4>question1</h4>
+                    <a href="#">answer</a>
+                </div>
             </div>
         </div>
         <div class="options">
@@ -74,25 +95,41 @@
                 <div class="plus-logo">
                     <i class="fa-solid fa-plus"></i>
                 </div>
-                <span>add an oppotunity</span>
+                <h4>populate teaching</h4>
             </div>
             <div class="ask">
                 <div class="plus-logo">
                     <i class="fa-solid fa-plus"></i>
                 </div>
-                <span>add an oppotunity</span>
+                <h4>Ask a question</h4>
             </div>
         </div>
         <div class="puplished-ht">
             <div class="a-ht">
-
+                <img src="{{url_for('static', filename='imgs/healthTeaching.jpg')}}"/>
+                <div class="ht-content">
+                    <h2>title</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eius quam laudantium cum veniam aut laboriosam inventore dignissimos harum vel quaerat exercitationem explicabo ipsam deleniti accusantium voluptatem? Obcaecati, harum fuga?</p>
+                </div>
             </div>
             <div class="a-ht">
-
+                <img src="{{url_for('static', filename='imgs/ht2.jpg')}}"/>
+                <div class="ht-content">
+                    <h2>title</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eius quam laudantium cum veniam aut laboriosam inventore dignissimos harum vel quaerat exercitationem explicabo ipsam deleniti accusantium voluptatem? Obcaecati, harum fuga?</p>
+                </div>
+            </div>
+            <div class="a-ht">
+                <img src="{{url_for('static', filename='imgs/healthTeaching.jpg')}}"/>
+                <div class="ht-content">
+                    <h2>title</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eius quam laudantium cum veniam aut laboriosam inventore dignissimos harum vel quaerat exercitationem explicabo ipsam deleniti accusantium voluptatem? Obcaecati, harum fuga?</p>
+                </div>
             </div>
         </div>
     </section>
 </main>
+
 {%endblock%}
 {%block script%}
     <script src="{{url_for('static', filename='js/main.js')}}"></script>
