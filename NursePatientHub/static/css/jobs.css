@@ -1,8 +1,6 @@
 .main-jobs {
     height: 500px;
     width: 100%;
-    /* height: 100vh; */
-    /* background-color: yellow; */
     background-image: url('../imgs/jobsfinal.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -12,39 +10,28 @@
 }
 
 .main-jobs .container {
-    /* background-color: red; */
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
     align-items: flex-end;
 }
 
 .jobs {
     display: flex;
-    /* align-items: flex-end; */
     height: 100%;
-    /* background-color: green; */
     width: 100%;
     height: fit-content;
 }
 
 .jobs-landing {
-
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     padding: 15px;
-    /* background-color: orange; */
-    /* position: relative; */
-    /* height: 100vh; */
 }
 
 .jobs-landing h1 {
-    /* background-color: blue; */
     height: fit-content;
     width: 100%;
     margin-bottom: 0px;
-
 }
 
 .add-an-opportunity {
@@ -52,10 +39,8 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /* background-color: aqua; */
     height: fit-content;
     width: 20%;
-
 }
 
 .application-link {
@@ -70,39 +55,30 @@
     padding: 7px;
     border: 2px solid grey;
     border-radius: 11px;
-    /* background-color: brown; */
     transition: 0.3s;
 }
 
 .plus-logo:hover {
     cursor: pointer;
     background-color: rgb(222, 217, 217);
-
 }
 
 .add-an-opportunity i {
     font-size: 20px;
-    /* background-color: aliceblue; */
 }
 
 .add-an-opportunity span {
-    /* background-color: yellow; */
-    /* width: 75%; */
     font-size: 20px;
     font-weight: bold;
-    /* background-color: aliceblue; */
 }
 
 .applications {
     margin-top: 20px;
-    /* background-color: red; */
 }
 
 .applications .container {
     display: flex;
-    /* justify-content: center; */
     align-items: center;
-    /* background-color: #ebeced; */
 }
 
 .applications .container .job-applications {
@@ -110,15 +86,10 @@
     margin-top: 5px;
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
     align-items: center;
-    /* width: 100%; */
-    /* background-color: red; */
-
 }
 
 .applications .container .job-applications .applications-section {
-    /* background-color: green; */
     width: 30%;
     display: flex;
     flex-wrap: wrap;

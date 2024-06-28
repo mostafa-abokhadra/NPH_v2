@@ -25,12 +25,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: yellow; */
-
 }
 
 .login-div h3 {
-    /* background-color: antiquewhite; */
     display: flex;
     margin: 0px;
     justify-content: center;
@@ -45,7 +42,6 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    /* background-color: green; */
     width: 70%;
     height: 95%;
     border-radius: 7px;
@@ -60,26 +56,20 @@
 .login-div .email-login,
 .pass-login {
     width: 100%;
-    /* height: 30%; */
     padding: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* background-color: blue; */
 }
-
-/* .login-div .pass-login {} */
 
 .login-div .email-login i,
 .pass-login i {
     color: rgb(13, 141, 2);
     font-size: 25px;
     width: 10%;
-    /* background-color: black; */
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .login-div input {
@@ -89,10 +79,6 @@
     border-radius: 7px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-
-/* .login-div .email-login {}
-
-.login-div .pass-login {} */
 
 .submit-login {
     margin: auto;
@@ -122,13 +108,10 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    /* background-color: blueviolet; */
 }
 
 .signup-using-media .using-media {
-    /* background-color: red; */
     width: 80%;
-    /* font-size: 10px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,7 +119,6 @@
 
 .signup-using-media .media-icons {
     margin-top: 10px;
-    /* background-color: blue; */
     width: 30%;
     display: flex;
     justify-content: space-around;
@@ -144,10 +126,7 @@
 }
 
 .signup-using-media .media-icons i {
-    /* color: beige; */
     font-size: 20px;
-    /* background-color: blue; */
-
 }
 
 .input-error {
@@ -159,7 +138,6 @@
 
 small {
     color: red;
-
 }
 
 .remember_me-div {
@@ -167,7 +145,6 @@ small {
     justify-content: center;
     align-items: center;
     width: 35%;
-    /* background-color: #068932; */
 }
 
 .signup-using-media .media-icons i:hover {
@@ -176,7 +153,6 @@ small {
 }
 
 .dont-have-account {
-    /* background-color: red; */
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -189,14 +165,10 @@ small {
     justify-content: center;
     align-items: center;
     width: 70%;
-    /* background-color: #068932; */
 }
 
 .dont-have-account a {
     text-decoration: none;
-    /* background-color: #068932; */
-    /* margin-top: 4px; */
-    /* color: violet; */
     font-size: larger;
     text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -210,11 +182,9 @@ small {
     width: 40%;
     display: flex;
     justify-content: space-around;
-    /* background-color: green; */
 }
 
 .nursepatinethub {
-    /* background-color: yellow; */
     display: flex;
     font-size: 60px;
     width: 50%;

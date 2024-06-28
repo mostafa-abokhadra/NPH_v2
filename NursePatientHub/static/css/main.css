@@ -1,5 +1,4 @@
 main {
-    /* background-color: aqua; */
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -7,15 +6,12 @@ main {
 }
 
 main .container {
-    /* background-color: red; */
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
 main .landingNurseParagraph {
-    /* background-color: beige; */
-    /* background-color: blue; */
     width: 40%;
     font-size: 30px;
     font-optical-sizing: auto;
@@ -25,13 +21,11 @@ main .landingNurseParagraph {
 }
 
 main .home-photo {
-    /* background-color: red; */
     width: 50%;
     display: flex;
     justify-content: flex-end;
 }
 
 main .home-photo img {
-    /* background-color: yellow; */
     width: 100%;
 }

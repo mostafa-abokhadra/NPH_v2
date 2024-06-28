@@ -1,12 +1,10 @@
 .container {
-    /* background-color: yellow; */
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
 .form-section {
-    /* background-color: blue; */
     width: 45%;
     height: 100%;
     border-radius: 15px;
@@ -114,20 +112,17 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* background: white; */
     width: 100%;
 }
 
 .check-list li {
     width: 30%;
     display: flex;
-    /* background: red; */
     justify-content: space-around;
     align-items: center;
 }
 
 .check-list li input {
-    /* border: 5px solid green; */
     height: 20px;
     width: 20px;
 }
@@ -138,7 +133,6 @@
     padding: 15px;
     display: flex;
     flex-wrap: wrap;
-    /* background-color: #068932; */
 }
 
 .userType-div .q {
@@ -146,7 +140,6 @@
 }
 
 .invalide {
-    /* border: 0px solid grey; */
     outline: 3px solid red;
 }
 
@@ -205,7 +198,6 @@ small {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: #068932; */
 }
 
 .signup-using-media .media-icons {
@@ -216,9 +208,7 @@ small {
 }
 
 .signup-using-media .media-icons i {
-    /* color: beige; */
     font-size: 20px;
-    /* background-color: blue; */
     text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 

@@ -1,20 +1,3 @@
-
-// try {
-//     let populate_plus_logo = document.querySelector('.populate .plus-logo')
-//     populate_plus_logo.addEventListener('click', popItUp)
-//     async function popItUp() {
-//         popup.setAttribute('style', 'display: block;')
-//     }
-//     let close = document.querySelector('.lable-x i')
-//     close.addEventListener('click', closeIt)
-//     async function closeIt() {
-//         popup.setAttribute('style', 'display: none;')
-//     }
-
-// } catch (err) {
-//     console.log(err)
-// }
-
 /*if user is not authenticated then this code run if he tries to access populate healtTeaching
 or ask a question properities, he must singUp first*/
 let elem = document.createElement('small')
@@ -59,10 +42,9 @@ let popup = document.querySelector('.populate-popup')
 try {
     let goTo = document.querySelectorAll('.go-to-popup')
     let questions = document.querySelectorAll('.a-question')
-    console.log(questions[0])
     let title = document.querySelector('.title-input')
     for (let i = 0; i < goTo.length; i++) {
-        goTo[i].onclick = function () {
+        goTo[i].onclick = async function () {
             let myQ = questions[i].firstElementChild.textContent
             title.value = myQ
             popup.setAttribute('style', 'display: block;')
@@ -113,17 +95,18 @@ try {
 
 /* if a patient or employer tries to answer patient question this code runs */
 try {
-    let no_popup = document.querySelector('.no-popup')
+    let no_popup = document.querySelectorAll('.no-popup')
     let place = document.querySelector('#answer_me')
     let parent = document.querySelector('#questionsToAnswer')
 
     let new_elem = document.createElement('div')
     new_elem.setAttribute('class', 'only-nurses')
 
-    no_popup.addEventListener('click', noPopUp)
-    async function noPopUp() {
-        new_elem.textContent = 'only Nurses can answer patients questions'
-        parent.insertBefore(new_elem, place)
+    for (let i = 0; i < no_popup.length; i++) {
+        no_popup[i].onclick = async function () {
+            new_elem.textContent = 'only Nurses can answer patients questions'
+            parent.insertBefore(new_elem, place)
+        }
     }
 } catch (err) {
     console.log(err)

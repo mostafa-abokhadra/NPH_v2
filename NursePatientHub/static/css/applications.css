@@ -60,14 +60,9 @@
     width: 49%;
 }
 
-.salary-big-div div input {
-    /* width: 49%; */
-}
+.salary-big-div div input {}
 
-.applications .container .application-form form .employement-data .countries-and-cities input {
-    /* width: 50%; */
-    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
-}
+.applications .container .application-form form .employement-data .countries-and-cities input {}
 
 .applications .container .application-form form input {
     width: 100%;
