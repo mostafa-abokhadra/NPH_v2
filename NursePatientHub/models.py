@@ -49,7 +49,7 @@ class Application(db.Model):
     salary = db.Column(db.Integer)
     currency = db.Column(db.String(60))
 
-class healthTeaching(db.Model, UserMixin):
+class HealthTeaching(db.Model, UserMixin):
     __tablename__ = 'HealthTeaching'
     id = db.Column(db.Integer, nullable=False, primary_key=True, autoincrement=True, unique=True)
     question = db.Column(db.String(100), nullable=False)

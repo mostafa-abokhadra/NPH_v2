@@ -1,6 +1,6 @@
 from NursePatientHub import app, bcrypt, db
 from flask import render_template, url_for, request, redirect, flash, session
-from NursePatientHub.models import User, Patient, Nurse, Employer, Application, healthTeaching
+from NursePatientHub.models import User, Patient, Nurse, Employer, Application, HealthTeaching
 from NursePatientHub.forms import Registration, Login
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -102,18 +102,17 @@ def applications():
 def healthTeaching():
     if request.method == 'POST':
         if current_user.userType == 'N':
-            parchor = healthTeaching.query.filter_by(question=request.form['ht-title'])
+            parchor = HealthTeaching.query.filter_by(question=request.form['ht-title'])
             parchor.answer = request.form['ht-content']
             parchor.nurse_id = current_user.id
         else:
-            parchor = healthTeaching(question=request.form["patient-q"], answer="empty")
+            parchor = HealthTeaching(answer="empty", question=request.form["patient-q"])
             parchor.patient_id = current_user.id
 
         db.session.add(parchor)
         db.session.commit()
-        all_parchors = healthTeaching.query.all()
-        return redirect(url_for('healthTeaching', all_parchors=all_parchors))
-    return render_template('healthTeaching.html')
+    all_parchors = HealthTeaching.query.all()
+    return render_template('healthTeaching.html', all_parchors=all_parchors)
 
 @app.route('/logout', strict_slashes=False)
 def logout():
