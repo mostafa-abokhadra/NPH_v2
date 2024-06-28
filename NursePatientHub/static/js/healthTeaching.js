@@ -59,6 +59,7 @@ let popup = document.querySelector('.populate-popup')
 try {
     let goTo = document.querySelectorAll('.go-to-popup')
     let questions = document.querySelectorAll('.a-question')
+    console.log(questions[0])
     let title = document.querySelector('.title-input')
     for (let i = 0; i < goTo.length; i++) {
         goTo[i].onclick = function () {

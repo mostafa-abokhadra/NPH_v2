@@ -164,18 +164,16 @@
         <div id="questionsToAnswer" class="still-not-answered">
             <h2>still not answered questions</h2>
             <div id='answer_me' class="questions">
-                {%for parchor in all_parchors%}
+                {%for ques in still%}
                     <div class="a-question">
-                        {%if parchor.answer == 'empty'%}
-                            <h4>{{parchor.question}}</h4>
-                            <div class="answer-link">
-                                {%if current_user.is_authenticated and current_user.userType == 'N'%}
-                                    <a class='go-to-popup'>answer</a>
-                                {%else%}
-                                    <a class='no-popup' >answer</a>
-                                {%endif%}
-                            </div>
-                        {%endif%}
+                        <h4>{{ques.question}}</h4>
+                        <div class="answer-link">
+                            {%if current_user.is_authenticated and current_user.userType == 'N'%}
+                                <a class='go-to-popup'>answer</a>
+                            {%else%}
+                                <a class='no-popup' >answer</a>
+                            {%endif%}
+                        </div>
                     </div>
                 {%endfor%}
             </div>
@@ -196,15 +194,13 @@
         </div> -->
         <div class="puplished-ht">
             {%for parchor in all_parchors%}
-                {%if parchor.answer != 'empty' %}
-                    <div class="a-ht">
-                        <img src="{{url_for('static', filename='imgs/healthTeaching.jpg')}}"/>
-                        <div class="ht-content">
-                            <h2>{{parchor.question}}</h2>
-                            <p>{{parchor.answer}}</p>
-                        </div>
+                <div class="a-ht">
+                    <img src="{{url_for('static', filename='imgs/healthTeaching.jpg')}}"/>
+                    <div class="ht-content">
+                        <h2>{{parchor.question}}</h2>
+                        <p>{{parchor.answer}}</p>
                     </div>
-                {%endif%}
+                </div>
             {%endfor%}
         </div>
     </section>

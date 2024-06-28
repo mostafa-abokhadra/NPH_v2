@@ -56,6 +56,12 @@ class HealthTeaching(db.Model, UserMixin):
     answer = db.Column(db.String(5000))
     patient_id = db.Column(db.Integer, db.ForeignKey('Patients.id')) # p.t who asks
     nurse_id = db.Column(db.Integer, db.ForeignKey('Nurses.id')) # nurse who answers
+
+class NotAnswered(db.Model, UserMixin):
+    __tablename__ = 'NotAnswered'
+    id = db.Column(db.Integer, nullable=False, primary_key=True, unique=True, autoincrement=True)
+    question = db.Column(db.String(100), nullable=False)
+    patient_id = db.Column(db.Integer, db.ForeignKey('Patients.id', onupdate='CASCADE'))
             
 with app.app_context():
     db.create_all()

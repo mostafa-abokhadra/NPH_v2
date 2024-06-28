@@ -1,6 +1,7 @@
 from NursePatientHub import app, bcrypt, db
 from flask import render_template, url_for, request, redirect, flash, session
-from NursePatientHub.models import User, Patient, Nurse, Employer, Application, HealthTeaching
+from NursePatientHub.models import User, Patient, Nurse, Employer
+from NursePatientHub.models import Application, HealthTeaching, NotAnswered
 from NursePatientHub.forms import Registration, Login
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -102,17 +103,21 @@ def applications():
 def healthTeaching():
     if request.method == 'POST':
         if current_user.userType == 'N':
-            parchor = HealthTeaching.query.filter_by(question=request.form['ht-title'])
-            parchor.answer = request.form['ht-content']
-            parchor.nurse_id = current_user.id
-            db.session.commit()
-        else:
-            parchor = HealthTeaching(answer="empty", question=request.form["patient-q"])
-            parchor.patient_id = current_user.id
+            still_question = NotAnswered.query.filter_by(question=request.form['ht-title']).first()
+            parchor = HealthTeaching(
+                question=still_question.question, answer=request.form['ht-content'],
+                nurse_id=current_user.type_N.id, patient_id=still_question.patient_id)
+            db.session.delete(still_question)
             db.session.add(parchor)
             db.session.commit()
+        else:
+            question = NotAnswered(question=request.form["patient-q"])
+            question.patient_id = current_user.type_P.id
+            db.session.add(question)
+            db.session.commit()
     all_parchors = HealthTeaching.query.all()
-    return render_template('healthTeaching.html', all_parchors=all_parchors)
+    still_to_answer = NotAnswered.query.all()
+    return render_template('healthTeaching.html', all_parchors=all_parchors, still=still_to_answer)
 
 @app.route('/logout', strict_slashes=False)
 def logout():
