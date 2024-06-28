@@ -31,17 +31,17 @@ try {
 } catch (err) {
     console.log("can't popUp question input")
 }
+
+let elem = document.createElement('small')
+elem.textContent = "login to access this service"
+elem.setAttribute('style', 'color: red; align-self: center; padding-left: 5px;')
+let parent = document.querySelectorAll('.styling-div')
+
 try {
     let plus_not_populate = document.querySelector('.populate .plus-logo-not')
     let plus_not_ask = document.querySelector('.ask .plus-logo-not')
-    let parent = document.querySelectorAll('.styling-div')
-
     plus_not_ask.addEventListener('click', popDownAsk)
     plus_not_populate.addEventListener('click', popDownPopulate)
-
-    let elem = document.createElement('small')
-    elem.textContent = "login to access this service"
-    elem.setAttribute('style', 'color: red; align-self: center; padding-left: 5px;')
 
     async function popDownPopulate() {
         parent[0].appendChild(elem)
@@ -49,25 +49,30 @@ try {
     async function popDownAsk() {
         parent[1].appendChild(elem)
     }
-    // let notNurse = document.querySelector('.plus-logo-notNurse')
-    // let notPatient = document.querySelector('.plus-logo-not-patient')
-    // console.log(notNurse)
-    // console.log(notPatient)
-    // notNurse.addEventListener('click', invlide_user_nurse)
-    // notPatient.addEventListener('click', invlide_user_patient)
-    // async function invlide_user_nurse() {
-    //     elem.textContent = "only Nurses have access to this page"
-    //     parent[0].appendChild(elem)
-    // }
-    // async function invlide_user_patient() {
-    //     elem.textContent = "only patinets have access to this page"
-    //     parent[1].appendChild(elem)
-    // }
 
 } catch (err) {
-    console.log("some thing went wrong with error message of 'you need to singIn first'")
+    console.log("some thing went wrong with error message of 'you need to login first'")
 }
 
+try {
+    let notNurse = document.querySelector('.plus-logo-notNurse')
+    let notPatient = document.querySelector('.plus-logo-not-patient')
+    // console.log(notNurse)
+    // console.log(notPatient)
+    notNurse.addEventListener('click', invlide_user_nurse)
+    notPatient.addEventListener('click', invlide_user_patient)
+
+    async function invlide_user_nurse() {
+        elem.textContent = "only Nurses have access to this page"
+        parent[0].appendChild(elem)
+    }
+    async function invlide_user_patient() {
+        elem.textContent = "only patinets have access to this page"
+        parent[1].appendChild(elem)
+    }
+} catch (err) {
+    console.log("error in error message of 'invalide user type to access this page!'")
+}
 // let populate = document.querySelector('.populate .plus-logo')
 // let ask = document.querySelector('.ask .plus-logo')
 // ask.addEventListener('click', pop_question)
