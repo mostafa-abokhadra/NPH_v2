@@ -21,28 +21,22 @@ class Nurse(db.Model):
     __tablename__ = "Nurses"
     id = db.Column(db.Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey("Users.id", ondelete="CASCADE", onupdate="CASCADE"))
-    # specialist = db.Column(db.String(50))
-    # degree = db.Column(db.String(50))
-    # employemnt_status = db.Column(db.String(50))
 
 class Patient(db.Model):
     __tablename__ = 'Patients'
     id = db.Column(db.Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey("Users.id", ondelete="CASCADE", onupdate="CASCADE"))
     nurse_id = db.Column(db.Integer, db.ForeignKey("Nurses.id", onupdate="CASCADE"))
-    # diagnosis = db.Column(db.String(50))
 
 class Employer(db.Model):
     __tablename__ = "Employers"
     id = db.Column(db.Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey("Users.id", ondelete="CASCADE", onupdate="CASCADE"))
     applications = db.relationship("Application", backref='employer', cascade="all, delete, save-update")
-    # organization_name = db.Column(db.String(50))
 
 class Application(db.Model):
     __tablename__ = 'Applications'
     id = db.Column(db.Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
-    # user_id = db.Column(db.Integer, db.ForeignKey("Employers.user_id", ondelete="CASCADE", onupdate="CASCADE"))
     employer_id = db.Column(db.Integer, db.ForeignKey("Employers.id", ondelete="CASCADE", onupdate="CASCADE"))
 
     country = db.Column(db.String(50))
@@ -52,14 +46,17 @@ class Application(db.Model):
     referred_by = db.Column(db.String(50))
     position = db.Column(db.String(100))
     education_requirements = db.Column(db.String(200))
-    # special_skills = db.Column(db.String(200))
     experience_years = db.Column(db.String(50))
     salary = db.Column(db.Integer)
     currency = db.Column(db.String(60))
 
-    # def __repr__(self):
-    #     return "position: {}\nsalary: {}\nreferred By: {}\n".format(
-    #         self.position, self.salary, self.referred_by)
+class healthTeaching(db.Model):
+    __tablename__ = 'HealthTeaching'
+    id = db.Column(db.Integer, nullable=False, primary_key=True, autoincrement=True, unique=True)
+    question = db.Column(db.String(100), nullable=False)
+    answer = db.Column(db.String(5000))
+    patient_id = db.Column(db.Integer, db.ForeignKey('Patients.id')) # p.t who asks
+    nurse_id = db.Column(db.Integer, db.ForeignKey('Nurses.id')) # nurse who answers
             
 # with app.app_context():
 #     db.create_all()

@@ -45,25 +45,73 @@
                         and hire high quality Nurses now
                     </p>
                 </div>
-
-                <div class="options">
-                    <div class="styling-div">
-                        <div class="populate">
-                            <div class="plus-logo">
-                                <i class="fa-solid fa-plus"></i>
+                {%if current_user.is_authenticated%}
+                    <div class="options">
+                        {%if current_user.userType == 'N'%}
+                            <div class="styling-div">
+                                <div class="populate">
+                                    <div class="plus-logo">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                    <h4>populate teaching</h4>
+                                </div>
                             </div>
-                            <h4>populate teaching</h4>
+                        {%else%}
+                            <div class="styling-div">
+                                <div class="populate">
+                                    <div class="plus-logo-notNurse">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                    <h4>populate teaching</h4>
+                                </div>
+                            </div>
+                        {%endif%}
+                        {%if current_user.userType == 'P'%}
+                            <div class="styling-div">
+                                <div class="ask">
+                                    <div class="plus-logo">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                    <h4>Ask a question</h4>
+                                </div>
+                                <div class="q-form">
+                                    <form action="" method="post">
+                                        <input class="ques" type="text" name="patient-q" placeholder="write your question">
+                                        <input class="q-submit" type="submit" vlaue="send">
+                                    </form>
+                                </div>
+                            </div>
+                        {%else%}
+                            <div class="styling-div">
+                                <div class="ask">
+                                    <div class="plus-logo-not-patient">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                    <h4>Ask a question</h4>
+                                </div>
+                            </div>
+                        {%endif%}
+                    </div>
+                {%else%}
+                    <div class="options">
+                        <div class="styling-div">
+                            <div class="populate">
+                                <div class="plus-logo-not">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <h4>populate teaching</h4>
+                            </div>
+                        </div>
+                        <div class="styling-div">
+                            <div class="ask">
+                                <div class="plus-logo-not">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <h4>Ask a question</h4>
+                            </div>
                         </div>
                     </div>
-                    <div class="styling-div">
-                        <div class="ask">
-                            <div class="plus-logo">
-                                <i class="fa-solid fa-plus"></i>
-                            </div>
-                            <h4>Ask a question</h4>
-                        </div>
-                    </div>
-                </div>
+                {%endif%}
             </div>
 
             <div class="ht-photo">
