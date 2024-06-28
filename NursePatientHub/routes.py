@@ -71,12 +71,8 @@ def login():
 
 @app.route('/jobs', strict_slashes=False, methods=['GET'])
 def jobs():
-    if request.args.get('flag'):
-        flag=request.args.get('flag')
-    else:
-        flag = 2
     apls = Application.query.all()
-    return render_template('jobs.html', apls=apls, flag=flag)
+    return render_template('jobs.html', apls=apls, flag=request.args.get('flag'))
     
 @app.route('/applications', methods=["GET", "POST"])
 @login_required
@@ -99,7 +95,7 @@ def applications():
         current_user.applications = new_application
         flash("application added successfully")
         return redirect(url_for('jobs', flag=1))
-    return render_template('applications.html')
+    return render_template('applications.html', flag=0)
 
 
 @app.route('/healthTeaching', methods=["GET", "POST"])

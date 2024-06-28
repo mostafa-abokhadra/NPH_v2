@@ -12,6 +12,7 @@
 
 {%block content%}
     {%if flag == 1%}
+    <div>messi</div>
         {%with msgs = get_flashed_messages()%}
             {%for msg in msgs%}
                 {%if msg%}
@@ -26,7 +27,7 @@
         <div class="container">
             <section class="jobs">
                 <div class="jobs-landing">
-                        {%if flag == 0%}
+                        {%if request.args.get(flag) == 0%}
                             {%with msgs = get_flashed_messages()%}
                                 {%for msg in msgs%}
                                     {%if msg%}
