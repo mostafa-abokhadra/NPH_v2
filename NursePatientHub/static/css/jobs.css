@@ -75,8 +75,8 @@
 
 .plus-logo:hover {
     cursor: pointer;
-    /* background-color: rgb(198, 197, 197); */
-    opacity: 0.8;
+    background-color: rgb(222, 217, 217);
+
 }
 
 .add-an-opportunity i {

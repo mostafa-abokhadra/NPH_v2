@@ -11,7 +11,7 @@
 {%endblock%}
 
 {%block content%}
-    {%if flag %}
+    {%if flag != 1 %}
         {%with msgs = get_flashed_messages()%}
             {%for msg in msgs%}
                 {%if msg%}
