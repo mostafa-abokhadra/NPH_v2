@@ -11,13 +11,12 @@
 {%endblock%}
 
 {%block content%}
-    {%if flag == 1%}
-    <div>messi</div>
+    {%if current_user.userType == 'E'%}
         {%with msgs = get_flashed_messages()%}
             {%for msg in msgs%}
                 {%if msg%}
                     <div 
-                    style="color: green; background-color: '{{color}}'; height: 40px;
+                    style="color: white; background-color: green; height: 40px;
                     display: flex; justify-content: center; align-items: center;">{{msg}}</div>
                 {%endif%}
             {%endfor%}
@@ -27,7 +26,7 @@
         <div class="container">
             <section class="jobs">
                 <div class="jobs-landing">
-                        {%if request.args.get(flag) == 0%}
+                        {%if current_user.userType == 'N' or current_user.userType == 'P'%}
                             {%with msgs = get_flashed_messages()%}
                                 {%for msg in msgs%}
                                     {%if msg%}

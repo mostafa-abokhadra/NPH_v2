@@ -72,7 +72,7 @@ def login():
 @app.route('/jobs', strict_slashes=False, methods=['GET'])
 def jobs():
     apls = Application.query.all()
-    return render_template('jobs.html', apls=apls, flag=request.args.get('flag'))
+    return render_template('jobs.html', apls=apls)
     
 @app.route('/applications', methods=["GET", "POST"])
 @login_required
@@ -80,7 +80,7 @@ def applications():
     if request.method == "GET":
         if current_user.userType == 'P' or current_user.userType == 'N':
             flash("only employers have access to this page !")
-            return redirect(url_for('jobs', flag=0))
+            return redirect(url_for('jobs'))
     elif request.method == 'POST':
         new_application = Application(
         country=request.form["country"], city=request.form["city"],
@@ -94,8 +94,8 @@ def applications():
         db.session.commit()
         current_user.applications = new_application
         flash("application added successfully")
-        return redirect(url_for('jobs', flag=1))
-    return render_template('applications.html', flag=0)
+        return redirect(url_for('jobs'))
+    return render_template('applications.html')
 
 
 @app.route('/healthTeaching', methods=["GET", "POST"])
