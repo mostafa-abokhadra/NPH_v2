@@ -58,5 +58,5 @@ class healthTeaching(db.Model):
     patient_id = db.Column(db.Integer, db.ForeignKey('Patients.id')) # p.t who asks
     nurse_id = db.Column(db.Integer, db.ForeignKey('Nurses.id')) # nurse who answers
             
-# with app.app_context():
-#     db.create_all()
+with app.app_context():
+    db.create_all()

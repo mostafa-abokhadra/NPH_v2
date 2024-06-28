@@ -30,6 +30,7 @@
                     </div>
                     <div class="textarea-div">
                         <textarea
+                        name="ht-content"
                         required
                         placeholder="write the content"
                         class="text-area-input"></textarea>
@@ -176,27 +177,15 @@
             </div>
         </div> -->
         <div class="puplished-ht">
-            <div class="a-ht">
-                <img src="{{url_for('static', filename='imgs/healthTeaching.jpg')}}"/>
-                <div class="ht-content">
-                    <h2>title</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eius quam laudantium cum veniam aut laboriosam inventore dignissimos harum vel quaerat exercitationem explicabo ipsam deleniti accusantium voluptatem? Obcaecati, harum fuga?</p>
+            {%for parchor in all_parchors%}
+                <div class="a-ht">
+                    <img src="{{url_for('static', filename='imgs/healthTeaching.jpg')}}"/>
+                    <div class="ht-content">
+                        <h2>{{parchor.question}}</h2>
+                        <p>{{parchor.answer}}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="a-ht">
-                <img src="{{url_for('static', filename='imgs/ht2.jpg')}}"/>
-                <div class="ht-content">
-                    <h2>title</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eius quam laudantium cum veniam aut laboriosam inventore dignissimos harum vel quaerat exercitationem explicabo ipsam deleniti accusantium voluptatem? Obcaecati, harum fuga?</p>
-                </div>
-            </div>
-            <div class="a-ht">
-                <img src="{{url_for('static', filename='imgs/healthTeaching.jpg')}}"/>
-                <div class="ht-content">
-                    <h2>title</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, eius quam laudantium cum veniam aut laboriosam inventore dignissimos harum vel quaerat exercitationem explicabo ipsam deleniti accusantium voluptatem? Obcaecati, harum fuga?</p>
-                </div>
-            </div>
+            {%endfor%}
         </div>
     </section>
 </main>
