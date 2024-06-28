@@ -65,16 +65,16 @@ try {
     console.log(err)
 }
 /**/
-try {
-    let notPatient = document.querySelector('.plus-logo-not-patient')
-    notPatient.addEventListener('click', invlide_user_patient)
-    async function invlide_user_patient() {
-        elem.textContent = "only patinets have access to this page"
-        parent[1].appendChild(elem)
-    }
-} catch (err) {
-    console.log(err)
-}
+// try {
+//     let notPatient = document.querySelector('.plus-logo-not-patient')
+//     notPatient.addEventListener('click', invlide_user_patient)
+//     async function invlide_user_patient() {
+//         elem.textContent = "only patinets have access to this page"
+//         parent[1].appendChild(elem)
+//     }
+// } catch (err) {
+//     console.log(err)
+// }
 /**/
 let answer_link = document.querySelector('.answer-link')
 try {

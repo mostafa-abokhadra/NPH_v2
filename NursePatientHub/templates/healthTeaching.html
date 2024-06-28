@@ -153,8 +153,8 @@
         <div id="questionsToAnswer" class="still-not-answered">
             <h2>still not answered questions</h2>
             <div class="questions">
-                <div class="a-question">
-                    {%for parchor in all_parchors%}
+                {%for parchor in all_parchors%}
+                    <div class="a-question">
                         {%if parchor.answer == 'empty'%}
                             <h4>{{parchor.question}}</h4>
                             <div class="answer-link">
@@ -165,8 +165,8 @@
                                 {%endif%}
                             </div>
                         {%endif%}
-                    {%endfor%}
-                </div>
+                    </div>
+                {%endfor%}
             </div>
         </div>
         <!-- <div class="options">
@@ -185,15 +185,15 @@
         </div> -->
         <div class="puplished-ht">
             {%for parchor in all_parchors%}
-                <div class="a-ht">
-                    <img src="{{url_for('static', filename='imgs/healthTeaching.jpg')}}"/>
-                    <div class="ht-content">
-                        {%if parchor.answer != 'empty' %}
+                {%if parchor.answer != 'empty' %}
+                    <div class="a-ht">
+                        <img src="{{url_for('static', filename='imgs/healthTeaching.jpg')}}"/>
+                        <div class="ht-content">
                             <h2>{{parchor.question}}</h2>
                             <p>{{parchor.answer}}</p>
-                        {%endif%}
+                        </div>
                     </div>
-                </div>
+                {%endif%}
             {%endfor%}
         </div>
     </section>
