@@ -12,7 +12,6 @@
 
 {%block content%}
     {%if flag == 1 %}
-        <div>{{flag}}</div>
         {%with msgs = get_flashed_messages()%}
             {%for msg in msgs%}
                 {%if msg%}
@@ -28,7 +27,6 @@
             <section class="jobs">
                 <div class="jobs-landing">
                     {% if flag == 0 %}
-                    <div>{{flag}}</div>
                         {%with msgs = get_flashed_messages()%}
                             {%for msg in msgs%}
                                 {%if msg%}

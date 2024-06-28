@@ -68,41 +68,35 @@ def login():
                 flash("email can't be found!")
     return render_template("login.html", form=form)
 
-@app.route('/jobs', strict_slashes=False, methods=['post', 'GET'])
-@app.route('/jobs/<flag>', strict_slashes=False, methods=['post', 'GET'])
-def jobs(flag=0):
+@app.route('/jobs', strict_slashes=False, methods=['GET'])
+def jobs():
     apls = Application.query.all()
-    return render_template('jobs.html', apls=apls, flag=flag)
+    return render_template('jobs.html', apls=apls)
     
 @app.route('/applications', methods=["GET", "POST"])
 @login_required
 def applications():
-    if current_user.is_authenticated:
-        if request.method == "GET":
-            if current_user.userType == 'P' or current_user.userType == 'N':
-                flag = 0
-                flash("only employers have access to this page !")
-                return redirect(url_for('jobs', flag=flag))
-        elif request.method == 'POST':
-            flag=1
-            new_application = Application(
-            country=request.form["country"], city=request.form["city"],
-            organization_name=request.form["organizationName"],
-            organization_address=request.form["organizationAddress"],
-            referred_by=request.form["employerName"], position=request.form["position"],
-            education_requirements=request.form["education"],
-            experience_years=request.form["experienceYears"],
-            salary=request.form["salary"], currency=request.form["currency"], employer_id=current_user.id)
-            db.session.add(new_application)
-            db.session.commit()
-            current_user.applications = new_application
-            flash("application added successfully")
-            return redirect(url_for('jobs', flag=flag))
-        return render_template('applications.html')
-    else:
-        flag=0
-        flash("only employers have access to this page !")
-        return redirect(url_for('jobs', flag=flag))
+    if request.method == "GET":
+        if current_user.userType == 'P' or current_user.userType == 'N':
+            apls = Application.query.all()
+            flash("only employers have access to this page !")
+            return render_template('jobs.html', flag=0, apls=apls)
+    elif request.method == 'POST':
+        new_application = Application(
+        country=request.form["country"], city=request.form["city"],
+        organization_name=request.form["organizationName"],
+        organization_address=request.form["organizationAddress"],
+        referred_by=request.form["employerName"], position=request.form["position"],
+        education_requirements=request.form["education"],
+        experience_years=request.form["experienceYears"],
+        salary=request.form["salary"], currency=request.form["currency"], employer_id=current_user.id)
+        db.session.add(new_application)
+        db.session.commit()
+        current_user.applications = new_application
+        apls = Application.query.all()
+        flash("application added successfully")
+        return render_template('jobs.html', flag=1, apls=apls)
+    return render_template('applications.html')
 
 
 @app.route('/healthTeaching', methods=["GET", "POST"])
