@@ -12,17 +12,27 @@
 <main class="ht-landing">
     <section class="container">
         <div class="parag-photo">
-            <div class="populate-popup">
+            <div id="populate-popup" class="populate-popup">
                 <form action="" method="post">
-                    <div class="title-input">
+                    <div class="title-input-div">
                         <div class="lable-x">
-                            <label>title</label>
+                            <label for="title">title</label>
                             <i class="fa-solid fa-x"></i>
                         </div>
-                        <input name="ht-title" type="text" maxlength="100" placeholder="title shouldn't exceed 100 character">
+                        <input id="title"
+                            name="ht-title"
+                            type="text"
+                            maxlength="100"
+                            placeholder="title shouldn't exceed 100 character" 
+                            required
+                            class="title-input"
+                        >
                     </div>
                     <div class="textarea-div">
-                        <textarea placeholder="write the content"></textarea>
+                        <textarea
+                        required
+                        placeholder="write the content"
+                        class="text-area-input"></textarea>
                     </div>
                     <div class="submit-div">
                         <input type="submit" vlaue="send">
@@ -142,7 +152,11 @@
                 <div class="a-question">
                     <h4>question1</h4>
                     <div class="answer-link">
-                        <a href="#">answer</a>
+                        {%if current_user.is_authenticated and current_user.userType == 'N'%}
+                            <a class='go-to-popup' href="#">answer</a>
+                        {%else%}
+                            <a class='no-popup' >answer</a>
+                        {%endif%}
                     </div>
                 </div>
             </div>

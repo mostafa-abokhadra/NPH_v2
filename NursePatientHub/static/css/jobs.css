@@ -58,6 +58,13 @@
 
 }
 
+.application-link {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .plus-logo {
     padding: 7px;
     border: 2px solid grey;
@@ -68,7 +75,8 @@
 
 .plus-logo:hover {
     cursor: pointer;
-    background-color: rgb(198, 197, 197);
+    /* background-color: rgb(198, 197, 197); */
+    opacity: 0.8;
 }
 
 .add-an-opportunity i {

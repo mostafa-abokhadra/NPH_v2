@@ -69,20 +69,21 @@ def login():
     return render_template("login.html", form=form)
 
 @app.route('/jobs', strict_slashes=False, methods=['post', 'GET'])
-def jobs():
-    if request.method == 'GET':
-        apls = Application.query.all()
-    return render_template('jobs.html', apls=apls)
+@app.route('/jobs/<flag>', strict_slashes=False, methods=['post', 'GET'])
+def jobs(flag=0):
+    apls = Application.query.all()
+    return render_template('jobs.html', apls=apls, flag=flag)
     
 @app.route('/applications', methods=["GET", "POST"])
 @login_required
 def applications():
-    if request.method == "GET":
-        if current_user.userType == 'P' or current_user.userType == 'N':
-            flash("only employers have access to this page !")
-            return redirect(url_for('jobs', flag=0))
-    if request.method == 'POST':
-        new_application = Application(
+    if current_user.is_authenticated:
+        if request.method == "GET":
+            if current_user.userType == 'P' or current_user.userType == 'N':
+                flash("only employers have access to this page !")
+                return redirect(url_for('jobs', flag=0))
+        elif request.method == 'POST':
+            new_application = Application(
             country=request.form["country"], city=request.form["city"],
             organization_name=request.form["organizationName"],
             organization_address=request.form["organizationAddress"],
@@ -90,12 +91,16 @@ def applications():
             education_requirements=request.form["education"],
             experience_years=request.form["experienceYears"],
             salary=request.form["salary"], currency=request.form["currency"], employer_id=current_user.id)
-        db.session.add(new_application)
-        db.session.commit()
-        current_user.applications = new_application
-        flash("application added successfully")
-        return render_template('jobs.html', flag=1)
-    return render_template('applications.html')
+            db.session.add(new_application)
+            db.session.commit()
+            current_user.applications = new_application
+            flash("application added successfully")
+            return redirect(url_for('jobs', flag=1))
+        return render_template('applications.html')
+    else:
+        flash("only employers have access to this page !")
+        return redirect(url_for('jobs', flag=0))
+
 
 @app.route('/healthTeaching', methods=["GET", "POST"])
 def healthTeaching():
