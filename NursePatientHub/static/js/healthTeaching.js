@@ -1,4 +1,4 @@
-// let popup = document.querySelector('.populate-popup')
+
 // try {
 //     let populate_plus_logo = document.querySelector('.populate .plus-logo')
 //     populate_plus_logo.addEventListener('click', popItUp)
@@ -55,22 +55,47 @@ try {
 
 /* whan a nurse click on answer link to a patient questoin, small window will popUp */
 let answer_link = document.querySelector('.answer-link')
+let popup = document.querySelector('.populate-popup')
 try {
-    let goTo = document.querySelector('.go-to-popup')
-    goTo.addEventListener('click', goToPopUp)
-    async function goToPopUp() {
-        let myQ = document.querySelector('.a-question h4')
-        let myInput = document.querySelector('.title-input')
-        myInput.value = myQ.textContent
-        let myAttr = document.createAttribute('autofocus')
-        let myArea = document.querySelector('.text-area-input')
-        myArea.setAttributeNode(myAttr)
-        popup.setAttribute('style', 'display: block;')
+    let goTo = document.querySelectorAll('.go-to-popup')
+    let questions = document.querySelectorAll('.a-question')
+    let title = document.querySelector('.title-input')
+    for (let i = 0; i < goTo.length; i++) {
+        goTo[i].onclick = function () {
+            let myQ = questions[i].firstElementChild.textContent
+            title.value = myQ
+            popup.setAttribute('style', 'display: block;')
+        }
     }
+
+
+    // let goTo = document.querySelectorAll('.go-to-popup')
+    // goTo.addEventListener('click', goToPopUp)
+    // async function goToPopUp() {
+    //     let myQ = document.querySelector('.a-question h4')
+    //     let myInput = document.querySelector('.title-input')
+    //     myInput.value = myQ.textContent
+    //     let myAttr = document.createAttribute('autofocus')
+    //     let myArea = document.querySelector('.text-area-input')
+    //     myArea.setAttributeNode(myAttr)
+    //     popup.setAttribute('style', 'display: block;')
+    // }
 } catch (err) {
     console.log(err)
 }
 /*end*/
+
+/* closing popUp health teaching window of nurses */
+try {
+    let close = document.querySelector('.lable-x i')
+    close.addEventListener('click', closeIt)
+    async function closeIt() {
+        popup.setAttribute('style', 'display: none;')
+    }
+} catch (err) {
+    console.log(err)
+}
+/* end */
 
 /* if a patient or employer tries to populate healthTeaching this code runs*/
 try {

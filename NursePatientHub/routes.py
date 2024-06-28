@@ -105,12 +105,12 @@ def healthTeaching():
             parchor = HealthTeaching.query.filter_by(question=request.form['ht-title'])
             parchor.answer = request.form['ht-content']
             parchor.nurse_id = current_user.id
+            db.session.commit()
         else:
             parchor = HealthTeaching(answer="empty", question=request.form["patient-q"])
             parchor.patient_id = current_user.id
-
-        db.session.add(parchor)
-        db.session.commit()
+            db.session.add(parchor)
+            db.session.commit()
     all_parchors = HealthTeaching.query.all()
     return render_template('healthTeaching.html', all_parchors=all_parchors)
 

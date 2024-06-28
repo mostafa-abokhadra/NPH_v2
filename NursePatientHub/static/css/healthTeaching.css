@@ -109,7 +109,7 @@ main {
     position: absolute;
     z-index: 9;
     left: 15%;
-    top: 15%;
+    top: 50%;
     padding: 10px;
     display: flex;
     width: 70%;
@@ -392,11 +392,14 @@ main {
 
 .only-nurses {
     width: 100%;
+    padding: 10px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    font-size: 30px;
+    font-size: 20px;
     color: red;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .ht-landing .container .still-not-answered h2 {
