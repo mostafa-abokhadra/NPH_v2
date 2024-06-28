@@ -63,6 +63,7 @@
     width: 100%;
     justify-content: space-around;
     align-items: center;
+    text-decoration: none;
 }
 
 .plus-logo {
@@ -99,7 +100,7 @@
 
 .applications .container {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     /* background-color: #ebeced; */
 }
@@ -109,9 +110,9 @@
     margin-top: 5px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
-    width: 100%;
+    /* width: 100%; */
     /* background-color: red; */
 
 }
@@ -128,6 +129,7 @@
     border-radius: 0px 0px 10px 10px;
     transition: 0.3s;
     margin-top: 10px;
+    margin-right: 3.33%;
 }
 
 .applications .container .job-applications .applications-section:hover {

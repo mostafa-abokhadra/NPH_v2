@@ -12,6 +12,7 @@
 <main class="ht-landing">
     <section class="container">
         <div class="parag-photo">
+
             <div id="populate-popup" class="populate-popup">
                 <form action="" method="post">
                     <div class="title-input-div">
@@ -40,9 +41,9 @@
                     </div>
                 </form>
             </div>
+
             <div class="explaination">
                 <h1 class="healthTeaching">HealthTeaching</h1>
-
                 <div class="ht-landig-parag">
                     <p>A professional Nurse? apply now for a nurse admin and answer
                         patients questions by populating health teaching and guidance
@@ -89,8 +90,18 @@
                                 </div>
                                 <div class="q-form">
                                     <form action="" method="post">
-                                        <input class="ques" type="text" name="patient-q" placeholder="write your question">
-                                        <input class="q-submit" type="submit" vlaue="send">
+                                        <input
+                                            required
+                                            class="ques"
+                                            type="text"
+                                            name="patient-q"
+                                            placeholder="write your question"
+                                        >
+                                        <input
+                                            class="q-submit"
+                                            type="submit"
+                                            vlaue="send"
+                                        >
                                     </form>
                                 </div>
                             </div>
@@ -152,14 +163,14 @@
 
         <div id="questionsToAnswer" class="still-not-answered">
             <h2>still not answered questions</h2>
-            <div class="questions">
+            <div id='answer_me' class="questions">
                 {%for parchor in all_parchors%}
                     <div class="a-question">
                         {%if parchor.answer == 'empty'%}
                             <h4>{{parchor.question}}</h4>
                             <div class="answer-link">
                                 {%if current_user.is_authenticated and current_user.userType == 'N'%}
-                                    <a id='answer_me' class='go-to-popup' href="#">answer</a>
+                                    <a class='go-to-popup' href="">answer</a>
                                 {%else%}
                                     <a class='no-popup' >answer</a>
                                 {%endif%}

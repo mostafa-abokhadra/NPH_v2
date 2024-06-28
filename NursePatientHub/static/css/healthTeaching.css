@@ -57,6 +57,11 @@ main {
     /* background-color: red; */
 }
 
+.ht-landing .container .parag-photo .explaination .options .styling-div a {
+    text-decoration: none;
+    color: black;
+}
+
 .q-form {
     width: 100%;
     display: none;
@@ -104,7 +109,7 @@ main {
     position: absolute;
     z-index: 9;
     left: 15%;
-    top: 5%;
+    top: 15%;
     padding: 10px;
     display: flex;
     width: 70%;
@@ -383,6 +388,15 @@ main {
     justify-content: center;
     align-items: center;
     /* background-color: #8ed1fc; */
+}
+
+.only-nurses {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: red;
 }
 
 .ht-landing .container .still-not-answered h2 {
