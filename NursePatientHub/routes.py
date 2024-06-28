@@ -1,5 +1,5 @@
 from NursePatientHub import app, bcrypt, db
-from flask import render_template, url_for, request, redirect, flash
+from flask import render_template, url_for, request, redirect, flash, session
 from NursePatientHub.models import User, Patient, Nurse, Employer, Application
 from NursePatientHub.forms import Registration, Login
 from flask_login import login_user, current_user, logout_user, login_required
@@ -68,19 +68,23 @@ def login():
                 flash("email can't be found!")
     return render_template("login.html", form=form)
 
+
 @app.route('/jobs', strict_slashes=False, methods=['GET'])
 def jobs():
+    if request.args.get('flag'):
+        flag=request.args.get('flag')
+    else:
+        flag = 2
     apls = Application.query.all()
-    return render_template('jobs.html', apls=apls)
+    return render_template('jobs.html', apls=apls, flag=flag)
     
 @app.route('/applications', methods=["GET", "POST"])
 @login_required
 def applications():
     if request.method == "GET":
         if current_user.userType == 'P' or current_user.userType == 'N':
-            apls = Application.query.all()
             flash("only employers have access to this page !")
-            return render_template('jobs.html', flag=0, apls=apls)
+            return redirect(url_for('jobs', flag=0))
     elif request.method == 'POST':
         new_application = Application(
         country=request.form["country"], city=request.form["city"],
@@ -93,9 +97,8 @@ def applications():
         db.session.add(new_application)
         db.session.commit()
         current_user.applications = new_application
-        apls = Application.query.all()
         flash("application added successfully")
-        return render_template('jobs.html', flag=1, apls=apls)
+        return redirect(url_for('jobs', flag=1))
     return render_template('applications.html')
 
 

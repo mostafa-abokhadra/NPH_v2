@@ -11,12 +11,12 @@
 {%endblock%}
 
 {%block content%}
-    {%if flag == 1 %}
+    {%if flag == 1%}
         {%with msgs = get_flashed_messages()%}
             {%for msg in msgs%}
                 {%if msg%}
                     <div 
-                    style="color: white; background-color: green; height: 40px;
+                    style="color: green; background-color: '{{color}}'; height: 40px;
                     display: flex; justify-content: center; align-items: center;">{{msg}}</div>
                 {%endif%}
             {%endfor%}
@@ -26,15 +26,15 @@
         <div class="container">
             <section class="jobs">
                 <div class="jobs-landing">
-                    {% if flag == 0 %}
-                        {%with msgs = get_flashed_messages()%}
-                            {%for msg in msgs%}
-                                {%if msg%}
-                                    <small style="color: red;">{{msg}}</small>
-                                {%endif%}
-                            {%endfor%}
-                        {%endwith%}
-                    {%endif%}
+                        {%if flag == 0%}
+                            {%with msgs = get_flashed_messages()%}
+                                {%for msg in msgs%}
+                                    {%if msg%}
+                                        <small style="color: red;">{{msg}}</small>
+                                    {%endif%}
+                                {%endfor%}
+                            {%endwith%}
+                        {%endif%}
                     <h1> Find Job opportunities</h1>
                     <div class="add-an-opportunity">
                         <a class="application-link" href="{{url_for('applications')}}">
