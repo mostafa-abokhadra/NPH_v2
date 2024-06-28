@@ -38,7 +38,6 @@ class Application(db.Model):
     __tablename__ = 'Applications'
     id = db.Column(db.Integer, nullable=False, unique=True, primary_key=True, autoincrement=True)
     employer_id = db.Column(db.Integer, db.ForeignKey("Employers.id", ondelete="CASCADE", onupdate="CASCADE"))
-
     country = db.Column(db.String(50))
     city = db.Column(db.String(50))
     organization_name = db.Column(db.String(50))
@@ -50,7 +49,7 @@ class Application(db.Model):
     salary = db.Column(db.Integer)
     currency = db.Column(db.String(60))
 
-class healthTeaching(db.Model):
+class healthTeaching(db.Model, UserMixin):
     __tablename__ = 'HealthTeaching'
     id = db.Column(db.Integer, nullable=False, primary_key=True, autoincrement=True, unique=True)
     question = db.Column(db.String(100), nullable=False)

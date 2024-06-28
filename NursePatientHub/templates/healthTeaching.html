@@ -60,12 +60,14 @@
                     <div class="options">
                         {%if current_user.userType == 'N'%}
                             <div class="styling-div">
-                                <div class="populate">
-                                    <div class="plus-logo">
-                                        <i class="fa-solid fa-plus"></i>
+                                <a class="popup-link" href="#answer_me">
+                                    <div class="populate">
+                                        <div class="plus-logo">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+                                        <h4>populate teaching</h4>
                                     </div>
-                                    <h4>populate teaching</h4>
-                                </div>
+                                </a>
                             </div>
                         {%else%}
                             <div class="styling-div">
@@ -147,18 +149,23 @@
 
             </div>
         </div>
-        <div id="questionsToAnswer"class="still-not-answered">
+
+        <div id="questionsToAnswer" class="still-not-answered">
             <h2>still not answered questions</h2>
             <div class="questions">
                 <div class="a-question">
-                    <h4>question1</h4>
-                    <div class="answer-link">
-                        {%if current_user.is_authenticated and current_user.userType == 'N'%}
-                            <a class='go-to-popup' href="#">answer</a>
-                        {%else%}
-                            <a class='no-popup' >answer</a>
+                    {%for parchor in all_parchors%}
+                        {%if parchor.answer == 'empty'%}
+                            <h4>{{parchor.question}}</h4>
+                            <div class="answer-link">
+                                {%if current_user.is_authenticated and current_user.userType == 'N'%}
+                                    <a id='answer_me' class='go-to-popup' href="#">answer</a>
+                                {%else%}
+                                    <a class='no-popup' >answer</a>
+                                {%endif%}
+                            </div>
                         {%endif%}
-                    </div>
+                    {%endfor%}
                 </div>
             </div>
         </div>
@@ -181,8 +188,10 @@
                 <div class="a-ht">
                     <img src="{{url_for('static', filename='imgs/healthTeaching.jpg')}}"/>
                     <div class="ht-content">
-                        <h2>{{parchor.question}}</h2>
-                        <p>{{parchor.answer}}</p>
+                        {%if parchor.answer != 'empty' %}
+                            <h2>{{parchor.question}}</h2>
+                            <p>{{parchor.answer}}</p>
+                        {%endif%}
                     </div>
                 </div>
             {%endfor%}

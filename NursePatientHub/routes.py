@@ -106,12 +106,12 @@ def healthTeaching():
             parchor.answer = request.form['ht-content']
             parchor.nurse_id = current_user.id
         else:
-            parchor = healthTeaching(question=request.form["ht-title"], answer="empty")
+            parchor = healthTeaching(question=request.form["patient-q"], answer="empty")
             parchor.patient_id = current_user.id
 
         db.session.add(parchor)
         db.session.commit()
-        all_parchors = healthTeaching.query.filter_by(answer!='empty').all()
+        all_parchors = healthTeaching.query.all()
         return redirect(url_for('healthTeaching', all_parchors=all_parchors))
     return render_template('healthTeaching.html')
 
