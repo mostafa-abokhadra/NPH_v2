@@ -1,9 +1,0 @@
-application deployement => fabric
-os module
-tar command
-want to automate tasks => fabric, bash
-symbolic link
-database replica
-selenium library, webdriver
-هعمل api 
-لما يدوس سبمت هبعت البيانات ب فيتش لو كويسه وسليمه هبعتله ريسبونس فيه الداتا دي تاني 
