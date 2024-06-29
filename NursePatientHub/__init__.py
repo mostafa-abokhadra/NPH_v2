@@ -9,7 +9,7 @@ from flask_login import LoginManager
 app = Flask(__name__, static_url_path='/static')
 app.secret_key = os.urandom(12)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://database_admin:NPH_db_admin@localhost/NPH'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://database_admin:NPH_db_admin@localhost/NPH'
 app.config.from_object(__name__)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
