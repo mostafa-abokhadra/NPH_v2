@@ -28,6 +28,6 @@ media_1200.addEventListener(for_media_1200, for_media_1200);
 
 let logo_div = document.querySelector(".logo-div");
 logo_div.onclick = function () {
-    let url = "http://127.0.0.1:5000/";
+    let url = "https://nph-785eb2775630.herokuapp.com/";
     location.href = url;
 }
