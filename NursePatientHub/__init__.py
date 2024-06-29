@@ -13,7 +13,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://{}:{}@{}:{}/{}".format(
     os.environ.get('AVNADMIN'), os.environ.get('AVN_PASSWORD'),
     os.environ.get('AVNHOST'), os.environ.get('AVNPORT'),
     os.environ.get('AVNDB'))
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://database_admin:NPH_db_admin@localhost/NPH'
 app.config.from_object(__name__)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
