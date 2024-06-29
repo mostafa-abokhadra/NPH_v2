@@ -5,7 +5,6 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 import os
 from flask_login import LoginManager
-import pymysql
 
 app = Flask(__name__, static_url_path='/static')
 app.secret_key = os.urandom(12)
