@@ -90,7 +90,7 @@ def applications():
         referred_by=request.form["employerName"], position=request.form["position"],
         education_requirements=request.form["education"],
         experience_years=request.form["experienceYears"],
-        salary=request.form["salary"], currency=request.form["currency"], employer_id=current_user.id)
+        salary=request.form["salary"], currency=request.form["currency"], employer_id=current_user.type_E.id)
         db.session.add(new_application)
         db.session.commit()
         current_user.applications = new_application

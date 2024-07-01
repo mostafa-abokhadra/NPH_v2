@@ -49,21 +49,23 @@
   <body>
     <header>
       <div class="container">
-        <div class="logo-links">
-          <div class="logo-div">
-            <img src="{{url_for('static', filename='imgs/logo.PNG')}}" />
-            <div class="site-name">
-              <span>NursePatient Hub</span>
+          <div class="logo-links">
+            <a class="logo-links-anchor" href="{{url_for('home')}}">
+              <div class="logo-div">
+                <img src="{{url_for('static', filename='imgs/logo.PNG')}}" />
+                <div class="site-name">
+                  <span>NursePatientHub</span>
+                </div>
+              </div>
+            </a>
+            <div class="links">
+              <ul>
+                <li><a href="{{url_for('jobs')}}">jobs</a></li>
+                <li><a href="{{url_for('healthTeaching')}}">Health teaching</a></li>
+                <li><a href="{{url_for('about')}}">about</a></li>
+              </ul>
             </div>
           </div>
-          <div class="links">
-            <ul>
-              <li><a href="{{url_for('jobs')}}">jobs</a></li>
-              <li><a href="{{url_for('healthTeaching')}}">Health teaching</a></li>
-              <li><a href="{{url_for('about')}}">about</a></li>
-            </ul>
-          </div>
-        </div>
         <div class="registeration">
           {% if current_user.is_authenticated%}
             <a href="{{url_for('logout')}}" class="logout">logout</a>
