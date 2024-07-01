@@ -12,9 +12,6 @@ app.secret_key = os.urandom(12)
 if not all([ os.environ.get('AVNADMIN'), os.environ.get('AVN_PASSWORD'),
     os.environ.get('AVNHOST'), os.environ.get('AVNPORT'),
     os.environ.get('AVNDB')]):
-    print(os.environ.get('AVNADMIN'), os.environ.get('AVN_PASSWORD'),
-    os.environ.get('AVNHOST'), os.environ.get('AVNPORT'),
-    os.environ.get('AVNDB'))
     raise ValueError("Missing required environment variables for database connection")
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://{}:{}@{}:{}/{}".format(
@@ -26,7 +23,4 @@ db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = "login"
-
-# api = Api(app)
-
 from NursePatientHub import routes
