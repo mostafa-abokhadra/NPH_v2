@@ -1,0 +1,2 @@
+[build]
+  command = "./sqlclient_dependencies.sh"  # Replace with your actual build script path
