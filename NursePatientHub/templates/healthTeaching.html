@@ -61,7 +61,7 @@
                     <div class="options">
                         {%if current_user.userType == 'N'%}
                             <div class="styling-div">
-                                <a class="popup-link" href="#answer_me">
+                                <a class="popup-link" href="#questionsToAnswer">
                                     <div class="populate">
                                         <div class="plus-logo">
                                             <i class="fa-solid fa-plus"></i>
@@ -169,7 +169,7 @@
                         <h4>{{ques.question}}</h4>
                         <div class="answer-link">
                             {%if current_user.is_authenticated and current_user.userType == 'N'%}
-                                <a class='go-to-popup'>answer</a>
+                                <a href="#populate-popup" class='go-to-popup'>answer</a>
                             {%else%}
                                 <a class='no-popup' >answer</a>
                             {%endif%}
