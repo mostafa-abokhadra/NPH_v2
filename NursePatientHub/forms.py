@@ -1,7 +1,7 @@
 from NursePatientHub import bcrypt
 from flask_wtf import FlaskForm
 from NursePatientHub.models import User
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, RadioField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, RadioField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 
 class Registration(FlaskForm):

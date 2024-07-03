@@ -1,3 +1,0 @@
-"scripts": {
-  "build": ".//sqlclient_dependencies.sh"
-}
