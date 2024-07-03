@@ -10,16 +10,20 @@ import pymysql
 app = Flask(__name__, static_url_path='/static')
 app.secret_key = os.urandom(12)
 
-if not all([ os.environ.get('AVNADMIN'), os.environ.get('AVN_PASSWORD'),
-    os.environ.get('AVNHOST'), os.environ.get('AVNPORT'),
-    os.environ.get('AVNDB')]):
+if not os.environ.get('DATABASE_URL'):
     raise ValueError("Missing required environment variables for database connection")
 
+# if not all([ os.environ.get('AVNADMIN'), os.environ.get('AVN_PASSWORD'),
+#     os.environ.get('AVNHOST'), os.environ.get('AVNPORT'),
+#     os.environ.get('AVNDB')]):
+#     raise ValueError("Missing required environment variables for database connection")
 pymysql.install_as_MySQLdb()
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://{}:{}@{}:{}/{}".format(
-    os.environ.get('AVNADMIN'), os.environ.get('AVN_PASSWORD'),
-    os.environ.get('AVNHOST'), os.environ.get('AVNPORT'),
-    os.environ.get('AVNDB'))
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+# app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://{}:{}@{}:{}/{}".format(
+#     os.environ.get('AVNADMIN'), os.environ.get('AVN_PASSWORD'),
+#     os.environ.get('AVNHOST'), os.environ.get('AVNPORT'),
+#     os.environ.get('AVNDB'))
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config.from_object(__name__)
 db = SQLAlchemy(app)
