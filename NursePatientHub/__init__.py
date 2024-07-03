@@ -7,7 +7,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 import pymysql
 from flask_session import Session
-from redis import Redis
+# from redis import Redis
 
 app = Flask(__name__, static_url_path='/static')
 app.secret_key = os.urandom(12)
@@ -28,15 +28,16 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-app.config['SESSION_TYPE'] = 'redis'
+app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_PERMANENT'] = False
-app.config['SESSION_USE_SIGNER'] = True
-app.config['SESSION_KEY_PREFIX'] = 'session:'
-redis_client = Redis(
-    host=os.environ.get('REDIS_HOST'),
-    port=os.environ.get('REDIS_PORT'),
-    password=os.environ.get('REDIS_PASSWORD'))
-app.config['SESSION_REDIS'] = redis_client
+
+# app.config['SESSION_USE_SIGNER'] = True
+# app.config['SESSION_KEY_PREFIX'] = 'session:'
+# redis_client = Redis(
+#     host=os.environ.get('REDIS_HOST'),
+#     port=os.environ.get('REDIS_PORT'),
+#     password=os.environ.get('REDIS_PASSWORD'))
+# app.config['SESSION_REDIS'] = redis_client
 Session(app)
 app.config.from_object(__name__)
 db = SQLAlchemy(app)
