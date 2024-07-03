@@ -117,6 +117,7 @@ def healthTeaching():
 
 @app.route('/logout', strict_slashes=False)
 def logout():
+    session.clear()
     logout_user()
     return redirect(url_for('home'))
 
