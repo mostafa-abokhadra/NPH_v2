@@ -13,16 +13,11 @@ def home():
 
 @app.route('/signUp',strict_slashes=False, methods=["POST", "GET"])
 def signUp():
-    if current_user.is_authenticated:
-        return redirect(url_for('home'))
+    # if current_user.is_authenticated:
+    #     return redirect(url_for('home'))
     form = Registration()
     if request.method == 'POST':
         if form.validate_on_submit():
-            # email = User.query.filter(User.email == form.email.data).first()
-            # if email:
-            #     flash("email already taken! try to login")
-            #     return redirect(url_for('login'))
-            # from NursePatientHub import db
             if form.validata_email(form.email):
                 flash("email already taken! try to login")
                 return redirect(url_for('login'))
@@ -52,8 +47,8 @@ def signUp():
 
 @app.route('/login', methods=["POST", "GET"])
 def login():
-    if current_user.is_authenticated:
-        return redirect(url_for('home'))
+    # if current_user.is_authenticated:
+    #     return redirect(url_for('home'))
     form = Login()
     if request.method == 'POST':
         if form.validate_on_submit():
