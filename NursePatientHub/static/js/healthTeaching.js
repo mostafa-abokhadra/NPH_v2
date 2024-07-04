@@ -47,6 +47,8 @@ try {
         goTo[i].onclick = async function () {
             let myQ = questions[i].firstElementChild.textContent
             title.value = myQ
+            let attr = document.createAttribute('disabled')
+            title.setAttributeNode(attr)
             popup.setAttribute('style', 'display: block;')
         }
     }
