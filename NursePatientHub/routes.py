@@ -121,7 +121,7 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
-@app.route('/about', methods=["GET"])
-def about():
-    # if request.method == 'POST':
-    return render_template('about.html')
+# @app.route('/about', methods=["GET"])
+# def about():
+#     # if request.method == 'POST':
+#     return render_template('about.html')

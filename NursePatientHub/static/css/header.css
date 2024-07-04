@@ -12,7 +12,7 @@ header .container {
 }
 
 .logo-links {
-    width: 60%;
+    width: 40%;
     display: flex;
     justify-content: space-between;
     text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -54,7 +54,7 @@ header .container {
 }
 
 .logo-links .links {
-    width: 75%;
+    width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
