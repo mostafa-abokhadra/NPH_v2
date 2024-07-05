@@ -99,6 +99,7 @@ def applications():
 def healthTeaching():
     if request.method == 'POST':
         if current_user.userType == 'N':
+            print(request.form['ht-title'])
             still_question = NotAnswered.query.filter_by(question=request.form['ht-title']).first()
             parchor = HealthTeaching(
                 question=still_question.question, answer=request.form['ht-content'],
